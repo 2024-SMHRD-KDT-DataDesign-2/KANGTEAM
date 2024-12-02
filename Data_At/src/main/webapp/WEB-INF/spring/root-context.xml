@@ -11,7 +11,7 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
 		<property name="jdbcUrl"
-			value="project-db-cgi.smhrd.com:3307/spring?serverTimezone=UTC" />
+			value="jdbc:mysql://project-db-cgi.smhrd.com:3307/cgi_24k_data_p3_1?serverTimezone=UTC" />
 		<property name="username" value="cgi_24k_data_p3_1" />
 		<property name="password" value="smhrd1" />
 	</bean>
