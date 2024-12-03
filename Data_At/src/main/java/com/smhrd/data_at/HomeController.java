@@ -28,10 +28,10 @@ public class HomeController {
 		List<User> list = userMapper.boardCount();
 		System.out.println(list.size());
 		
-		// request객체가 아닌 model에 저장
-		model.addAttribute("list",list);
+		// request
+		model.addAttribute("list","한글잘되냐?");
 		
-		System.out.println("히힛");
+		System.out.println("haha");
 		
 		return "home";
 	}
