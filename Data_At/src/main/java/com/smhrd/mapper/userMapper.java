@@ -9,6 +9,6 @@ import com.smhrd.entity.User;
 
 @Mapper
 public interface userMapper {
-	@Select("select * from tb_user")
-	public List<User> boardCount();
+   @Select("select * from tb_user")
+   public List<User> boardCount();
 }
