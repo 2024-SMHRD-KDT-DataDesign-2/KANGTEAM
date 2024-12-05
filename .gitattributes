@@ -1,0 +1,3 @@
+*.html linguist-detectable=ture
+*.css  linguist-detectable=ture
+*.js  linguist-detectable=ture
