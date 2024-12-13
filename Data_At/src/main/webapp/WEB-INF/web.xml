@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-
-   <!-- 한글 인코딩 : UTF-8 -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns="http://java.sun.com/xml/ns/javaee"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+   version="3.1">
+   
    <filter>
       <filter-name>characterEncodingFilter</filter-name>
-      <filter-class>org.springframework.web.filter.CharacterEncodingFilter
-      </filter-class>
+      <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
       <init-param>
          <param-name>encoding</param-name>
          <param-value>UTF-8</param-value>
@@ -17,24 +16,21 @@
          <param-value>true</param-value>
       </init-param>
    </filter>
+   
    <filter-mapping>
       <filter-name>characterEncodingFilter</filter-name>
       <url-pattern>/*</url-pattern>
    </filter-mapping>
-
-   <!-- The definition of the Root Spring Container shared by all Servlets 
-      and Filters -->
+   
    <context-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>/WEB-INF/spring/root-context.xml</param-value>
    </context-param>
-
-   <!-- Creates the Spring Container shared by all Servlets and Filters -->
+   
    <listener>
       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
    </listener>
-
-   <!-- Processes application requests -->
+   
    <servlet>
       <servlet-name>appServlet</servlet-name>
       <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -44,10 +40,26 @@
       </init-param>
       <load-on-startup>1</load-on-startup>
    </servlet>
-
+   
    <servlet-mapping>
       <servlet-name>appServlet</servlet-name>
       <url-pattern>/</url-pattern>
    </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>apiservice</servlet-name>
+      <servlet-class>com.smhrd.service.apiservice</servlet-class>
+   </servlet>
+   
+   <servlet-mapping>
+      <servlet-name>apiservice</servlet-name>
+      <url-pattern>/apiservice</url-pattern>
+   </servlet-mapping>
 
+   <multipart-config>
+      <location>/tmp</location> <!-- 임시 파일 저장 경로 -->
+      <max-file-size>10485760</max-file-size> <!-- 최대 파일 크기: 10MB -->
+      <max-request-size>52428800</max-request-size> <!-- 최대 요청 크기: 50MB -->
+      <file-size-threshold>0</file-size-threshold> <!-- 임시 파일 생성 기준 -->
+   </multipart-config>
 </web-app>

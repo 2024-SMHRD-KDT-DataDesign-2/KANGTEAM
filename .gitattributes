@@ -1,3 +1,6 @@
-*.html linguist-detectable=ture
-*.css  linguist-detectable=ture
-*.js  linguist-detectable=ture
+*.html linguist-detectable=true
+*.css  linguist-detectable=true
+*.js linguist-detectable=true
+*.py linguist-detectable=true
+*.xml linguist-detectable=true
+*.ipynb linguist-detectable=true
