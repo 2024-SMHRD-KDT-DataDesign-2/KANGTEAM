@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./resources/css_main.css" />
 <link rel="stylesheet" href="./resources/Main_test.css" />
 <title>Welcome to Data.At !!!</title>
@@ -109,6 +110,37 @@
 		      <h3>데이터 분석</h3>
 		      <p>데이터나 업로드 해보세요. Data.At에서 분석 결과를 알려드립니다.</p>
 		    </div>
+		  </div>
+		</div>
+		
+		<div class="features-section2">
+		  <div class="features-container2">
+		  	<div class="flex-1">
+		       <img src="./resources/images/mainpage/photos02.jpg" alt="photos.png" class="photos">
+		    </div>
+		    
+		    <div class="flex-1 montserrat">		     
+		      <h3>SIMPLE DATA CLASSIFICATION</h3>
+		      <p>Our data sharing service is an innovative platform that leverages AI models to automatically classify and organize images. Anyone can easily upload images and quickly view the classification results, maximizing the efficiency of data management. With a simple interface and intuitive user experience, it offers a convenient solution that anyone can use effortlessly without needing complex technical knowledge.</p>
+		    </div>
+
+		    
+		    
+		  </div>
+		</div>
+		
+		<div class="features-section3">
+		  <div class="features-container2">		  	
+		    
+		    <div class="flex-1 montserrat">		     
+		      <h3>VIZUALIZED DATA ANALYSIS</h3>
+		      <p>Our data visualization service analyzes the data provided by users and presents the results through intuitive graphs and tables. By simply uploading data, the complex analysis process is automated, and clear visual materials are generated to display the results. This service makes it easy to understand data and derive insights, effectively supporting data-driven decision-making. It is user-friendly and can be applied across various fields, including business and academics.</p>
+		    </div>
+		    
+		    <div class="flex-1">
+		       <img src="./resources/images/mainpage/working01.jpg" alt="photos.png" class="photos">
+		    </div>	   
+		    
 		  </div>
 		</div>
 		

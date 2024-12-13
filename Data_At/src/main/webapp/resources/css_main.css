@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
 
 /* -------------------검색기능-------------------------- */
 .search {
@@ -971,6 +974,23 @@ button{
   color: white;
   text-align: center;
   padding: 50px;
+  height: 500px;
+  align-items: center;
+  display: grid;
+}
+
+.features-section2 {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 50px;
+}
+
+.features-section3 {
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+  padding: 50px;
 }
 
 .features-section h2 {
@@ -982,6 +1002,11 @@ button{
   display: flex;
   justify-content: center;
   gap: 50px;
+}
+
+.features-container2 {
+  display: flex;
+  gap: 0px;
 }
 
 .feature {
@@ -1017,8 +1042,45 @@ button{
   line-height: 1.4;
 }
 
+.photos {
+	width: 600px;
+	height: 500px;
+}
+
+.flex-1 {
+	flex: 1;
+}
 
 
+.montserrat > * {
+	font-family: 'Montserrat', sans-serif !important; 
+	font-weight: 200;
+	line-height: 3;
+	margin: 0;
+	padding: 20px;
+	text-align: left;
+}
+
+
+.montserrat > h1 {
+	font-family: 'Montserrat', sans-serif !important; 
+	font-weight: 500;
+	line-height: 1.6;
+	margin: 0;
+	padding: 20px;
+	font-size: 50px;
+}
+
+
+.montserrat > h3 {
+	font-family: 'Montserrat', sans-serif !important; 
+	font-weight: 300;
+	line-height: 1.6;
+	margin: 0;
+	padding: 20px;
+	font-size: 30px;
+	
+}
 
 
 
