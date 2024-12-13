@@ -6,7 +6,7 @@ const heroButton = document.querySelector('.hero button')
 
 if (heroButton) {
 	heroButton.addEventListener('click', () => {
-  	  alert('Welcome to DataPlatform!');    
+  	     
   });
   } else {
   	 console.error("heroButton을 찾을 수 없습니다.");
@@ -67,11 +67,22 @@ closePanelBtn.addEventListener('click', () => {
   
   const settingsPage = document.getElementById('settings-page');
   const creditsPage = document.getElementById('credits-page');
-  const uploadedPage = document.getElementById('uploaded-page');
+  
+  const creditHistoryPage = document.getElementById('creditHistory-page');
+  const creditPurchasePage = document.getElementById('creditPurchase-page');
+  
+  const uploadedPage = document.getElementById('uploaded-page');  
   const downloadedPage = document.getElementById('downloaded-page');
   
+
+  
+  
   const settingsBtn = document.getElementById('settings-btn');
-  const creditsBtn = document.getElementById('credits-btn'); 
+  const creditsBtn = document.getElementById('credits-btn');
+  
+  const creditHistoryBtn = document.getElementById('history-btn');
+  const purchaseBtn = document.getElementById('purchase-btn'); 
+  
   const uploadedBtn = document.getElementById('uploaded-btn');
   const downloadedBtn = document.getElementById('downloaded-btn');
   
@@ -81,7 +92,10 @@ closePanelBtn.addEventListener('click', () => {
   creditsPage.style.display = 'none';
   uploadedPage.style.display = 'none';
   downloadedPage.style.display = 'none';
+  creditPurchasePage.style.display = 'none';
 
+  const elements_tab_li = document.querySelectorAll(".tabs li");
+  
   // Settings 버튼 클릭 이벤트
   settingsBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -94,10 +108,24 @@ closePanelBtn.addEventListener('click', () => {
   // Credits 버튼 클릭 이벤트
   creditsBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    settingsPage.style.display = 'none';
+    settingsPage.style.display = 'none';    
     creditsPage.style.display = 'block';
+         
+    console.log(elements_tab_li[0].classList.contains("active"));
+    console.log(elements_tab_li[1].classList.contains("active"));
+      
+    // 얘가 문제인데...
+    if(document.getElementById("history-btn").classList.contains("active")){       
+    	creditHistoryPage.style.display = 'block';
+    	creditPurchasePage.style.display = 'none';
+    } else if(document.getElementById("purchase-btn").classList.contains("active")){
+    	creditHistoryPage.style.display = 'none';
+    	creditPurchasePage.style.display = 'block';
+    }
+        
     uploadedPage.style.display = 'none';
     downloadedPage.style.display = 'none';
+   
   });
   
   // Uploaded 버튼 클릭 이벤트
@@ -108,6 +136,7 @@ closePanelBtn.addEventListener('click', () => {
     creditsPage.style.display = 'none';
     uploadedPage.style.display = 'block';
     downloadedPage.style.display = 'none';
+    creditPurchasePage.style.display = 'none';
   });
   
   // Downloaded 버튼 클릭 이벤트
@@ -118,10 +147,63 @@ closePanelBtn.addEventListener('click', () => {
     creditsPage.style.display = 'none';
     uploadedPage.style.display = 'none';
     downloadedPage.style.display = 'block';
+    creditPurchasePage.style.display = 'none';
+  });
+  
+  // credit history 태그 클릭
+  creditHistoryBtn.addEventListener('click', (e) => {
+  	console.log("credit history버튼 clicked");
+    e.preventDefault();
+    settingsPage.style.display = 'none';
+    
+    creditsPage.style.display = 'block';
+    creditHistoryPage.style.display = 'block';
+    creditPurchasePage.style.display = 'none';
+    
+    uploadedPage.style.display = 'none';
+    downloadedPage.style.display = 'none';
+
+  });
+  
+  // credit purchase 태그 클릭
+  purchaseBtn.addEventListener('click', (e) => {
+  	console.log("credit purchase 버튼 clicked");
+    e.preventDefault();
+    settingsPage.style.display = 'none';
+    
+    creditsPage.style.display = 'block';
+    creditHistoryPage.style.display = 'none';
+    creditPurchasePage.style.display = 'block';
+    
+    uploadedPage.style.display = 'none';
+    downloadedPage.style.display = 'none';
+    
+    
+    
   });
   
   
 });
+
+
+document.getElementById("history-btn").addEventListener("click", function () {
+    setActiveTab("history-btn");
+});
+
+document.getElementById("purchase-btn").addEventListener("click", function () {
+    setActiveTab("purchase-btn");
+});
+
+function setActiveTab(activeId) {
+    // 모든 탭의 active 클래스 제거
+    const tabs = document.querySelectorAll(".tabs li");
+    tabs.forEach(tab => tab.classList.remove("active"));
+
+    // 클릭된 탭에 active 클래스 추가
+    const activeTab = document.getElementById(activeId);
+    activeTab.classList.add("active");
+}
+
 
 	// mypage - uploaded 페이지 checkbox 기능
 	
@@ -159,3 +241,109 @@ function updateSelectedCount() {
   ).length;
   selectedCountText.textContent = `${selectedCount} selected`;
 } 
+
+
+//-------------------------크레딧 구매 페이지 기능---------------------
+
+function showPopup() {
+    document.getElementById('popup').style.display = 'flex';
+}
+
+function addDigit(digit) {
+    const amountField = document.getElementById('credit-amount');
+    let currentAmount = amountField.value.replace('€', '').replace(',', '');
+    if (currentAmount === "0.00") currentAmount = "";
+    currentAmount += digit;
+    amountField.value = parseFloat(currentAmount).toFixed(2);
+}
+
+function clearAmount() {
+    document.getElementById('credit-amount').value = "0.00";
+}
+
+function useCredit() {
+    alert("Using credit: €" + document.getElementById('credit-amount').value);
+    document.getElementById('popup').style.display = 'none';
+}
+
+function toggleTheme() {
+    const body = document.body;
+    const container = document.querySelector('.container');
+    const icon = document.getElementById('theme-icon');
+
+    body.classList.toggle('dark');
+    container.classList.toggle('dark');
+
+    if (body.classList.contains('dark')) {
+        icon.textContent = '🌙'; // Moon icon for dark mode
+    } else {
+        icon.textContent = '☀️'; // Sun icon for light mode
+    }
+}
+
+function makeEditable() {
+    document.getElementById('name').setAttribute('contenteditable', 'true');
+    document.getElementById('email').setAttribute('contenteditable', 'true');
+    document.getElementById('phone').setAttribute('contenteditable', 'true');
+
+    // Show the save icon
+    document.querySelector('.save-icon').style.display = 'inline';
+}
+
+function saveChanges() {
+    document.getElementById('name').setAttribute('contenteditable', 'false');
+    document.getElementById('email').setAttribute('contenteditable', 'false');
+    document.getElementById('phone').setAttribute('contenteditable', 'false');
+
+    // Hide the save icon
+    document.querySelector('.save-icon').style.display = 'none';
+
+    alert("Changes saved!");
+}
+
+
+// -------- 검색기능 --------------------------------------------------------------------------
+
+
+backgroundCh = function() {
+    var sel = document.getElementById('sel');
+    sel.style.backgroundColor = sel.value;
+};
+
+// ------ 모달창 -------
+
+    var modalLayer = $("#modalLayer");
+    var modalLink = $(".modalLink");
+    var modalCont = $(".modalContent");
+    var marginLeft = modalCont.outerWidth()/2;
+    var marginTop = modalCont.outerHeight()/2; 
+    
+    // 클릭시 모달 표시
+ 	modalLink.addEventListener('click', () => {
+  		modalLayer.style.display = 'block';
+	});
+         
+    // 모달창 열기
+    modalLink.click(function(){
+        console.log('modal clicked 스프링');
+      modalLayer.style.display='block';
+      modalLayer.fadeIn("slow");
+      modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
+      $(this).blur();
+      $(".modalContent > a").focus(); 
+      return false;
+    });
+  
+    // 모달창 닫기
+    $("#close-modal").click(function(){
+      console.log('modal창 닫기');
+      modalLayer.fadeOut("slow");
+      modalLink.focus();
+    });	
+    
+    		
+   document.querySelector('#test_mypagelogo').click(function(){
+   	console.log('clicked');
+   });
+
+  

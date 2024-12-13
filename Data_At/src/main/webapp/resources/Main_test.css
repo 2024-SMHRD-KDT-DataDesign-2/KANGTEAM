@@ -1,0 +1,219 @@
+@charset "UTF-8";
+
+
+.page-header {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* 가로 중앙 */
+    align-items: center;    /* 세로 중앙 */
+  background-size: cover;
+  background-position: 50%;
+}
+
+.mask {
+  position: absolute;
+  background-size: cover;
+  background-position: center center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  color: white;
+}
+
+.content-center{
+	justify-content: center; /* 가로 중앙 */
+    align-items: center;    /* 세로 중앙 */
+}
+
+.page-header h1{
+	display: flex;
+    justify-content: center; /* 가로 중앙 */
+    align-items: center;    /* 세로 중앙 */
+}
+
+
+.page-header .container {
+  z-index: 1;
+  font-size: 30px;
+   
+}
+
+.left-div {
+     flex: 0; /* 크기 고정 */
+     padding: 10px 20px;
+     color: black;
+}
+
+.right-container {
+     display: flex; /* 오른쪽 그룹을 위한 Flexbox */
+     gap: 10px; /* div 간 간격 */
+}
+
+.right-div {
+	color: black;
+    padding: 10px 20px;
+   
+}
+
+.bg-white{
+	background-color: white; !important
+}
+
+.data-container > .left{
+	min-width: 100px;
+	max-height: 100px;
+}
+
+.nav-01{
+	z-index: 1000;
+	position: sticky;
+	display: flex;
+	top: 0;
+	justify-content: space-between; 
+    align-items: center;    
+    padding: 10px;
+    background-color: white;
+    opacity: 0.8;
+   
+}
+
+.title{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+
+.all {
+	position: relative;
+	height: 100%;
+	
+}
+
+.datablock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #f8f9fa;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  margin-left: 40px;
+  width: 100%;
+  
+}
+
+.data-content {
+	margin-top: 30px;
+	padding: 10px;
+	
+}
+
+.data-content > div{
+}
+
+.border-bottom{
+	border-bottom: 1px solid black;
+}
+
+
+.container-origin{
+	 display: flex;
+	 flex-direction: row;
+     width: 100%;
+     margin: 10px auto; /* 중앙 정렬 */
+     border: 1px solid black; /* 컨테이너 구분용 */
+}
+
+.container-origin .left {	
+	flex: 1;
+	    padding: 10px;
+    text-align: center; /* 중앙 정렬 */
+}
+
+.container-origin .right {
+	align-items: flex-start;
+	flex: 9;
+    padding: 10px;
+}
+
+.block-content {
+	flex-direction: column;
+}
+
+.block-content > div {
+	flex: 1;
+}
+
+.data-container {
+    width: 100%;
+}
+
+.list-box{
+	margin: auto;
+	margin-top: 30px;
+	width: 70%;
+}
+
+.data-show{
+	padding: 10px;
+	/* border: 1px dashed blue; */
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+.min-vh-25 {
+  min-height: 25vh !important;
+}
+
+.min-vh-35 {
+  min-height: 35vh !important;
+}
+
+.min-vh-45 {
+  min-height: 45vh !important;
+}
+
+.min-vh-50 {
+  min-height: 50vh !important;
+}
+
+.min-vh-55 {
+  min-height: 55vh !important;
+}
+
+.min-vh-65 {
+  min-height: 65vh !important;
+}
+
+.min-vh-70 {
+  min-height: 70vh !important;
+}
+
+.min-vh-75 {
+  min-height: 75vh !important;
+}
+
+.min-vh-80 {
+  min-height: 80vh !important;
+}
+
+.min-vh-85 {
+  min-height: 85vh !important;
+}
+
+.min-vh-90 {
+  min-height: 90vh !important;
+}
+
+.min-vh-95 {
+  min-height: 95vh !important;
+}
+
+.min-vh-100 {
+  min-height: 100vh !important;
+}

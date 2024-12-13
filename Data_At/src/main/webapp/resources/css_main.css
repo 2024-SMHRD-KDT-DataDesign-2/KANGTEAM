@@ -11,7 +11,7 @@
 
 .searchTerm {
 	width: 100%;
-	border: 3px solid #00B4CC;
+	border: 3px solid #00B4CC;	
 	border-right: none;
 	padding: 5px;
 	height: 20px;
@@ -53,7 +53,7 @@ body, h1, h2, p, a {
 	padding: 0;
 	text-decoration: none;
 	font-family: Arial, sans-serif;
-	box-sizing: border-box;
+	
 }
 
 body {
@@ -227,6 +227,12 @@ body {
 	padding: 20px;
 }
 
+.main-content2 {
+	flex: 1;
+	margin-left: 0;
+	transition: margin-left 0.3s;
+}
+
 /* When the sidebar is open */
 .sidebar-open .sidebar {
 	transform: translateX(0);
@@ -243,9 +249,10 @@ body {
 
 .menu-toggle {
 	border-radius: 50%; /* 버튼을 둥글게 만듭니다 */
-	color: white;
-	background-color: #007bff;
+	color: black;
+	background-color: whitesmoke;
 	border: none;
+	font-weight: bold;
 }
 
 aside .menu-toggle {
@@ -307,6 +314,7 @@ aside .menu-toggle {
 	background: none;
 	font-size: 18px;
 	cursor: pointer;
+	color:black;
 }
 
 .panel-content {
@@ -361,7 +369,7 @@ aside .menu-toggle {
 }
 */
 .mypages-wrapper {
-	max-width: 800px;
+	max-width: 1500px;
 	margin: 20px auto;
 	background: #fff;
 	padding: 20px;
@@ -447,7 +455,7 @@ th, td {
 }
 
 tr:nth-child(1) {
-	background-color: lightskyblue;
+	background-color: #d5f1ff;
 }
 
 /*----------------- div 세로로 나누기 -------------------*/
@@ -519,3 +527,526 @@ section p{
 .panel-container p{
 	margin-bottom: 10px;
 }
+
+/*------------------------------ 크레딧구매페이지  --------------------------------*/
+
+
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    z-index: 1000;
+}
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-info {
+    text-align: left;
+}
+.edit-icon {
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 10px;
+}
+.points-credit {
+    text-align: right;
+}
+.points {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0070f3;
+}
+.credit {
+    font-size: 16px;
+    color: #28a745;
+}
+.use-credit-button {
+ 
+    
+    
+    background-color: #0070f3;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+.use-credit-button:hover {
+    background-color: #005bb5;
+}
+.discount-section {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+.discount-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.discount-table th, .discount-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.claim-button {
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.claim-button:hover {
+    background-color: #005bb5;
+}
+.mission-section {
+    overflow-x: auto;
+    display: flex;
+    gap: 15px;
+    white-space: nowrap;
+}
+.missions {
+    display: flex;
+    gap: 15px;
+}
+.mission-card {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    min-width: 150px;
+    transition: transform 0.3s;
+}
+.mission-card:hover {
+    transform: translateY(-5px);
+}
+.mission-card.disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    cursor: not-allowed;
+}
+.mission-card h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.mission-card p {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 10px;
+}
+.button {
+    background-color: #0070f3;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s;
+}
+.button:hover {
+    background-color: #005bb5;
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #121212;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.popup input {
+    font-size: 24px;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    width: 100px;
+    outline: none;
+    color: #fff;
+    background-color: transparent;
+}
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.key {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.key:hover {
+    background-color: #e0e0e0;
+}
+.withdraw-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+.withdraw-button:hover {
+    background-color: #218838;
+}
+body.dark {
+    background-color: #121212;
+    color: #0070f3;
+}
+.container.dark {
+    background-color: #1e1e1e;
+}
+/* Add styles for the save icon */
+.save-icon {
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+    color: #28a745;
+}
+
+/*---------------------------- div 가로로 절반 나누기---------------------------------------------*/
+
+  .container_split_div {
+            display: flex;
+            width: 100%;
+            height: 100vh; /* 화면 전체 높이 */
+        }
+        .left {
+            flex: 1; /* 너비 비율: 1 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 2px solid #ccc; /* 구분선 */
+        }
+        .right {
+            flex: 1; /* 너비 비율: 1 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+/*--- SearchResultPage 관련 css---*/
+
+
+.search_div {
+    display: flex;
+    width: 100%;
+    background: white;
+    border-radius: 0px;
+    align-content: center;
+    overflow: hidden;    
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(219, 219, 219); 
+    
+    
+}
+
+.section02 {
+    width: 90%;   
+    
+   
+}
+
+input{
+    width: 30px;
+	height: 36px;
+	border: none;
+	background: #ffffff;
+	text-align: center;
+	color: #000000;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+button{
+    padding: 10px 15px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+
+
+
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  height: 100%; /* 부모 높이에 맞춤 */
+  font-weight: bold; /* 굵게 설정 */
+}
+
+.searchTerm {
+  width: 100%;
+  border: none;
+  padding: 10px 0 10px 0;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none; 
+  text-align: left;
+  font-weight: bold; /* 굵게 설정 */
+}
+
+.searchTerm:focus{
+  color: #000000;
+}
+
+.searchButton {
+  width: 30px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+
+.section01{
+    display: flex;
+    font-size: 20px;
+    padding: 5px;
+    align-items: center;
+   
+}
+
+.wrap{
+    height: 100%; /* 부모 높이에 맞춤 */
+}
+
+/* icon container*/
+
+.section03{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+    border: none;
+  }
+  
+  .section03 i {
+    font-size: 20px;
+    color: #555;
+  }
+
+  .container-spacebetween{  
+        display: flex; /* Flexbox 사용 */
+        justify-content: space-between; /* 양쪽 끝으로 배치 */
+        align-items: center; /* 수직 가운데 정렬 */
+        border: none;
+  }
+
+.icon-container{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+    border: none;
+
+}
+
+/*--- 모달창 회원가입 ---*/
+
+
+#modalLayer{
+	display:none; 
+	position:relative;
+	}
+	
+#modalLayer .modalContent{
+	padding:20px; 
+	border:1px solid #ccc; 
+	position:fixed; 
+	left:50%; 
+	top:50%; 
+	z-index:11; 
+	background:#fff;
+	}
+#modalLayer .modalContent button{
+	right:0; 
+	cursor:pointer;
+    bottom: 0;
+	}
+
+
+/* 모달창 내부 회원가입 css*/
+
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    height: 500px;
+}
+.modalContent h1 {
+    font-size: 1.5em;
+    color: #3079ff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#position-right{
+    float: right;
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.signup-btn {
+    display: relative;
+    width: 100%;
+    background-color: #3079ff;
+    color: white;
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    height: 40px;
+    margin-top: 150px; /* Added margin for spacing */
+}
+.signup-btn:hover {
+    background-color: #249b00;
+}
+
+/* 24.12.13 추가 */
+.flex-box{
+	display: flex;
+	justify-content: flex-start;
+	
+	
+}
+
+.features-section {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.features-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.feature {
+  text-align: center;
+  max-width: 200px;
+  background-color: black;
+}
+
+.icon-container {
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.feature h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+}
+
+.feature p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

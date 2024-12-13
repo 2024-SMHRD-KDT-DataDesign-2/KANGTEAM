@@ -6,8 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./resources/css_main.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <title>Data.At MyPage</title>
 </head>
 <body>
@@ -85,8 +83,8 @@
 
       <section class="settings-section">
         <h2>Your Nickname</h2>
-        <p id="nick">testNick_haha</p>
-        <button class="btn" onclick="updateUser()">Change Nickname</button>
+        <p>testNick_haha</p>
+        <button class="btn">Change Nickname</button>
       </section>
       <section class="settings-section">
         <h2>Credit history</h2>
@@ -106,18 +104,21 @@
     </main>
   </div>
   
-  <!-- credits history 페이지  -->
+  <!-- credits 페이지  -->
   <div class="mypages-wrapper" id="credits-page" style="display: none;">
     <header>
       <h1>Credits</h1>
-      <p>Check your Credit use history</p>
+      <p>Manage your Credits</p>
     </header>
     <nav>
       <ul class="tabs">
-        <li class="active">history</li>
-        <li>뭐넣을거있습니까</li>
+        <li class="active" id="history-btn">history</li>
+        <li id="purchase-btn">credit purchase</li>
       </ul>
     </nav>
+    
+    <!-- credit history page -->
+    <div id="creditHistory-page" style="display: none;">
     <main>
       <section class="settings-section">
       
@@ -146,11 +147,65 @@
             <td>-20</td>
             <td>2024-01-02</td>
         </tr>
-    </table>
+      </table>
 
       </section>
-    </main>
-  </div>
+     </main>
+    </div>
+   
+    
+    <!-- credit purchase page -->
+    <div id="creditPurchase-page" style="display: none;">           
+         <div class="top-section">
+            <div class="user-info">
+                <div contenteditable="false" id="name">아무거나 적어주세요</div>
+                <div contenteditable="false" id="email">Email: {Data_At.gmail.com}</div>
+                <div contenteditable="false" id="phone">남는 div 칸입니다</div>
+            </div>
+            <div class="points-credit">
+                <div class="points">500 points</div>
+                <button class="use-credit-button" onclick="location.href='PaymentPage'" >Buy Credit</button>
+            </div>
+        </div>
+        
+        <div class="mission-section">
+            <div class="missions">
+                <div class="mission-card">
+                    <h3>1000 Points</h3>
+                    <p>Get for $50</p>
+                    <button class="button">Purchase</button>
+                </div>
+                <div class="mission-card">
+                    <h3>500 Points</h3>
+                    <p>Get for $25</p>
+                    <button class="button">Purchase</button>
+                </div>
+                <div class="mission-card">
+                    <h3>300 Points</h3>
+                    <p>Get for $15</p>
+                    <button class="button">Purchase</button>
+                </div>                
+               
+                <div class="mission-card" >
+                    <h3>200 Points</h3>
+                    <p>Get for $10</p>
+                    <button class="button disabled">Purchase</button>
+                </div>
+                 <!-- class="mission-card disabled"로 있는데 예비로 남겨만 둘게요 -->
+                <div class="mission-card disabled" style="display: none">
+                    <h3>100 Points</h3>
+                    <p>Get for $5</p>
+                    <button class="button disabled">Locked</button>
+                </div>
+            </div>
+    </div>
+    </div>
+    
+    	
+    
+    </div>
+   </div>
+ 
   
     <!-- 계정에서 업로드한 데이터 목록 페이지  -->
     <div class="mypages-wrapper" id="uploaded-page" style="display: none;">
@@ -370,7 +425,7 @@
   </div>          
                        
   
-  </div>
+
 
 	<script src="./resources/js_main.js"></script>
 </body>

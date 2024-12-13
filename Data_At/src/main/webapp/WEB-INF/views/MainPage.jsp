@@ -6,29 +6,63 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./resources/css_main.css" />
+<link rel="stylesheet" href="./resources/Main_test.css" />
 <title>Welcome to Data.At !!!</title>
+<!-- Font Awesome CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
     <div class = "all">
-     <header class="navbar">
-
-   
-
-    <div class="logo">Data.At</div>
-    <nav>
     
-      <a href="MainPage">Home</a>
-      <a href="#" id="uploaded-btn">Uploaded</a>
-      <a href="#">Downloaded</a>
-      <a href="#" id="credits-btn">Credit</a>
-      <a href="Login">Login</a>
-    </nav>
+    <!-- 상단 nav 바 -->
+		    <nav class="nav-01 margin-all" >
+		    	<div class="left-div" >	      		
+		      		<a> Data.At </a>
+		    	</div>
+		    	<div class="right-container" >
+		    		
+		    		<div class="right-div">
+		    			<a href=""> Pages </a>
+		    		</div>
+		    		<div class="right-div">
+		    			<a href=""> Section </a>
+		    		</div>
+		    		<div class="right-div">
+		    			<a href=""> Mypage </a>
+		    		</div>
+		    		<!-- 좌측 토글 버튼 -->
+			  	  	<div style="background-color: white;">
+				        <button class="menu-toggle">&#9776;</button>
+				    </div>
+		    	</div>
+		    	
+		    </nav>
+    
+     <header style="background-image: url('./resources/images/background/bg_02.jpg')" >
+     
+     
+     	<div class="page-header min-vh-75 " style="background-image: url('./resources/images/background/bg_01.jpg')">
+				<div class="container">
+					<div style="color: white;">
+						<h1>Data.At</h1>
+						<p>AI model을 활용한 데이터 자동분류 서비스</p>
+					</div>
+					
+				</div>
+				
+   
+				
+    
+     	</div>
   </header>
-    <div style="background-color: #007bff;">
-        <button class="menu-toggle">&#9776;</button>
-    </div>
+  
+  
+    
   <div class="container">
     
+    <!-- 좌측 토글 시작 -->
     <aside class="sidebar">
     	<div class="sidebar-container">       
        		<button class="new-dataset-btn" id="new-dataset-btn">+ New Dataset</button>
@@ -45,20 +79,100 @@
       </ul>
     </aside>
    
+    <div class="main-content2">    
+	    	
+		
+		<div class="features-section">
+		  <h2>FEATURES</h2>
+		  <div class="features-container">
+		    <!-- Fully Responsive -->
+		    <div class="feature">
+		      <div class="icon-container">
+		        <img src="./resources/images/mainpage/classify.png" alt="Responsive Icon" class="feature-icon">
+		      </div>
+		      <h3>자동 데이터 분류</h3>
+		      <p>일일히 확인하기 힘든 많은 데이터들을 인공지능 모델을 이용하여 한번에 처리하세요.</p>
+		    </div>
+		    <!-- Customizable -->
+		    <div class="feature">
+		      <div class="icon-container">
+		        <img src="./resources/images/mainpage/search.png" alt="Customizable Icon" class="feature-icon">
+		      </div>
+		      <h3>데이터 공유</h3>
+		      <p>필요한 데이터가 있는지 확인해보세요. Data.At은 여러분이 필요로 하는 데이터를 제공합니다.</p>
+		    </div>
+		    <!-- Slick and Beautiful Design -->
+		    <div class="feature">
+		      <div class="icon-container">
+		        <img src="./resources/images/mainpage/analysis.png" alt="Design Icon" class="feature-icon">
+		      </div>
+		      <h3>데이터 분석</h3>
+		      <p>데이터나 업로드 해보세요. Data.At에서 분석 결과를 알려드립니다.</p>
+		    </div>
+		  </div>
+		</div>
+		
+		
+   
+       여기에 메인페이지 내용물 마구마구 적으면 됩니다.	
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       <br>스크롤 테스트
+       
+      
+   <!-- div태그 all 끝 -->    
+   </div>
+   
+   
 
-  <main class="hero">
-    <div class="hero-content">
-     <!-- 검색창  -->
-        <div class="search-container">
-            <input type="text" placeholder="Search datasets, competitions, or courses..." class="search-bar">
-            <button class="search-button">Search</button>
-          </div>
-
-      <h1>Welcome to Data.At</h1>
-      <p>Explore datasets, join competitions, and grow your data science skills.</p>
-      <button id="getStarted">Get Started</button>
-    </div>
-  </main>
+  
+  <footer class="footer">
+    <p>&copy; 2024 DataPlatform. All rights reserved.</p>
+  </footer>
   
   <!-- 데이터업로드페이지  -->
   <div class="new-dataset-panel hidden" id="newDatasetPanel">
@@ -74,26 +188,47 @@
       </div>
     </div>
   
-  <section class="features">
-    <div class="feature">
-      <h2>Datasets</h2>
-      <p>Access thousands of open datasets for your projects.</p>
-    </div>
-    <div class="feature">
-      <h2>Competitions</h2>
-      <p>Join challenges and compete with the best in data science.</p>
-    </div>
-    <div class="feature">
-      <h2>Courses</h2>
-      <p>Learn new skills with interactive courses.</p>
-    </div>
-  </section>
-  <footer class="footer">
-    <p>&copy; 2024 DataPlatform. All rights reserved.</p>
-  </footer>
+  
 
 </div>
+<!-- 좌측 토글 끝 -->
+
 </div>
-  <script src="./resources/js_main.js"></script>
+
+<!-- 모달창 회원가입 -->
+
+<div id="modalLayer">
+  <div class="modalContent">
+      <div id="position-right">
+        <i class="fa-solid fa-xmark" id="close-modal"></i>
+      </div>
+      <h1>Signup</h1>
+        <div>
+        </div>
+      <div>    
+             <form>
+                 <div class="form-group">
+                     <label for="id">아이디를 입력하세요</label>
+                     <input type="text" id="id" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="password">비밀번호를 입력하세요</label>
+                     <input type="password" id="password" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="nickname">닉네임을 입력하세요</label>
+                     <input type="nickname" id="nickname" >
+                 </div>                                 
+                </div>                          
+                 <button type="submit" class="signup-btn">회원가입</button>
+             </form>
+            
+     </div> 
+  </div>
+<!-- 모달창 회원가입 끝 -->
+  
+   
+
+	<script src="./resources/js_main.js"></script>
 </body>
 </html>

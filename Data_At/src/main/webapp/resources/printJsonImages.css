@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+/* json 이미지 출력*/
+ #drop-zone {
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      background-color: #f9f9f9;
+      color: #aaa;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #drop-zone.dragover {
+      background-color: #e8f0fe;
+      color: #333;
+    }
+
+    #file-system {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      /* width: 100%; */
+      max-width: 800px;
+      background-color: #f9f9f9;
+      margin-top: 20px;
+      overflow: scroll;
+      height: 500px;
+      flex: 1;
+    }
+
+    .folder, .file {
+      cursor: pointer;
+      margin: 5px 0;
+      padding: 5px;
+      border-radius: 3px;
+    }
+
+    .folder {
+      font-weight: bold;
+      background-color: #e8f0fe;
+    }
+
+    .folder:hover {
+      background-color: #d2e3fc;
+    }
+
+    .folder::before {
+      content: '📁 ';
+    }
+
+    .file {
+      background-color: #f1f3f4;
+      margin-left: 20px;
+    }
+
+    .file:hover {
+      background-color: #e9ecef;
+    }
+
+    .file::before {
+      content: '';
+    }
+
+    .sub-folder {
+      margin-left: 20px;
+      display: none;
+    }
+
+    .folder.open::before {
+      content: '📂 ';
+    }
+
+    .folder.open + .sub-folder {
+      display: block;
+    }
+
+    .key {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    .value {
+      color: #6c757d;
+    }
+  
+
+    .image-group{
+        width: 600px;
+    }
+    
+    .image-group > img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    /* json 목록 css */
+    
+    #file-list {
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 200px;
+        height: 500px;
+        overflow: scroll;
+        margin-top: 20px;
+        margin-left: auto;
+    }
+    .json-item {
+        margin-left: 20px;
+    }
+    .json-key {
+        font-weight: bold;
+    }
+    .nested-container {
+        margin-left: 20px;
+        border-left: 1px solid #ccc;
+        padding-left: 10px;
+    }

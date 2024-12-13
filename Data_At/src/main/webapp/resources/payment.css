@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+body {
+    display: flex; /* Enables flexbox layout */
+    width: 100%; /* Full width of the page */
+    height: 100vh; /* Full viewport height */
+    background: white;
+    overflow: hidden;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    background: white;
+    border-radius: 0px;
+    align-content: center;
+    overflow: hidden;
+    height: 100vh; /* Adjust height as needed */ 
+    max-width: 1400px;
+    overflow: hidden; /* Prevent content overflow */
+    
+}
+
+.left-section, .right-section {
+    padding: 0;
+    border : 100px solid transparent;    
+    margin: 0;
+    flex: 1;
+    height: 100%;
+    width: 400px;  
+
+   
+}
+
+.left-section {
+    background: #f8f8f8;
+    border-right: 100px solid transparent;
+    
+    
+
+    
+} 
+
+.right-section {
+    border-left: 100px solid transparent;
+}
+
+.logo {
+    font-size: 30px;
+    color: #4285f4;
+    font-weight: bold;
+}
+
+.payment-details h2 {
+    font-size: 18px;
+}
+
+.payment-details h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+.breakdown {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 14px;
+    align-items: center;
+    gap: 150px; /* Fixed gap between the items */
+}
+
+.breakdown p {
+    width: 100px; /* Set a fixed width */
+    flex-shrink: 0; /* Prevents the items from shrinking */
+} 
+
+.total {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; 
+    gap: 20px;
+}
+
+.gpay-button {
+    background: black;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.divider0 {
+    text-align: center;
+    margin: 10px 0;
+    color: gray;
+}
+
+button[type="submit"] {
+    background: #4285f4;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+select, .payment-form button {
+    width: 400px; /* Full width */
+    padding: 10px 15px; /* Padding for height and spacing */
+    font-size: 16px; /* Text size */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    outline: none; /* Remove focus outline */
+    transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.payment-form input{
+    width: 368px; /* Full width */
+    padding: 10px 15px; /* Padding for height and spacing */
+    font-size: 16px; /* Text size */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    outline: none; /* Remove focus outline */
+    transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+
+
+input:focus {
+    border-color: #4285f4; /* Border color on focus */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on focus */
+}
+
+.footer {
+    display: flex; /* Enable flexbox for layout */
+    align-items: center; /* Center-align the content vertically */
+    justify-content: left; 
+    font-size: 14px; /* Set font size */
+    color: #888; /* Gray color for text */
+    margin-top: 20px; /* Add spacing from the top */
+    font-family: Arial, sans-serif; /* Use a clean font */
+    padding-top: 100px;
+    
+   
+   
+}
+
+.powered-by strong {
+    font-weight: bold; /* Bold text for "stripe" */
+    color: #555; /* Slightly darker gray for emphasis */
+}
+
+.divider {
+    width: 1px; /* Thin vertical line */
+    height: 16px; /* Match the text height */
+    background-color: #ccc; /* Light gray color for the divider */
+    margin: 0 10px; /* Add spacing around the divider */
+}
+
+.footer-link {
+    color: #888; /* Gray color for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 14px; /* Match font size */
+}
+
+.footer-link:hover {
+    color: #555; /* Slightly darker gray on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+#test-container{
+  max-width: 400px;
+  margin-right: 100px;
+ 
+}
+
+#input-spansize{
+    display:inline-block; 
+    width:300px;
+    padding-left: 50px;
+
+
+}
