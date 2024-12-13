@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.creditMapper">
+	<insert id="insertCredit"
+		parameterType="com.smhrd.entity.credit">
+		INSERT INTO tb_credit (credit_type, credit_reason, credit_cnt, user_id)
+		VALUES (#{credit_type}, #{credit_reason}, #{credit_cnt}, #{user_id})
+	</insert>
+
+</mapper>

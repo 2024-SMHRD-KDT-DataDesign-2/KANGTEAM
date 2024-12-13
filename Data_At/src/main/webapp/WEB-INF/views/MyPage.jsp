@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./resources/css_main.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <title>Data.At MyPage</title>
 </head>
 <body>
@@ -83,8 +85,8 @@
 
       <section class="settings-section">
         <h2>Your Nickname</h2>
-        <p>testNick_haha</p>
-        <button class="btn">Change Nickname</button>
+        <p id="nick">testNick_haha</p>
+        <button class="btn" onclick="updateUser()">Change Nickname</button>
       </section>
       <section class="settings-section">
         <h2>Credit history</h2>

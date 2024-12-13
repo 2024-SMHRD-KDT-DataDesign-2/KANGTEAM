@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.dinoJson">
+	<insert id="save" parameterType="com.smhrd.entity.dinojson">
+		insert into
+		tb_object_img(img_idx,data_img_x1,data_img_y1,data_img_x2,data_img_y2,data_class)
+		values(#{img_idx},#{data_img_x1},#{data_img_y1},#{data_img_x2},#{data_img_y2},#{data_class})
+	</insert>
+
+	<select id="getImages"
+		resultType="com.smhrd.entity.data_img">
+		SELECT img_idx, img_url FROM tb_data_img
+	</select>
+</mapper>

@@ -21,7 +21,7 @@
       <a href="#" id="uploaded-btn">Uploaded</a>
       <a href="#">Downloaded</a>
       <a href="#" id="credits-btn">Credit</a>
-      <a href="MyPage">Login</a>
+      <a href="Login">Login</a>
     </nav>
   </header>
     <div style="background-color: #007bff;">
