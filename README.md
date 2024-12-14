@@ -11,8 +11,8 @@ https://www.notion.so/146f9b2424818029b8c6e3639b957fa2
 ## 서비스 소개
 - 프로젝트 주제 : CLIP, Grounding DINO AI 모델을 활용한 데이터 분류 및 공유 서비스
 - 프로젝트 설명 : AI 학습에 필요한 데이터 자동 관리 서비스
-  - AI를 통해 자동 분류된 데이터을 공유
-  - 데이터 수 집계 및 통계적 분석을 통한 시각적 표현 
+  - AI를 통해 자동 분류된 데이터를 공유
+  - 데이터 수 집계 및 통계적 분석을 통한 시각적 표현
 
 <br>
 
@@ -63,8 +63,8 @@ https://www.notion.so/146f9b2424818029b8c6e3639b957fa2
 | 고운경 | Back-end, AI 모델링 |
 | 이기훈 | Front-end, 발표     |
 | 조이삭 | Front-end, DB 구축  | 
-| 정원종 | Front-end, 데이터수집|
-| 김태윤 | Front-end, 데이터수집|
+| 정원종 | Front-end, 데이터 수집|
+| 김태윤 | Front-end, 데이터 수집|
 
 <br>
 
