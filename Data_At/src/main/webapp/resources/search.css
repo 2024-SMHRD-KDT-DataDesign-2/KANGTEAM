@@ -13,11 +13,6 @@
     
 }
 
-.section02 {
-    width: 90%;   
-    
-   
-}
 
 input{
     width: 30px;
@@ -98,6 +93,12 @@ button{
    
 }
 
+
+.section02 {
+    width: 90%;       
+   
+}
+
 .wrap{
     height: 100%; /* 부모 높이에 맞춤 */
 }
@@ -105,7 +106,7 @@ button{
 /* icon container*/
 
 .section03{
-    width: 40px;
+    width: 3%;
     height: 40px;
     display: flex;
     justify-content: center; /* 가로 정렬 */
@@ -116,6 +117,10 @@ button{
   .section03 i {
     font-size: 20px;
     color: #555;
+  }
+  
+  .width-004{
+  	width: 4%;
   }
 
   .container-spacebetween{  
@@ -150,4 +155,46 @@ button{
     
     
 }
+
+/* 12.14 수정 */
+.container-test{
+	display: flex;
+	align-items: center; /* 세로 정렬 */
+}
+
+
+.container-test .section1,
+.container-test .section2 {
+	height: 50px;
+	display: flex; /* Flexbox 활성화 */
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    align-items: center; /* 세로 방향 가운데 정렬 */
+
+}
+
+.container-test .section1{
+	width: 50px;
+	justify-content: center; /* 가로 방향 가운데 정렬 */
+    height: 50px; /* 고정 높이 */
+	
+}
+
+.item {
+	justify-content: center; /* 가로 정렬 */
+    align-items: center; /* 세로 정렬 */
+	
+}
+
+.settings-section{
+	border-bottom: 1px solid rgb(218, 220, 224);
+}
+
+
+
+
+
+
+
+
+
 

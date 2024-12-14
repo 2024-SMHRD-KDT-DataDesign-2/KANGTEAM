@@ -6,28 +6,47 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./resources/css_main.css" />
+<link rel="stylesheet" href="./resources/Main_test.css" />
 <title>Data.At MyPage</title>
 </head>
 <body>
 	<div class = "all">
 
-		<header class="navbar">  
-
-    		<div class="logo">Data.At</div>
-   	 <nav>
+		  		    		
+     
+    <!-- 상단 nav 바 -->
+		    <nav class="nav-01 margin-all" >
+		    	<div id = "logo-image">	      		
+		      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+		    		</div>
+		    	<div class="right-container" >
+		    		<div class="right-div">
+		    			<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
+		    		</div> 
+		    	
+		    		<div class="right-div">
+		    			<a href="" id="uploaded-btn"> Uploaded </a>
+		    		</div>
+		    		<div class="right-div">
+		    			<a href="" id="downloaded-btn"> Downloaded </a>
+		    		</div>
+		    		<div class="right-div">
+		    			<a href="" id= "credits-btn"> Credit </a>
+		    		</div>
+		    		<div class="right-div">
+		    			<a href="MyPage" id="settings-btn"> Mypage </a>
+		    		</div>
+		    		<!-- 좌측 토글 버튼 -->
+			  	  	<div style="background-color: white;">
+				        <button class="menu-toggle">&#9776;</button>
+				    </div>
+		    	</div>
+		    	
+		    </nav>
     
-      <a href="MainPage">Home</a>
-      <a href="#" id="uploaded-btn">Uploaded</a>
-      <a href="#" id="downloaded-btn">Downloaded</a>
-      <a href="" id="credits-btn">Credit</a>
-      <a href="" id="settings-btn">Settings</a>
-    </nav>
-  </header>
+
   
-    <div style="background-color: #007bff;">
-        <button class="menu-toggle">&#9776;</button>
-    </div>
-  		<div class="container">
+	  		<div class="container">
     
     	<aside class="sidebar">
     		<div class="sidebar-container">       
@@ -204,7 +223,7 @@
     	
     
     </div>
-   </div>
+   
  
   
     <!-- 계정에서 업로드한 데이터 목록 페이지  -->
@@ -423,7 +442,7 @@
       
    </main>
   </div>          
-                       
+  </div>                    
   
 
 

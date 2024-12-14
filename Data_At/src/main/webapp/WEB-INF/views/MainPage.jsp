@@ -17,21 +17,27 @@
 <body>
     <div class = "all">
     
-    <!-- 상단 nav 바 -->
+   <!-- 상단 nav 바 -->
 		    <nav class="nav-01 margin-all" >
-		    	<div class="left-div" >	      		
-		      		<a> Data.At </a>
-		    	</div>
+		    	<div id = "logo-image">	      		
+		      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+		    		</div>
 		    	<div class="right-container" >
-		    		
 		    		<div class="right-div">
-		    			<a href=""> Pages </a>
+		    			<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
+		    		</div> 
+		    	
+		    		<div class="right-div">
+		    			<a href="" id="uploaded-btn"> Uploaded </a>
 		    		</div>
 		    		<div class="right-div">
-		    			<a href=""> Section </a>
+		    			<a href="" id="downloaded-btn"> Downloaded </a>
 		    		</div>
 		    		<div class="right-div">
-		    			<a href=""> Mypage </a>
+		    			<a href="" id= "credits-btn"> Credit </a>
+		    		</div>
+		    		<div class="right-div">
+		    			<a href="MyPage" id="settings-btn"> Mypage </a>
 		    		</div>
 		    		<!-- 좌측 토글 버튼 -->
 			  	  	<div style="background-color: white;">
