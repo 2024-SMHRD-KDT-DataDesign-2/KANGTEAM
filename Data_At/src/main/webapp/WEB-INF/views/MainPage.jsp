@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
- <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./resources/css_main.css" />
 <link rel="stylesheet" href="./resources/Main_test.css" />
+<link rel="stylesheet" href="./resources/modal.css" />
 <title>Welcome to Data.At !!!</title>
 <!-- Font Awesome CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -39,6 +40,11 @@
 		    		<div class="right-div">
 		    			<a href="MyPage" id="settings-btn"> Mypage </a>
 		    		</div>
+		    		<div class="right-div">
+		    			<a id="openModalBtn"> Account </a>
+		    		</div>
+		    		
+		    		
 			  	  	<!-- 좌측 토글 버튼 -->
 			  	  	<div id = "list-btn" style="background-color: white;">
 				        <button class="menu-toggle">&#9776;</button>
@@ -233,41 +239,71 @@
 
 </div>
 
-<!-- 모달창 회원가입 -->
+<!-- 모달창 -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModalBtn" style="position: absolute; top: 10px; right: 15px; cursor: pointer;">&times;</span>
 
-<div id="modalLayer">
-  <div class="modalContent">
-      <div id="position-right">
-        <i class="fa-solid fa-xmark" id="close-modal"></i>
-      </div>
-      <h1>Signup</h1>
-        <div>
-        </div>
-        	<div>    
-             <form>
-                 <div class="form-group">
-                     <label for="id">아이디를 입력하세요</label>
-                     <input type="text" id="id" required>
-                 </div>
-                 <div class="form-group">
-                     <label for="password">비밀번호를 입력하세요</label>
-                     <input type="password" id="password" required>
-                 </div>
-                 <div class="form-group">
-                     <label for="nickname">닉네임을 입력하세요</label>
-                     <input type="text" id="nickname" >
-                 </div>                                 
-                 <button type="submit" class="signup-btn">회원가입</button>
-             </form>
-           </div>                          
-             
+        <div class="login-box">
+            <div class="lb-header">
+                <a id="login-box-link" class="active">Login</a>
+                <a id="signup-box-link">Sign Up</a>
+            </div>
             
-     </div> 
-  </div>
-<!-- 모달창 회원가입 끝 -->
+            <div class="social-login">
+            	<div>
+			      <a href="#">		       
+			        <img alt="kakaotalk" src="./resources/images/icon_kakaotalk.png" > 
+			        Log in with Kakaotalk 
+			      </a>
+		      	</div>
+		      	<div>
+			      <a href="#">
+			         <img alt="google" src="./resources/images/icon_google.png">
+			         Log in with Google 
+			      </a>
+		      	</div>
+		      
+		    </div>
+
+            <form class="email-login">
+                <div class="u-form-group">
+                    <input type="email" placeholder="Email" />
+                </div>
+                <div class="u-form-group">
+                    <input type="password" placeholder="Password" />
+                </div>
+                <div class="u-form-group">
+                    <button type="submit">Log in</button>
+                </div>
+                <div class="u-form-group">
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+            </form>
+
+            <form class="email-signup">
+                <div class="u-form-group">
+                    <input type="email" placeholder="Email" />
+                </div>
+                <div class="u-form-group">
+                    <input type="password" placeholder="Password" />
+                </div>
+                <div class="u-form-group">
+                    <input type="password" placeholder="Confirm Password" />
+                </div>
+                <div class="u-form-group">
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
   
    
 
 	<script src="./resources/js_main.js"></script>
+	<script src="./resources/modal.js"></script>
 </body>
 </html>

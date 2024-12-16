@@ -784,10 +784,10 @@ body.dark {
 }
 
 input{
-    width: 30px;
+    /* width: 30px; */
 	border: none;
 	background: #ffffff;
-	text-align: center;
+	text-align: left;
 	color: #000000;
 	border-radius: 0 5px 5px 0;
 	cursor: pointer;
