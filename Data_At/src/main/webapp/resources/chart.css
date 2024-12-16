@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
-#myChart3{
-            
-        }
+canvas {
+         width: 800px;
+         height: 800px;
+}
+
+.chart-container{
+	display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;    /* 수직 가운데 정렬 */
+    height: 100%;           /* 부모 높이에 맞게 확장 */
+    position: relative;     /* 부모 기준으로 배치 */
+}
+
+

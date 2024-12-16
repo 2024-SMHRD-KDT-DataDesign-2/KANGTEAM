@@ -46,7 +46,7 @@
 		    			<a href="MyPage" id="settings-btn"> Mypage </a>
 		    		</div>
 		    		<!-- 좌측 토글 버튼 -->
-			  	  	<div style="background-color: white;">
+			  	  	<div id = "list-btn" style="background-color: white;">
 				        <button class="menu-toggle">&#9776;</button>
 				    </div>
 		    	</div>
@@ -86,19 +86,23 @@
 	    
 	    <div class="list-box">
 			<div class="border-bottom">
-				<h1>Dataset Name</h1>
+				<h1>Image Classification Datasets</h1>
 			</div>
 			<div class="data-content">
 				<div>
 					<h2>About Dataset</h2>
 				</div>
 				<div style="white-space: pre-line;" >					
-					여기에
-					줄바꿈과 공백을 포함한
-					db에서 불러온
-					db 컨텐츠를 불러오면 
-					됩니다. ^^
+					<p> 서비스 소개
 					
+				프로젝트 주제 : CLIP, Grounding DINO AI 모델을 활용한 데이터 분류 및 공유 서비스
+				
+				프로젝트 설명 : AI 학습에 필요한 데이터 자동 관리 서비스
+				
+				AI를 통해 자동 분류된 데이터를 공유
+				
+				데이터 수 집계 및 통계적 분석을 통한 시각적 표현
+					</p>
 				</div>
 			</div>
 			
@@ -107,19 +111,12 @@
 					<h2>Data show</h2>
 				</div>
 				<div id="drop-zone">Drag and drop a JSON file here</div>
-				<div class="flex-box">
 				
+				<div class="flex-box">				
 					<!-- 페이지에 이미지 출력하기 from json -->						 					
 	 				<div id="file-system" class="scrollbar style-8">
 	 					
-	 				</div>											
-					
-					<!-- 우측에 파일 목록 띄우기 -->
-					<div id="file-list" class="scrollbar style-8">
-							 						     			       				    
-		    		</div>
-		    
-		
+	 				</div>						
 		    	</div>
     	<!-- 파일시스템 uiux 끝 -->
     
@@ -128,10 +125,12 @@
 				<div>
 					<h2>Data visualization</h2>
 				</div>
-				<div>
+				<div class="content-center">
 					<canvas id="myChart1"></canvas>
 					
-					<canvas id="myChart2"></canvas>
+					<div class="chart-container">
+				        <canvas id="myChart2"></canvas>
+				    </div>
 					
 					<canvas id="myChart3"></canvas>
 				</div>
@@ -143,8 +142,8 @@
     </div>
     </div>
    
-<script src="./resources/js_main.js"></script>
-<script src="./resources/chart.js"></script>
-<script src="./resources/printJsonImages.js"></script>
+<script src="./resources/js_main.js?v=1.0"></script>
+<script src="./resources/chart.js?v=1.0"></script>
+<script src="./resources/printJsonImages.js?v=1.0"></script>
 </body>
 </html>

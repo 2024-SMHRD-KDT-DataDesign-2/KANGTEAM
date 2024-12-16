@@ -21,11 +21,11 @@
 		<!-- 상단 nav 바 -->
 		    <nav class="nav-01 margin-all" >
 		    	<div id = "logo-image">	      		
-		      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
-		    		</div>
+	      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+	    		</div>
 		    	<div class="right-container" >
 		    		<div class="right-div">
-		    			<a href="Search_resultPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
+		    			<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
 		    		</div> 
 		    	
 		    		<div class="right-div">
@@ -41,7 +41,7 @@
 		    			<a href="MyPage" id="settings-btn"> Mypage </a>
 		    		</div>
 		    		<!-- 좌측 토글 버튼 -->
-			  	  	<div style="background-color: white;">
+			  	  	<div id = "list-btn" style="background-color: white;">
 				        <button class="menu-toggle">&#9776;</button>
 				    </div>
 		    	</div>

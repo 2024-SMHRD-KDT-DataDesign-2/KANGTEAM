@@ -65,11 +65,11 @@ dropZone.addEventListener('drop', (event) => {
       imgGroup.appendChild(valueImage);
       cnt++;
 
-      if (cnt % 3 === 0) {
+       if (cnt % 5 === 0) {
         container.appendChild(imgGroup);
         imgGroup = document.createElement('div');
         imgGroup.className = 'image-group';
-      }
+       }
     }
   });
 
@@ -77,32 +77,9 @@ dropZone.addEventListener('drop', (event) => {
   if (imgGroup.children.length > 0) {
     container.appendChild(imgGroup);
   }
+  
+  // json 파일 드래그 div 삭제
+  document.getElementById('drop-zone').style.display = ('none');
 }
 
-// JSON 파일 목록 출력.
-function displayJsonAsList(json, container) {
-  Object.entries(json).forEach(([key, value]) => {
-    const item = document.createElement('div');
-    item.className = 'json-item';
-
-    if (typeof value === 'object' && value !== null) {
-      // Nested object handling
-      const keyElement = document.createElement('div');
-      keyElement.className = 'json-key';
-      keyElement.innerText = `${key}:`;
-
-      const nestedContainer = document.createElement('div');
-      nestedContainer.className = 'nested-container';
-      displayJsonAsList(value, nestedContainer); // Recursive call for nested objects
-
-      item.appendChild(keyElement);
-      item.appendChild(nestedContainer);
-    } else {
-      // Key-value pair
-      item.innerHTML = `<strong>${key}:</strong> ${value}`;
-    }
-
-    container.appendChild(item);
-  });
-}
 

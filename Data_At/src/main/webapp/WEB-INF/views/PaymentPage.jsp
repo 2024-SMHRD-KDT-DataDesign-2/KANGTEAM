@@ -13,9 +13,11 @@
     <div class="container">
         <div class="left-section">
             <div id="test-container">
+            <!-- 로고 이미지 
             <div id = "logo-image">	      		
-		      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
-		    		</div>
+      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+    		</div>
+    		-->
                 <div class="payment-details">
                     <h2>Data.At을 이용해주셔서 감사합니다.</h2>
                     <h1>US$100.00</h1>

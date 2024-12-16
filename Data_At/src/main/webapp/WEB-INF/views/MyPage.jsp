@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./resources/css_main.css" />
 <link rel="stylesheet" href="./resources/Main_test.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <title>Data.At MyPage</title>
 </head>
 <body>
@@ -16,9 +17,11 @@
      
     <!-- 상단 nav 바 -->
 		    <nav class="nav-01 margin-all" >
-		    	<div id = "logo-image">	      		
-		      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
-		    		</div>
+		    	<div id = "logo-image">	
+		    		<a href="MainPage">  <!-- 이미지 링크 잘됨 ㅇㅇ -->    		
+	      				<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+	    			</a>
+	    		</div>
 		    	<div class="right-container" >
 		    		<div class="right-div">
 		    			<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
@@ -37,7 +40,7 @@
 		    			<a href="MyPage" id="settings-btn"> Mypage </a>
 		    		</div>
 		    		<!-- 좌측 토글 버튼 -->
-			  	  	<div style="background-color: white;">
+			  	  	<div id = "list-btn" style="background-color: white;">
 				        <button class="menu-toggle">&#9776;</button>
 				    </div>
 		    	</div>
@@ -232,10 +235,15 @@
       <h1>Uploaded data history</h1>
       <p>search data uploaded</p>
     </header>
-  	   <div class="search-container">
-         <input type="text" placeholder="Search datasets" class="search-bar-mypage">
-         <button class="search-button">Search</button>
-       </div>
+    
+    	<!--  검색바 -->
+    	<div class="center">
+		   	<div class="search-container">
+		    	<i class="fa fa-search search-icon"></i>
+		    	<input type="text" class="search-input" placeholder="Search datasets">
+			</div>
+		</div>
+       
     <nav>
       <ul class="tabs">
         <li class="active">Datasets</li>
@@ -341,10 +349,13 @@
       <h1>Downloaded data history</h1>
       <p>search data downloaded</p>
     </header>
-  	   <div class="search-container">
-         <input type="text" placeholder="Search datasets" class="search-bar-mypage">
-         <button class="search-button">Search</button>
-       </div>
+  	   <!--  검색바 -->
+    	<div class="center">
+		   	<div class="search-container">
+		    	<i class="fa fa-search search-icon"></i>
+		    	<input type="text" class="search-input" placeholder="Search datasets">
+			</div>
+		</div>
     <nav>
       <ul class="tabs">
         <li class="active">Datasets</li>

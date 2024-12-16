@@ -20,8 +20,8 @@
    <!-- 상단 nav 바 -->
 		    <nav class="nav-01 margin-all" >
 		    	<div id = "logo-image">	      		
-		      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
-		    		</div>
+	      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+	    		</div>
 		    	<div class="right-container" >
 		    		<div class="right-div">
 		    			<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
@@ -39,8 +39,8 @@
 		    		<div class="right-div">
 		    			<a href="MyPage" id="settings-btn"> Mypage </a>
 		    		</div>
-		    		<!-- 좌측 토글 버튼 -->
-			  	  	<div style="background-color: white;">
+			  	  	<!-- 좌측 토글 버튼 -->
+			  	  	<div id = "list-btn" style="background-color: white;">
 				        <button class="menu-toggle">&#9776;</button>
 				    </div>
 		    	</div>
@@ -76,12 +76,11 @@
       	</div>
       <ul>
         <li><a href="./MainPage">Home</a></li>
-        <li><a href="#">Competitions</a></li>
+        <li><a href="#">How to Use</a></li>
+        <li><a href="#">Search</a></li>
         <li><a href="#">Datasets</a></li>
-        <li><a href="#">Models</a></li>
-        <li><a href="#">Code</a></li>
-        <li><a href="#">Discussions</a></li>
-        <li><a href="#">Learn</a></li>
+        <li><a href="#">QnA</a></li>
+        <li><a href="#">Contact</a></li>
         <li><a href="#">More</a></li>
       </ul>
     </aside>
@@ -128,10 +127,7 @@
 		    <div class="flex-1 montserrat">		     
 		      <h3>SIMPLE DATA CLASSIFICATION</h3>
 		      <p>Our data sharing service is an innovative platform that leverages AI models to automatically classify and organize images. Anyone can easily upload images and quickly view the classification results, maximizing the efficiency of data management. With a simple interface and intuitive user experience, it offers a convenient solution that anyone can use effortlessly without needing complex technical knowledge.</p>
-		    </div>
-
-		    
-		    
+		    </div>		    		    
 		  </div>
 		</div>
 		
@@ -150,57 +146,61 @@
 		  </div>
 		</div>
 		
+		<div>
+		<section class="pricing-section Helvetica">
+			<div class="text-center">
+		        <h1 class="pricing-title">CHOOSE YOUR CREDITS</h1>
+		        <p class="pricing-subtitle">Pick any of our super affordable pricing units</p>
+			</div>
+	        <div class="pricing-container">
+	            <div class="pricing-card">
+	                <h2 class="plan-title">BASIC</h2>
+	                <p class="plan-price">$15</p>
+	                <p class="plan-duration">per month</p>
+	                <ul class="plan-features">
+	                    <li>✔ Up to 7 Projects</li>
+	                    <li>✔ 2 Additional Developers</li>
+	                </ul>
+	                <div>
+	                	<a href="#" class="payment-btn">Get Started</a>
+	                </div>
+	            </div>
+	
+	            <div class="pricing-card featured">
+	                <h2 class="plan-title">AGENCY</h2>
+	                <p class="plan-price">$55</p>
+	                <p class="plan-duration">per month</p>
+	                <ul class="plan-features">
+	                    <li>✔ Up to 25 Projects</li>
+	                    <li>✔ 2 Additional Developers</li>
+	                    <li>✔ Unlimited Support</li>
+	                </ul>
+	                 <div>
+	                 	<a href="#" class="payment-btn">Get Started</a>
+	                 </div>
+	            </div>
+	
+	            <div class="pricing-card">
+	                <h2 class="plan-title">PRO</h2>
+	                <p class="plan-price">$75</p>
+	                <p class="plan-duration">per month</p>
+	                <ul class="plan-features">
+	                    <li>✔ Up to 25 Projects</li>
+	                    <li>✔ 2 Additional Developers</li>
+	                    <li>✔ Unlimited Support</li>
+	                    <li>✔ 1.5GB Disk Space</li>
+	                </ul>
+	                 <div>
+	                 	<a href="#" class="payment-btn">Get Started</a>
+	                 </div>
+	            </div>
+	        </div>
+	    </section>
+		</div>
+		
 		
    
-       여기에 메인페이지 내용물 마구마구 적으면 됩니다.	
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       <br>스크롤 테스트
-       
+              
       
    <!-- div태그 all 끝 -->    
    </div>
@@ -220,7 +220,7 @@
       </div>
       <div class="panel-container">
       	<div class="panel-content">
-        	<p>Drag & drop files to upload</p>
+        	<p>Drag and drop files to upload</p>
         	<button class="upload-btn">Browse Files</button>
       	</div>
       </div>
@@ -243,7 +243,7 @@
       <h1>Signup</h1>
         <div>
         </div>
-      <div>    
+        	<div>    
              <form>
                  <div class="form-group">
                      <label for="id">아이디를 입력하세요</label>
@@ -255,11 +255,12 @@
                  </div>
                  <div class="form-group">
                      <label for="nickname">닉네임을 입력하세요</label>
-                     <input type="nickname" id="nickname" >
+                     <input type="text" id="nickname" >
                  </div>                                 
-                </div>                          
                  <button type="submit" class="signup-btn">회원가입</button>
              </form>
+           </div>                          
+             
             
      </div> 
   </div>

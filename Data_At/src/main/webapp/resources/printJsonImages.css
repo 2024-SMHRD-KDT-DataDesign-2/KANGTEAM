@@ -21,7 +21,6 @@
       padding: 10px;
       border-radius: 5px;
       /* width: 100%; */
-      max-width: 800px;
       background-color: #f9f9f9;
       margin-top: 20px;
       overflow: scroll;
@@ -87,11 +86,17 @@
 
     .image-group{
         width: 600px;
+        display: ruby;	
+	    /* flex-wrap: wrap; */
+	    gap: 5px; /* 이미지 간격 추가 */
     }
     
     .image-group > img {
         width: 200px;
         height: 200px;
+        display: ruby; /* 이미지 줄줄이 출력 */
+	    flex-wrap: wrap;
+        gap: 5px; /* 이미지 간격 추가 */
     }
     
     /* json 목록 css */
