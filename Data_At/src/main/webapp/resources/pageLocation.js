@@ -3,7 +3,7 @@
 		
 	   document.addEventListener("DOMContentLoaded", () => {
 	       let data_title01 = document.getElementById('data_title01');
-	       
+	      console.log(data_title01);
 	       if (data_title01) {	
 	           data_title01.addEventListener("click", goDataDetail);
 	       } else {
