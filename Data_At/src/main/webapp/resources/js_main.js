@@ -1,6 +1,34 @@
 
 // Example interactivity for the "Search" button
 
+	// 메인페이지 전환하기 ㅇㅇ
+	// 모든 div 요소 가져오기
+		    const divs = document.querySelectorAll('.background-box > div');
+		    console.log(divs);
+		    let currentIndex = 0; // 현재 보이는 div의 인덱스
+		
+		    // 5초마다 div를 번갈아 표시
+		    function cycleDivs() {
+		    	console.log('cycleDivs() 실행')
+		        // 모든 div를 숨김
+		        divs.forEach(div => div.style.display = 'none');
+		
+		        // 현재 인덱스에 해당하는 div만 표시
+		        divs[currentIndex].style.display = 'flex';
+		        console.log(currentIndex);
+		
+		        // 다음 인덱스 계산
+		        currentIndex = (currentIndex + 1) % divs.length;
+		                console.log(divs.length);
+		    }
+		
+		    // 페이지 로드 시 첫 번째 div 표시 및 setInterval 시작
+		document.addEventListener("DOMContentLoaded", () => {
+		    divs.forEach(div => div.style.display = 'none'); // 초기화: 모든 div 숨김
+		    divs[0].style.display = 'flex'; // 첫 번째 div 표시
+		    setInterval(cycleDivs, 5000); // 5초마다 실행
+		});
+
 
 const heroButton = document.querySelector('.hero button')
 
@@ -345,5 +373,7 @@ backgroundCh = function() {
    document.querySelector('#test_mypagelogo').click(function(){
    	console.log('clicked');
    });
+   
 
-  
+
+

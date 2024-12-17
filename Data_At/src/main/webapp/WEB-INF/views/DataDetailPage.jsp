@@ -24,9 +24,11 @@
 		    <nav class="nav-01 margin-all" >
 		    	<div  class="left-div" >
 		    		
-		    		<div id = "logo-image">	      		
-		      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
-		    		</div>
+		    		<div id = "logo-image">	
+			    		<a href="MainPage">  <!-- 이미지 링크 잘됨 ㅇㅇ -->    		
+		      				<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+	    				</a>
+	    		</div>
 		    	</div>
 		    	<div class="right-container" >
 		    		<div class="right-div">
@@ -88,21 +90,32 @@
 			<div class="border-bottom">
 				<h1>Image Classification Datasets</h1>
 			</div>
+			
 			<div class="data-content">
-				<div>
+				<div class="flex-box">
 					<h2>About Dataset</h2>
+					<button class="new-dataset-btn" id="new-dataset-btn">Download</button>
 				</div>
-				<div style="white-space: pre-line;" >					
-					<p> 서비스 소개
-					
-				프로젝트 주제 : CLIP, Grounding DINO AI 모델을 활용한 데이터 분류 및 공유 서비스
-				
-				프로젝트 설명 : AI 학습에 필요한 데이터 자동 관리 서비스
-				
-				AI를 통해 자동 분류된 데이터를 공유
-				
-				데이터 수 집계 및 통계적 분석을 통한 시각적 표현
-					</p>
+				<div style="white-space: pre-line;" >				
+					<div id="data-info">                
+                   		<li>
+                   			<ul>Name : Fruit Datasets</ul>
+                   			<ul>Contains :  <span>apple</span> <span>banana</span> <span>melon</span> <span>pear</span> <span>dragonfruit</span> <span>grape</span> <span>orange</span> <span>peach</span></ul>
+                   			<ul>Uploader : Yoonho</ul>
+                   			<ul>Uploaded Date : 2024-12-16</ul>                   			
+                   		</li>
+                   		<p>
+                   		우리 서비스는 CLIP과 DINO AI 모델을 활용해 이미지를 분석하고, 단일 이미지 세트를 apple, melon, banana, pear, dragonfruit, grape, orange, peach의 8개 클래스로 정확히 분류하는 데 성공했습니다.
+
+CLIP은 이미지와 텍스트 간의 연관성을 학습하여 각 이미지의 본질적인 특징을 파악하고, DINO는 이미지 내 객체를 세밀하게 식별하는 데 탁월한 성능을 발휘합니다. 
+
+이를 통해 복잡한 이미지 데이터에서도 높은 정확도로 분류가 가능하며, 수작업의 필요성을 줄이고 데이터 처리 효율을 극대화합니다.
+
+이번 분류 결과는 AI 기반 이미지 분류 기술의 정교함과 신뢰성을 입증하며, 다양한 데이터 관리와 분석에 강력한 도구로 활용될 수 있음을 보여줍니다.
+                   		</p>
+                   		
+                   		
+         			</div>				
 				</div>
 			</div>
 			

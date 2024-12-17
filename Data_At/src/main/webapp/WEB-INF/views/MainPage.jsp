@@ -20,8 +20,10 @@
     
    <!-- 상단 nav 바 -->
 		    <nav class="nav-01 margin-all" >
-		    	<div id = "logo-image">	      		
-	      			<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+		    	<div id = "logo-image">	
+		    		<a href="MainPage">  <!-- 이미지 링크 잘됨 ㅇㅇ -->    		
+	      				<img alt="./resources/images/imgTest1.png" src="./resources/images/logo04-02.png">
+	    			</a>
 	    		</div>
 		    	<div class="right-container" >
 		    		<div class="right-div">
@@ -41,10 +43,9 @@
 		    			<a href="MyPage" id="settings-btn"> Mypage </a>
 		    		</div>
 		    		<div class="right-div">
-		    			<a id="openModalBtn"> Account </a>
+		    			<a href="#" id="openModalBtn"> Account </a>
 		    		</div>
-		    		
-		    		
+		    				    		
 			  	  	<!-- 좌측 토글 버튼 -->
 			  	  	<div id = "list-btn" style="background-color: white;">
 				        <button class="menu-toggle">&#9776;</button>
@@ -53,23 +54,46 @@
 		    	
 		    </nav>
     
-     <header style="background-image: url('./resources/images/background/bg_02.jpg')" >
-     
-     
-     	<div class="page-header min-vh-75 " style="background-image: url('./resources/images/background/bg_01.jpg')">
-				<div class="container">
-					<div style="color: white;">
-						<h1>Data.At</h1>
-						<p>AI model을 활용한 데이터 자동분류 서비스</p>
-					</div>
-					
-				</div>
+     <header>
+    
 				
    
 				
     
      	</div>
-  </header>
+     	<!-- 배경화면 -->
+	     <div class="background-box">
+	     	<div id="div1" class="page-header min-vh-75" style="background-image: url('./resources/images/background/bg_01.jpg')">
+				<div class="container">
+					<div style="color: white;">
+						<h1>Data.At</h1>
+						<p>AI Model을 활용한 데이터 자동 분류 서비스</p>
+					</div>				
+				</div>		    
+	     	</div>
+	     	
+	     	<div id="div2" class="page-header min-vh-75" style="background-image: url('./resources/images/background/img_christmas02.jpg')">
+				<div class="container">
+					<div style="color: white;">
+						<h1>Data.At</h1>
+						<p>AI Model을 활용한 데이터 자동 분류 서비스</p>
+					</div>				
+				</div>		    
+	     	</div>
+	     	
+	     	<div id="div3" class="page-header min-vh-75" style="background-image: url('./resources/images/background/bgpicture2.jpg')">
+				<div class="container">
+					<div style="color: white;">
+						<h1>Data.At</h1>
+						<p>AI Model을 활용한 데이터 자동 분류 서비스</p>
+					</div>				
+				</div>		    
+	     	</div>
+	     </div>
+	     	
+	     	
+	     	
+  	</header>
   
   
     
@@ -241,13 +265,14 @@
 
 <!-- 모달창 -->
 <div id="loginModal" class="modal">
-    <div class="modal-content">
-        <span id="closeModalBtn" style="position: absolute; top: 10px; right: 15px; cursor: pointer;">&times;</span>
-
+    <div class="modal-content">    
+    	 
+        <span id="closeModalBtn" style="position: absolute; top: 10px; right: 15px; cursor: pointer; display: none;">&times;</span>		
+		
         <div class="login-box">
             <div class="lb-header">
-                <a id="login-box-link" class="active">Login</a>
-                <a id="signup-box-link">Sign Up</a>
+                <a href="#" id="login-box-link" class="active">Login</a>
+                <a href="#" id="signup-box-link">Sign Up</a>
             </div>
             
             <div class="social-login">
@@ -300,8 +325,6 @@
 </div>
 
 
-  
-   
 
 	<script src="./resources/js_main.js"></script>
 	<script src="./resources/modal.js"></script>

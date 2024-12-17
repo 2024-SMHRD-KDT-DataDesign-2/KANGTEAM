@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Hi+Melody&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 
 @font-face {
     font-family: 'KCC-Ahnchangho';
@@ -11,6 +12,29 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SF_HambakSnow';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 
 /* -------------------검색기능-------------------------- */
 .search {
@@ -63,7 +87,7 @@ body, h1, h2, p, a {
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
-	font-family: Arial, sans-serif;
+	font-family: 'Pretendard-Regular';
 	
 }
 
@@ -447,7 +471,6 @@ nav a {
 	padding: 10px 15px;
 	color: #007bff;
 	text-decoration: none;
-	font-family: sans-serif;
 	font-size: 20px;
 }
 
@@ -751,7 +774,6 @@ body.dark {
             display: flex;
             justify-content: center;
             align-items: center;
-            border-right: 2px solid #ccc; /* 구분선 */
         }
         .right {
             flex: 1; /* 너비 비율: 1 */
@@ -972,7 +994,8 @@ button{
 /* 24.12.13 추가 */
 .flex-box{
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
+	align-items: center;
 	
 	
 }
@@ -1095,7 +1118,7 @@ button{
 /* 마이페이지 리모델링 */
 .settings-section{
 	padding-bottom: 20px;
-	border-bottom: 1px solid skyblue;
+	border-bottom: 1px solid #d9d9d9;
 }
 
 /* 프로젝트 로고 */
@@ -1280,6 +1303,7 @@ nav #logo {
 }
 
 
+/* 배경화면 전환 */
 
 
 
@@ -1287,8 +1311,86 @@ nav #logo {
 
 
 
+/*---- 문서작업 전용 ----- */
 
+.underline{
+	text-decoration-line: underline;
+}
 
+.thumbnail img{
+	width: 100px;
+	height: 100px;
+}
+
+#test {
+	font-size: 25px;
+}
+
+#data-info{
+	text-align: left;
+	
+}
+
+#data-info li{
+	 list-style: none; /* 기본 마커 제거 */
+}
+#data-info ul{
+	margin: 0px;
+	line-height: 5px;
+	padding: 0px;
+}
+
+#data-info span{
+	background-color: skyblue;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	padding: 5px;
+	color: black;
+}
+
+#data-info ul span:nth-child(1) {
+    background-color: #FF6384; /* 첫 번째 span */
+}
+
+#data-info ul span:nth-child(2) {
+    background-color: #FFCE56; /* 두 번째 span */
+}
+
+#data-info ul span:nth-child(3) {
+    background-color: #36A2EB; /* 세 번째 span */
+}
+
+#data-info ul span:nth-child(4) {
+    background-color: #4BC0C0; /* 네 번째 span */
+}
+
+#data-info ul span:nth-child(5) {
+    background-color: #9966FF; /* 다섯 번째 span */
+}
+
+#data-info ul span:nth-child(6) {
+    background-color: #FF9F40; /* 여섯 번째 span */
+}
+
+#data-info ul span:nth-child(7) {
+    background-color: #E7E9ED; /* 일곱 번째 span */
+}
+
+#data-info ul span:nth-child(8) {
+    background-color: #71B37C; /* 여덟 번째 span */
+}
+
+.container {
+	margin: auto;
+}
+
+.container p{
+	text-align: center;
+}
+
+.background-box *{
+align-items: center;
+	}
 
 
 

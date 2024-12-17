@@ -48,32 +48,30 @@ let myChart3 = new Chart(myCt3, {
 
    let myChart1 = new Chart(myCt1, {    
 	   data: {
-	    datasets: [
+	    datasets:[ 
 	    {
 	        type: 'bar',
 	        label: 'Bar Dataset',
 	        data: [20, 40, 10, 30, 80, 70, 30, 90]
-	    }, {
-	        type: 'line',
-	        label: 'Line Dataset',
-	        data: [20, 40, 10, 30, 80, 70, 30, 90]
-	    }
+	    } 
 	    ],
-	    labels: ['cat', 'dog', 'human', 'laptop','bird','car','food','tree']
+	    labels:  ['apple', 'melon', 'banana', 'pear','dragonfruit','grage','orange','peach']
 		},
 		options:{
 			scales: {
 			    x: {
 			      ticks: {
 			        font: {
-			          size: 20
+			          size: 20,
+			          family: "'Montserrat', Arial, sans-serif" // 변경된 폰트 패밀리
 			        }
 			      }
 			    },
 			    y: {
 			      ticks: {
 			        font: {
-			          size: 20
+			          size: 20,
+			            family: "'Montserrat', Arial, sans-serif" // 변경된 폰트 패밀리
 			        }
 			      }
 			    }
@@ -81,7 +79,7 @@ let myChart3 = new Chart(myCt3, {
 		}
     });
     
-  let myChart2 = new Chart(myCt2, {
+ let myChart2 = new Chart(myCt2, {
     type: 'doughnut',
     data: {
         datasets: [
@@ -94,7 +92,7 @@ let myChart3 = new Chart(myCt3, {
                 ]
             }
         ],
-        labels: ['cat', 'dog', 'human', 'laptop', 'bird', 'car', 'food', 'tree']
+        labels: ['apple', 'melon', 'banana', 'pear','dragonfruit','grage','orange','peach']
     },
     options: {
         responsive: false, // Set to false if you want a fixed size
@@ -104,9 +102,10 @@ let myChart3 = new Chart(myCt3, {
                 position: 'top',
                 labels: {
                     font: {
-                        size: 14 // Font size for legend
+                        size: 20,
+                        family: "'Montserrat', Arial, sans-serif" // 변경된 폰트 패밀리
                     },
-                    color: '#333' // Font color
+                    color: '#333'
                 }
             }
         }
@@ -115,16 +114,25 @@ let myChart3 = new Chart(myCt3, {
         {
             id: 'custom-labels',
             afterDraw: (chart) => {
-                const {ctx, data} = chart;
+                const { ctx, data } = chart;
                 const dataset = data.datasets[0];
+                const total = dataset.data.reduce((acc, val) => acc + val, 0); // 전체 합 계산
+
                 dataset.data.forEach((value, index) => {
                     const meta = chart.getDatasetMeta(0).data[index];
                     const position = meta.tooltipPosition();
 
-                    ctx.fillStyle = '#fff'; // Text color
-                    ctx.font = '14px Arial';
+                    // 퍼센트 계산
+                    const percent = ((value / total) * 100).toFixed(1) + '%';
+
+                    // 텍스트 스타일 설정
+                    ctx.fillStyle = '#fff'; // 텍스트 색상
+                    ctx.font = 'bold 30px "Montserrat", Arial, sans-serif'; // 폰트 설정
                     ctx.textAlign = 'center';
-                    ctx.fillText(data.labels[index], position.x, position.y); // Draw labels
+
+                    // 데이터 라벨 표시 (퍼센트)
+                    ctx.fillText(percent, position.x, position.y - 10); // 퍼센트 표시
+                    ctx.fillText(data.labels[index], position.x, position.y + 10); // 데이터 레이블 표시
                 });
             }
         }
