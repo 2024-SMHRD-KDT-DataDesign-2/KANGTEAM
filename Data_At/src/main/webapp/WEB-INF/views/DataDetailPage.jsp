@@ -87,8 +87,10 @@
 	    </div>
 	    
 	    <div class="list-box">
-			<div class="border-bottom">
-				<h1>Image Classification Datasets</h1>
+			<div class="padding-10">
+				<div class="border-btm">
+					<h1>Image Classification Datasets</h1>
+				</div>
 			</div>
 			
 			<div class="data-content">

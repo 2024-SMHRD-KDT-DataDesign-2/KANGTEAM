@@ -113,7 +113,11 @@
 .data-content > div{
 }
 
-.border-bottom{
+.padding-10{
+	padding: 10px;
+}
+
+.border-btm{
 	border-bottom: 1px solid black;
 }
 
@@ -271,5 +275,6 @@
 .block-content {
             flex: 1;
         }
+
 
         

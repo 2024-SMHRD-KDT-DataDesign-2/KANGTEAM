@@ -10,34 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Hero 버튼을 찾을 수 없습니다.");
     }
 
-    // --- 사이드바 토글 ---
-    const menuToggleBtn = document.querySelector('.menu-toggle');
-    if (menuToggleBtn) {
-        menuToggleBtn.addEventListener('click', () => {
-            console.log("Menu-toggle 버튼 클릭");
-            document.body.classList.toggle('sidebar-open');
-        });
-    } else {
-        console.error("Menu-toggle 버튼을 찾을 수 없습니다!");
-    }
 
-    // --- New Dataset 패널 ---
-    const newDatasetBtn = document.getElementById('new-dataset-btn');
-    const newDatasetPanel = document.getElementById('newDatasetPanel');
-    const closePanelBtn = document.getElementById('closePanelBtn');
-    
-    if (newDatasetBtn && newDatasetPanel && closePanelBtn) {
-        newDatasetBtn.addEventListener('click', () => {
-            console.log("New Dataset 버튼 클릭");
-            newDatasetPanel.classList.add('visible');
-            newDatasetPanel.classList.remove('hidden');
-        });
 
-        closePanelBtn.addEventListener('click', () => {
-            console.log("패널 닫기 버튼 클릭");
-            newDatasetPanel.classList.remove('visible');
-        });
-    }
 
     // --- 마이페이지 탭 전환 ---
     const settingsPage = document.getElementById('settings-page');

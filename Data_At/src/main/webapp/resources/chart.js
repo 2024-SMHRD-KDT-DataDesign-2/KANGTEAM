@@ -55,7 +55,7 @@ let myChart3 = new Chart(myCt3, {
 	        data: [20, 40, 10, 30, 80, 70, 30, 90]
 	    } 
 	    ],
-	    labels:  ['apple', 'melon', 'banana', 'pear','dragonfruit','grage','orange','peach']
+	    labels:  ['apple', 'melon', 'banana', 'pear','dragonfruit','grape','orange','peach']
 		},
 		options:{
 			scales: {
@@ -92,7 +92,7 @@ let myChart3 = new Chart(myCt3, {
                 ]
             }
         ],
-        labels: ['apple', 'melon', 'banana', 'pear','dragonfruit','grage','orange','peach']
+        labels: ['apple', 'melon', 'banana', 'pear','dragonfruit','grape','orange','peach']
     },
     options: {
         responsive: false, // Set to false if you want a fixed size

@@ -4,41 +4,32 @@
 	// 메인페이지 전환하기 ㅇㅇ
 	// 모든 div 요소 가져오기
 		    const divs = document.querySelectorAll('.background-box > div');
-		    console.log(divs);
 		    let currentIndex = 0; // 현재 보이는 div의 인덱스
 		
 		    // 5초마다 div를 번갈아 표시
 		    function cycleDivs() {
-		    	console.log('cycleDivs() 실행')
 		        // 모든 div를 숨김
 		        divs.forEach(div => div.style.display = 'none');
 		
 		        // 현재 인덱스에 해당하는 div만 표시
 		        divs[currentIndex].style.display = 'flex';
-		        console.log(currentIndex);
 		
 		        // 다음 인덱스 계산
 		        currentIndex = (currentIndex + 1) % divs.length;
-		                console.log(divs.length);
 		    }
 		
 		    // 페이지 로드 시 첫 번째 div 표시 및 setInterval 시작
 		document.addEventListener("DOMContentLoaded", () => {
+			console.log(document.getElementById('new-dataset-btn')); // 버튼이 정상적으로 선택되는지 확인
+			console.log(document.getElementById('newDatasetPanel')); // 패널이 정상적으로 선택되는지 확인
+			
 		    divs.forEach(div => div.style.display = 'none'); // 초기화: 모든 div 숨김
 		    divs[0].style.display = 'flex'; // 첫 번째 div 표시
 		    setInterval(cycleDivs, 5000); // 5초마다 실행
 		});
 
 
-const heroButton = document.querySelector('.hero button')
 
-if (heroButton) {
-	heroButton.addEventListener('click', () => {
-  	     
-  });
-  } else {
-  	 console.error("heroButton을 찾을 수 없습니다.");
-  }
   
 
 // JavaScript to handle the sidebar toggle
@@ -53,20 +44,8 @@ const menuToggleBtn = document.querySelector('.menu-toggle')
   console.error("menu-toggle 버튼을 찾을 수 없습니다!");
 }
   
-      
-const getStartedBtn = document.querySelector('#getStarted');
-  
- 
-if (getStartedBtn) {
-	getStartedBtn.addEventListener('click', () => {
-  	console.log("get Started 버튼 작동");
-  });
-  } else {
-  	 console.error("getStarted Button을 찾을 수 없습니다.");
-  }
-  
-  // 데이터 업로드 페이지 구현
-  // Select elements
+
+  // ***우측 데이터 업로드 페이지 구현***
   
 const newDatasetBtn = document.getElementById('new-dataset-btn');
 const newDatasetPanel = document.getElementById('newDatasetPanel');
@@ -78,15 +57,20 @@ const closePanelBtn = document.getElementById('closePanelBtn');
 newDatasetBtn.addEventListener('click', () => {
 	console.log("new Dataset 버튼 작동");
   newDatasetPanel.classList.add('visible');
-  newDatasetPanel.classList.remove('hidden');
+  newDatasetPanel.classList.remove('hidden'); // 원래 hidden 클래스가 잇어야함?
 
 });
+
+
 
 // Close the panel when the "X" button is clicked
 
 closePanelBtn.addEventListener('click', () => {
   newDatasetPanel.classList.remove('visible');
 });
+
+
+
   
   
   // 마이페이지 버튼 클릭할때마다 페이지 전환 
@@ -374,6 +358,5 @@ backgroundCh = function() {
    	console.log('clicked');
    });
    
-
 
 
