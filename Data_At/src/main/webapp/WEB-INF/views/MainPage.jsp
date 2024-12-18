@@ -62,7 +62,7 @@
 		</nav>
 
 		<header>
-	</div>
+	
 	<!-- 배경화면 -->
 	<div class="background-box">
 		<div id="div1" class="page-header min-vh-75"
@@ -209,43 +209,37 @@
 					<div class="pricing-container">
 						<div class="pricing-card">
 							<h2 class="plan-title">BASIC</h2>
-							<p class="plan-price">$15</p>
-							<p class="plan-duration">per month</p>
+							<p class="plan-price">$10</p>
+							<p class="plan-duration"></p>
 							<ul class="plan-features">
-								<li>✔ Up to 7 Projects</li>
-								<li>✔ 2 Additional Developers</li>
+								<li>✔ 200 Credit Points</li>
 							</ul>
 							<div>
-								<a href="#" class="payment-btn">Get Started</a>
+								<button class="payment-btn" id="pay-010">Get Started</button>
 							</div>
 						</div>
 
-						<div class="pricing-card featured">
+						<div class="pricing-card">
 							<h2 class="plan-title">AGENCY</h2>
-							<p class="plan-price">$55</p>
-							<p class="plan-duration">per month</p>
+							<p class="plan-price">$25</p>
+							<p class="plan-duration"></p>
 							<ul class="plan-features">
-								<li>✔ Up to 25 Projects</li>
-								<li>✔ 2 Additional Developers</li>
-								<li>✔ Unlimited Support</li>
+								<li>✔ 500 Credit Points</li>
 							</ul>
 							<div>
-								<a href="#" class="payment-btn">Get Started</a>
+								<button class="payment-btn" id="pay-025">Get Started</button>
 							</div>
 						</div>
 
 						<div class="pricing-card">
 							<h2 class="plan-title">PRO</h2>
-							<p class="plan-price">$75</p>
-							<p class="plan-duration">per month</p>
+							<p class="plan-price">$50</p>
+							<p class="plan-duration"></p>
 							<ul class="plan-features">
-								<li>✔ Up to 25 Projects</li>
-								<li>✔ 2 Additional Developers</li>
-								<li>✔ Unlimited Support</li>
-								<li>✔ 1.5GB Disk Space</li>
+								<li>✔ 1000 Credit Points</li>
 							</ul>
 							<div>
-								<a href="#" class="payment-btn">Get Started</a>
+								<button class="payment-btn" id="pay-050">Get Started</button>
 							</div>
 						</div>
 					</div>
@@ -397,9 +391,43 @@
 			</div>
 		</div>
 	</div>
+	<!-- all 태그 끝! -->
+	</div>
 
 	<script src="./resources/js_main.js"></script>
 	<script src="./resources/modal.js"></script>
 	<script src="./resources/upload_board.js"></script>
+	<script src="./resources/Payment.js"></script>
+	<script src="./resources/payment_mainPage.js"></script>
+	<script>
+	// Mainpage 아래에서 구매버튼 누르면 해당 값을 가지고 paymentpage로 이동
+	// jsp 안에서 script하면 잘되더라.. 그런데 왜 외부 js로 옮기면 안되는걸까.
+
+	  	const pay010 = document.getElementById('pay-010');
+		const pay025 = document.getElementById('pay-025');
+	  	const pay050 = document.getElementById('pay-050');
+	  	
+	  	pay010.addEventListener("click",()=>{
+			console.log('pay010 clicked');
+			localStorage.setItem("payment", "10");		
+			console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
+			window.location.href = "http://localhost:8085/data_at/PaymentPage";
+	  	 });
+	  	 
+	  	 pay025.addEventListener("click",()=>{
+			console.log('pay025 clicked');
+			localStorage.setItem("payment", "25");		
+			console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
+			window.location.href = "http://localhost:8085/data_at/PaymentPage";
+	  	 });
+	  	 
+	  	 pay050.addEventListener("click",()=>{
+			console.log('pay050 clicked');
+			localStorage.setItem("payment", "50");		
+			console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
+			window.location.href = "http://localhost:8085/data_at/PaymentPage";
+	  	 });
+	  	 
+	</script>	
 </body>
 </html>

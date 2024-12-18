@@ -1184,11 +1184,7 @@ nav #logo {
     transform: scale(1.05);
 }
 
-/* Featured Card */
-.featured {
-    border: 2px solid #007bff;
-    padding: 22px;
-}
+
 
 /* Plan Title */
 .plan-title {
@@ -1439,7 +1435,7 @@ label {
 input[type="text"], select {
     width: 638px;
     padding: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 5px;
 }
 

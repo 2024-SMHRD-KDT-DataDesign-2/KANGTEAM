@@ -180,14 +180,11 @@
     <div id="creditPurchase-page" style="display: none;">           
          <div class="top-section">
             <div class="user-info">
-                <div contenteditable="false" id="name">아무거나 적어주세요</div>
-                <div contenteditable="false" id="email">Email: {Data_At.gmail.com}</div>
-                <div contenteditable="false" id="phone">남는 div 칸입니다</div>
+                <div contenteditable="false" id="name"></div>
+                <div contenteditable="false" id="email"></div>
+                <div contenteditable="false" id="phone"></div>
             </div>
-            <div class="points-credit">
-                <div class="points">500 points</div>
-                <button class="use-credit-button" onclick="location.href='PaymentPage'" >Buy Credit</button>
-            </div>
+            
         </div>
         
         <div class="mission-section">
@@ -195,23 +192,23 @@
                 <div class="mission-card">
                     <h3>1000 Points</h3>
                     <p>Get for $50</p>
-                    <button class="button">Purchase</button>
+                    <button id="pay-50" class="button">Purchase</button>
                 </div>
                 <div class="mission-card">
                     <h3>500 Points</h3>
                     <p>Get for $25</p>
-                    <button class="button">Purchase</button>
+                    <button id="pay-25" class="button">Purchase</button>
                 </div>
                 <div class="mission-card">
                     <h3>300 Points</h3>
                     <p>Get for $15</p>
-                    <button class="button">Purchase</button>
+                    <button id="pay-15" class="button">Purchase</button>
                 </div>                
                
                 <div class="mission-card" >
                     <h3>200 Points</h3>
                     <p>Get for $10</p>
-                    <button class="button disabled">Purchase</button>
+                    <button id="pay-10" class="button">Purchase</button>
                 </div>
                  <!-- class="mission-card disabled"로 있는데 예비로 남겨만 둘게요 -->
                 <div class="mission-card disabled" style="display: none">
@@ -458,5 +455,7 @@
 
 
 	<script src="./resources/js_main.js"></script>
+	<script src="./resources/payment_mypage.js"></script>
+	<script src="./resources/Payment.js"></script>
 </body>
 </html>

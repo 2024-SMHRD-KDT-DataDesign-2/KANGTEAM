@@ -20,16 +20,16 @@
     		-->
                 <div class="payment-details">
                     <h2>Data.At을 이용해주셔서 감사합니다.</h2>
-                    <h1>US$100.00</h1>
+                    <h1>US$ <span id="pay-01"></span>.00</h1>
                     <div class="breakdown">
                         <p style="text-align: left;">구매할 Credit</p>
-                        <p style="text-align: right;">각 US$1.00</p>
+                        <p style="text-align: right;"><span id="pay-02"></span></p>
                     </div>
                     <div class="breakdown">
-                        <p style="text-align: left;">수량 100</p>
-                        <p style="text-align: right;">US$100.00</p>
+                        <p style="text-align: left;">total price</p>
+                        <p style="text-align: right;">US$<span id="pay-03"></span>.00</p>
                     </div>
-                    <p class="total">지불 총액: <strong>US$100.00</strong></p>
+                    <p class="total">지불 총액: <strong>US$<span id="pay-04"></span>.00</strong></p>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                     <div class="footer">
                         <span id="input-spansize">
                         <span class="powered-by">
-                            Powered by <strong>stripe</strong>
+                            Powered by <strong>Data.At</strong>
                         </span>
                         <span class="divider"></span>
                         <a href="#" class="footer-link">약관</a>
@@ -65,6 +65,37 @@
         </div>
         
     </div>
-    <script src="/test_최종프로젝트/js/test5.js"></script>
+    <script src="./resources/payment_mypage.js"></script>
+    <script src="./resources/Payment.js"></script>
+   	<script>
+   
+   	
+    console.log(`Payment value22: ${paymentValue}`);
+    
+ // localStorage에서 'payment'라는 key의 값을 가져옵니다.
+    const paymentValue22 = localStorage.getItem('payment');
+
+    // 가져온 값을 확인합니다.
+    console.log('Payment Value:', paymentValue22); // 성공!!	
+    console.log('Payment Value22:', paymentValue22); // 성공!!	
+    console.log(`Payment value22 EL: \${paymentValue22}`); // 실패
+
+    // 값을 숫자로 변환하려면
+    const paymentNumber = Number(paymentValue22);
+    console.log('Payment Number:', paymentNumber); // 성공!!
+    
+    console.log('Type of paymentValue22:', typeof paymentValue22);
+    console.log('Payment Value22:', paymentValue22);
+    console.log(`Payment value22: \${paymentValue22}`);
+    
+    if (paymentValue22 === null) {
+        console.log('paymentValue22 is null');
+    } else if (paymentValue22.trim() === '') {
+        console.log('paymentValue22 is an empty string');
+    } else {
+        console.log('Payment value22 is:', paymentValue22);
+    }
+   	</script> 
+   
 </body>
 </html>
