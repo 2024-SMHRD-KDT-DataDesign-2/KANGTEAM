@@ -269,6 +269,7 @@
 		    <div class="panel-container">
 		    	<div class="panel-content">
 		        	<p>Drag & drop files to upload</p>
+        			 <div id="fileInfo"></div>
 		        	<button class="upload-btn" id="uploadcontentbtn">Upload Content</button>
 		      	</div>
 		    </div>
@@ -308,8 +309,8 @@
 				<div class="form-group">
 					<label>FILES</label>
 					<div class="file-list">
-						<div class="file-item">
-							<span>📄 Animals.zip (1.93 MB)</span> 
+						<div class="file-item" >
+							<p> <span id="zip-name"> </span> <span id="zip-size"> </span> </p> 
 							<!--  <span >&times;</span> -->
 						</div>
 					</div>
@@ -324,6 +325,8 @@
 			</div>
 
 		</div>
+
+		
 
 
 	</div>

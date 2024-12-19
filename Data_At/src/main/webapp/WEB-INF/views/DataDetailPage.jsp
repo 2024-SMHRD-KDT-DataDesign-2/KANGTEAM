@@ -131,7 +131,11 @@ CLIP은 이미지와 텍스트 간의 연관성을 학습하여 각 이미지의
 					<!-- 페이지에 이미지 출력하기 from json -->						 					
 	 				<div id="file-system" class="scrollbar style-8">
 	 					
-	 				</div>						
+	 				</div>	
+	 				<!-- 우측에 파일 목록 띄우기 -->
+					<div id="file-list" class="scrollbar style-8">
+							 						     			       				    
+		    		</div>					
 		    	</div>
     	<!-- 파일시스템 uiux 끝 -->
     

@@ -1,5 +1,68 @@
+// Drag and Drop 기능 구현
+
+const panelContent = document.querySelector('.panel-content');
+
+// panelContent 유무 확인
+if (!panelContent) {
+    console.error("Error222: .panel-content element not found.");
+} else {
+    console.log("Drag and drop element found:", panelContent);
+}
+
+// zip 파일 업로드 관련 변수 설정 
+const fileInfoDiv = document.getElementById('fileInfo');
+
+let fName = '';
+let fType = '';
+let fSize = '';
+
+ // Drag events
+panelContent.addEventListener('dragover', (event) => {
+    event.preventDefault();
+	console.log('drag event done');
+    panelContent.classList.add('drag-over');
+});
+
+panelContent.addEventListener('dragleave', () => {
+	console.log('dragleave event done');
+    event.preventDefault();
+    panelContent.classList.remove('drag-over');
+});
+
+panelContent.addEventListener('drop', (event) => {
+	console.log('drop event done');
+    event.preventDefault();
+    panelContent.classList.remove('drag-over');
+
+    const file = event.dataTransfer.files[0];
+    if (file) {
+        const fileName = file.name;
+        const fileType = file.type || 'Unknown type';
+        const fileSize = (file.size / 1024).toFixed(2) + ' KB';
+        
+        fName= fileName;
+        console.log(fName);
+        fType= fileType;
+        fSize= fileSize;
+
+        fileInfoDiv.innerHTML = `
+            <p><strong>File Name:</strong> ${fileName}</p>
+            <p><strong>File Type:</strong> ${fileType}</p>
+            <p><strong>File Size:</strong> ${fileSize}</p>
+        `;
+    } else {
+      fileInfoDiv.innerHTML = `<p style="color:red;">Please drop a valid ZIP file.</p>`;
+    }
+});
+
+
+// 우측 두번째 패널 열기
 const uploadbtn = document.getElementById('uploadcontentbtn');
 const newDatasetPanel2 = document.getElementById('newDatasetPanel2');
+
+// span 태그에 zip 이름, 사이즈 출력할 변수
+zipnameSpanTag = document.getElementById('zip-name'); 
+zipsizeSpanTag = document.getElementById('zip-size'); 
 
 uploadbtn.addEventListener('click', () => {
 	console.log('uploadcontentbtn clicked');
@@ -7,6 +70,8 @@ uploadbtn.addEventListener('click', () => {
   	newDatasetPanel.classList.remove('visible');
 	newDatasetPanel2.classList.add('visible');
   	newDatasetPanel2.classList.remove('hidden');
+  	zipnameSpanTag.innerText = fName;
+  	zipsizeSpanTag.innerText = fSize;
 
 });
 
