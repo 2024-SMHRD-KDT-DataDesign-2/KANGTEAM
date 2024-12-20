@@ -432,6 +432,15 @@ header p {
 	border-bottom: 2px solid #dee2e6;
 }
 
+.tabs2 {
+	list-style: none;
+	padding: 0;
+	margin: 20px 0;
+	display: flex;
+	border-bottom: 2px solid #dee2e6;
+}
+
+
 .tabs li {
 	padding: 10px 15px;
 	cursor: pointer;

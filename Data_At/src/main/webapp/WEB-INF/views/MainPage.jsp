@@ -204,6 +204,26 @@
 
 					</div>
 				</div>
+				
+				<div class="features-section2">
+					<div class="features-container2">
+						<div class="flex-1">
+							<img src="./resources/images/mainpage/bgImage03.png"
+								alt="photos.png" class="photos">
+						</div>
+	
+						<div class="flex-1 montserrat">
+							<h3>DATA SHARING PLATFORM</h3>
+							<p>Our data sharing service enables users to easily share their
+							 data with others through a seamless platform. By simply uploading files,
+							 users can distribute their data efficiently, while others can freely
+							 download it when needed. This platform facilitates smooth collaboration
+							 and ensures secure data exchange. It is designed to be user-friendly and adaptable,
+							 supporting various applications in business, research, and beyond. With this service,
+							 sharing data becomes simple, accessible, and highly effective.</p>
+						</div>
+					</div>
+				</div>
 
 				<div>
 					<section class="pricing-section Helvetica">
