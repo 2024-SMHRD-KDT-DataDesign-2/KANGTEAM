@@ -96,7 +96,7 @@
 			<div class="data-content">
 				<div class="flex-box">
 					<h2>About Dataset</h2>
-					<button class="new-dataset-btn" id="new-dataset-btn">Download</button>
+					<button class="new-dataset-btn" id="new-dataset-btn" onclick="downloadFile()">Download</button>
 				</div>
 				<div style="white-space: pre-line;" >				
 					<div id="data-info">                
@@ -106,6 +106,8 @@
                    			<ul>Uploader : ${detail.user_nick}</ul>
                    			<ul>Uploaded Date : ${detail.created_at}</ul>         			
                    		</li>
+                   		<!-- <input type="hidden" id="img_id" value="${detail.img_id}"> -->
+                   		<input type="hidden" id="img_id" value="24d9c0bb-c151-4f3c-8d85-1025faf3f9ae.png">
                    		<p>
                    			${detail.img_content}
                    		</p>
@@ -159,7 +161,23 @@
 <script src="./resources/chart.js?v=1.0"></script>
 <script src="./resources/printJsonImages.js?v=1.0"></script>
 <script type="text/javascript">
-
+	function downloadFile() {
+		const img_id = $("#img_id").val() ;
+		
+		console.log(img_id) ;
+		
+		$.ajax({
+			url : "zipdownload",
+			type : "POST",
+			data : {"img_id" : img_id},
+			success : function() {
+				alert("download...") ;
+			},
+			error : function() {
+				alert("...........?") ;
+			}
+		}) ;
+	}
 </script>
 </body>
 </html>

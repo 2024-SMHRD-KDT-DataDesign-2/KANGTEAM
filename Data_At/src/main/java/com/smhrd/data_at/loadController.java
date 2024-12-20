@@ -186,16 +186,17 @@ public class loadController {
 		return "";
 	}
 
-	@RequestMapping(value = "/zipdownload", method = RequestMethod.GET)
-	public void downloadImages(HttpServletResponse response, @RequestParam("user_id") String user_id,
-			@RequestParam("created_at") String created_at) throws IOException {
+	@RequestMapping(value = "/zipdownload", method = RequestMethod.POST)
+	public void downloadImages(HttpServletResponse response, @RequestParam("img_id") String img_id) throws IOException {
 		List<String> imageUrls = new ArrayList<>();
 
 		data d = new data();
-		d.setUser_id(user_id);
-		d.setCreated_at(created_at);
+		d.setImg_id(img_id) ;
 
 		List<String> list = loadmapper.urlSelect(d);
+		
+		System.out.println(list.toString());
+		
 		imageUrls.addAll(list);
 
 		// ZIP 파일 설정

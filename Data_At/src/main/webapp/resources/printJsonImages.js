@@ -12,24 +12,35 @@ dropZone.addEventListener('dragleave', () => {
   dropZone.classList.remove('dragover');
 });
 
-dropZone.addEventListener('drop', (event) => {
-  event.preventDefault();
-  dropZone.classList.remove('dragover');
-  
-  const file = event.dataTransfer.files[0];
-  if (!file || file.type !== 'application/json') {
-    alert('Please drop a valid JSON file.');
-    return;
-  }
+$(document).ready(function () {
+  const img_id = $("#img_id").val() ;
 
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    const json = JSON.parse(e.target.result);
-    fileSystem.innerHTML = ''; // Clear previous content
-    displayJsonStructure(json, fileSystem);
-    displayJsonAsList(json, fileList); // Pass the JSON to the display function
-  };
-  reader.readAsText(file);
+  $.ajax({
+  	url : "jsonImageSelect",
+  	type : "POST",
+  	data : {"img_id" : img_id},
+  	success : function (response) {
+  	  console.log("jsonImage : ", response) ;
+  		
+	  const file = response ;
+	  if (!file || file.type !== 'application/json') {
+	    alert('Please drop a valid JSON file.');
+	    return;
+	  }
+	
+	  const reader = new FileReader();
+	  reader.onload = (e) => {
+	    const json = JSON.parse(e.target.result);
+	    fileSystem.innerHTML = ''; // Clear previous content
+	    displayJsonStructure(json, fileSystem);
+	    displayJsonAsList(json, fileList); // Pass the JSON to the display function
+	  };
+	  reader.readAsText(file);
+  	},
+  	error : function() {
+  		alert("실패") ;
+  	}
+  }) ;
 });
 
 // JSON 파일 이미지 출력 

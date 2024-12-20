@@ -11,7 +11,7 @@ import com.smhrd.entity.data;
 @Mapper
 public interface loadMapper {
 	
-	@Select("select img_url from tb_data_img where user_id = #{user_id} and created_at = #{created_at}")
+	@Select("select img_url from tb_object_img where img_id = #{img_id}")
 	public List<String> urlSelect(data data);
 
 }
