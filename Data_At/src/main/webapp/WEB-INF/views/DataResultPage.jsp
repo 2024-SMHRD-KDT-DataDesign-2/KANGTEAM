@@ -112,11 +112,11 @@
 							</div>
 							<div class="block-content right">
 								<div>
-									<a class="title" href="detailPage?img_idx=${data.img_idx}'">${data.img_title}</a>
+									<a class="title" href="detailPage?img_idx=${data.img_idx}">${data.img_title}</a>
 								</div>
 								<div>
 									<p>
-										uploaded in {data.created_at} by <span
+										uploaded in ${data.created_at} by <span
 											class="underline">${data.user_nick}</span>
 									</p>
 								</div>

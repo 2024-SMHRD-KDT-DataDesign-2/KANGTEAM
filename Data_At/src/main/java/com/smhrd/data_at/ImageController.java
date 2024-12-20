@@ -19,9 +19,10 @@ public class ImageController {
 	private ImageDetail imagedetail;
 	
 	@RequestMapping("/detailPage")
-	public String getDetailPage(@RequestParam("img_idx") int imgIdx, Model model) {
+	public String getDetailPage(@RequestParam("img_idx") String imgIdx, Model model) {
 		// img_idx를 이용해 데이터베이스에서 상세 정보 가져오기
-		search detail = imagedetail.getImageDetailById(imgIdx);
+		
+		search detail = imagedetail.getImageDetailById(Integer.parseInt(imgIdx));
 
 		// 데이터 모델에 추가
 		model.addAttribute("detail", detail);
