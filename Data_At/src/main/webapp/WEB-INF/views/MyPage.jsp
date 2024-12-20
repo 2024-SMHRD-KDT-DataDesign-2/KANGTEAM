@@ -29,12 +29,7 @@
 		    			<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
 		    		</div> 
 		    	
-		    		<div class="right-div">
-		    			<a href="" id="uploaded-btn"> Uploaded </a>
-		    		</div>
-		    		<div class="right-div">
-		    			<a href="" id="downloaded-btn"> Downloaded </a>
-		    		</div>
+		    		
 		    		<div class="right-div">
 		    			<a href="" id= "credits-btn"> Credit </a>
 		    		</div>
@@ -92,36 +87,63 @@
       <p>Control over your account and all communications</p>
     </header>
     <nav>
-      <ul class="tabs">
-        <li class="active">Account</li>
+      <ul class="tabs2">
+        <li class="active2" id="account-btn">Account</li>
+        <li id="myupload-btn">MyUpload</li>
       </ul>
     </nav>
-    <main>
-    
-      <section class="settings-section">
-					<h2>Your email address</h2>
-					<p>${info.user_id}</p>
-				</section>
-
-				<section class="settings-section">
-					<h2>Your Nickname</h2>
-					<p>${info.user_nick}</p>
-					<button class="btn">Change Nickname</button>
-				</section>
-				<section class="settings-section">
-					<h2>Credit Saved</h2>
-					<p>${info.user_credit}</p>
-				</section>
-				<section class="settings-section">
-					<h2>Logout / Delete</h2>
-					<p>Logout or Delete</p>
-					<button class="btn"
-						onclick="window.location.href='/data_at/logout';">Log out</button>
-					<button class="btn"
-						onclick="window.location.href='/data_at/userDelete';">Delete
-						ID</button>
-				</section>
-    </main>
+     	<div id="account-page" style="display: block;">
+	      <section class="settings-section">
+	        <h2>Your email address</h2>
+	        <p>${info.user_id}</p>
+	
+	        <h2>Your Nickname</h2>
+	        <input class="search-input" type="text" placeholder="change nicknames" style="display: none" id="input-nickname"> 
+	        <p id="change-nickname">${info.user_nick}</p>
+	        <div>
+	        	<button class="btn" id="change-nickname-btn">Change Nickname</button>
+	      	</div>
+	        <h2>Credit Saved</h2>
+	        <p>${info.user_credit}</p>
+	        <h2>Logout / Delete</h2>
+	        <p>Logout or Delete</p>   
+	        <button class="btn" onclick="window.location.href='/data_at/logout';">Log out</button>
+            <button class="btn" onclick="window.location.href='/data_at/userDelete';">Delete ID</button>
+	      </section>
+       </div>
+     
+     	<div id="myupload-page" style="display: none;">
+     		<main>
+		     <section class="settings-section">
+		     
+		       <table>
+		       <tr>
+		           <th>Data Title</th>
+		           <th>Size</th>
+		           <th>Upload Date</th>
+		       </tr>
+		       <tr>
+		           <td>apple</td>
+		           <td>13.53MB</td>
+		           <td>2024-11-29</td>
+		       </tr>
+		       <tr>
+		           <td>apple juice</td>
+		           <td>212.45MB</td>
+		           <td>2024-11-30</td>
+		       </tr>
+		       <tr>
+		           <td>color of apple species</td>
+		           <td>143.67KB</td>
+		           <td>2024-01-02</td>
+		       </tr>
+		     </table>
+		
+		     </section>
+		    </main>
+     	</div>
+      
+      
   </div>
   
   <!-- credits 페이지  -->
@@ -191,7 +213,7 @@
                     <button class="button disabled">Locked</button>
                 </div>
             </div>
-    </div>
+    	</div>
     </div>
     
     	
@@ -200,235 +222,14 @@
    
  
   
-    <!-- 계정에서 업로드한 데이터 목록 페이지  -->
-    <div class="mypages-wrapper" id="uploaded-page" style="display: none;">
-    <header>
-      <h1>Uploaded data history</h1>
-      <p>search data uploaded</p>
-    </header>
-    
-    	<!--  검색바 -->
-    	<div class="center">
-		   	<div class="search-container">
-		    	<i class="fa fa-search search-icon"></i>
-		    	<input type="text" class="search-input" placeholder="Search datasets">
-			</div>
-		</div>
-       
-    <nav>
-      <ul class="tabs">
-        <li class="active">Datasets</li>
-        <li>Notes</li>
-      </ul>
-    </nav>
-    <main>
-  	 <div class="selection-container">
-  		<div>
-    		<input type="checkbox" id="select-all" />
-    		<label for="select-all">Select All</label>
-  		</div>
-  	<div>
-    <span id="selected-count">0 selected</span>
-  </div>
-   
-      <section class="settings-section">
-       <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 1</label>
-  				</div>
-       		
-        </div>
-        	<div class="section2">
-        		<div class = "title">
-        			{Data title1}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{136}
-        			</span>
-        			MB
-        		</span>          		 
-       		</div>       		 
-         </div>
-          
-      </section>
-       </div>
-      <section class="settings-section">
-      <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 2</label>
-  				</div>
-        	</div>
-        
-        	<div class="section2">
-        	   <div class = "title">
-        			{Data title2}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{345}
-        			</span>
-        			MB
-        		</span> 
-        		 
-       		</div>
-         </div>
-      </section>
-      
-      <section class="settings-section">
-      <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 3</label>
-  				</div>        	
-        </div>
-        	<div class="section2">
-        	    <div class = "title">
-        			{Data title3}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{15}
-        			</span>
-        			MB
-        		</span>
-       		</div>
-         </div>
-      </section>      
-      
-   </main>
-  </div>  
   
-  
-  <!-- 계정에서 다운로드한 데이터 목록 페이지  -->
-    <div class="mypages-wrapper" id="downloaded-page" style="display: none;">
-    <header>
-      <h1>Downloaded data history</h1>
-      <p>search data downloaded</p>
-    </header>
-  	   <!--  검색바 -->
-    	<div class="center">
-		   	<div class="search-container">
-		    	<i class="fa fa-search search-icon"></i>
-		    	<input type="text" class="search-input" placeholder="Search datasets">
-			</div>
-		</div>
-    <nav>
-      <ul class="tabs">
-        <li class="active">Datasets</li>
-        <li>Notes</li>
-      </ul>
-    </nav>
-    <main>
-  	 <div class="selection-container">
-  		<div>
-    		<input type="checkbox" id="select-all" />
-    		<label for="select-all">Select All</label>
-  		</div>
-  	<div>
-    <span id="selected-count">0 selected</span>
-  </div>
-   
-      <section class="settings-section">
-       <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 1</label>
-  				</div>
-       		
-        </div>
-        	<div class="section2">
-        		<div class = "title">
-        			{Data title1}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{136}
-        			</span>
-        			MB
-        		</span>          		 
-       		</div>       		 
-         </div>
           
-      </section>
-       </div>
-      <section class="settings-section">
-      <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 2</label>
-  				</div>
-        	</div>
-        
-        	<div class="section2">
-        	   <div class = "title">
-        			{Data title2}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{345}
-        			</span>
-        			MB
-        		</span> 
-        		 
-       		</div>
-         </div>
-      </section>
-      
-      <section class="settings-section">
-      <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 3</label>
-  				</div>        	
-        </div>
-        	<div class="section2">
-        	    <div class = "title">
-        			{Data title3}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{15}
-        			</span>
-        			MB
-        		</span>
-       		</div>
-         </div>
-      </section>      
-      
-   </main>
-  </div>          
   </div>                    
   
 
 
-	<script src="./resources/js_main.js"></script>
+	<script src="./resources/js_mypage.js"></script>
+	<script src="./resources/upload_board.js"></script>
 	<script src="./resources/payment_mypage.js"></script>
 	<script src="./resources/Payment.js"></script>
 </body>
