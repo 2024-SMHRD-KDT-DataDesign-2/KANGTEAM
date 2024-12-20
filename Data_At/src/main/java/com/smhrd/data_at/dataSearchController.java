@@ -17,7 +17,7 @@ public class dataSearchController {
 	@Autowired
 	public dataMapper datamapper;
 
-	@RequestMapping(value = "/dataSearch", method = RequestMethod.POST)
+	@RequestMapping(value = "/dataSearch", method = RequestMethod.GET)
 	public String dataSearchList(Model model, @RequestParam("search") String search) {
 		List<search> searchList = datamapper.searchList(search);
 
@@ -25,7 +25,7 @@ public class dataSearchController {
 
 		model.addAttribute("searchList", searchList);
 
-		return "SearchPage";
+		return "DataResultPage";
 	}
 
 }
