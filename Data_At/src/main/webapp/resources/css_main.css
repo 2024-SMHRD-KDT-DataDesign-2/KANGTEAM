@@ -1432,7 +1432,7 @@ label {
     margin-bottom: 8px;
 }
 
-input[type="text"], input[type="email"],select {
+input[type="text"], select {
     width: 638px;
     padding: 10px;
     /* border: 1px solid #ccc; */
