@@ -10,9 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class search {
-	private String user_nick ;
-	private String img_title ;	
-	private List<String> data_class ;
-	private String created_at ;
-	private String img_url ;
+   private String user_nick ;
+   private String img_title ;   
+   private List<String> data_class ;
+   private String created_at ;
+   private String img_url ;
+   private String img_id ;
+   private int img_idx ;
 }
