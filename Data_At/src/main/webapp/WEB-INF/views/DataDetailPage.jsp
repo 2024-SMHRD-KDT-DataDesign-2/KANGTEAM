@@ -81,10 +81,61 @@
 		    <div class="panel-container">
 		    	<div class="panel-content">
 		        	<p>Drag & drop files to upload</p>
-		        	<button class="upload-btn">Browse Files</button>
+		        	<button class="upload-btn" id="uploadcontentbtn">Upload Content</button>
 		      	</div>
 		    </div>
 	    </div>
+	    
+	      <!-- 적용 -->
+	    <div class="new-dataset-panel hidden" id="newDatasetPanel2">
+			<!-- 데이터 업로드 작성 div -->
+			<div class="panel-header">
+		       	<h2>Upload Data</h2>
+				<span class="close-btn" id="remove-uploadpanel2">&times;</span>
+	    	</div>
+			<div class="upload-container " id="uploadBoardPanel">
+				<!-- Dataset Title -->
+				<div class="form-group">
+					<label for="dataset-title">DATASET TITLE</label> 
+					<input type="text"	id="dataset-title" placeholder="Enter dataset title">
+				</div>
+
+				<!-- 클래스 태그 입력하기 -->
+				<div class="tag-container">
+					<h3>태그</h3>
+					<div id="tags">
+						<!-- 동적으로 태그가 추가될 영역 -->
+					</div>
+					<input type="text" id="tag-input"	placeholder="태그를 입력하고 Enter를 누르세요.">
+				</div>
+
+				<!-- Dataset Content -->
+				<div class="form-group">
+					<label for="dataset-content">DATASET CONTENT</label>
+					<!-- <input type="text" id="dataset-content" placeholder="Enter dataset content"> -->
+					<textarea id="dataset-content"></textarea>
+				</div>
+
+				<!-- Uploaded Files -->
+				<div class="form-group">
+					<label>FILES</label>
+					<div class="file-list">
+						<div class="file-item">
+							<span>📄 Animals.zip (1.93 MB)</span> 
+							<!--  <span >&times;</span> -->
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Bottom Buttons -->
+				<div class="footer">
+					<button id="reset-btn01">Reset</button>
+					<button class="create-btn" disabled>Create</button>
+				</div>
+			</div>
+
+		</div>
 	    
 	    <div class="list-box">
 			<div class="padding-10">
@@ -131,11 +182,11 @@ CLIP은 이미지와 텍스트 간의 연관성을 학습하여 각 이미지의
 					<!-- 페이지에 이미지 출력하기 from json -->						 					
 	 				<div id="file-system" class="scrollbar style-8">
 	 					
-	 				</div>	
-	 				<!-- 우측에 파일 목록 띄우기 -->
+	 				</div>			
+					<!-- 우측에 파일 목록 띄우기 -->
 					<div id="file-list" class="scrollbar style-8">
 							 						     			       				    
-		    		</div>					
+		    		</div>			
 		    	</div>
     	<!-- 파일시스템 uiux 끝 -->
     
@@ -164,5 +215,6 @@ CLIP은 이미지와 텍스트 간의 연관성을 학습하여 각 이미지의
 <script src="./resources/js_main.js?v=1.0"></script>
 <script src="./resources/chart.js?v=1.0"></script>
 <script src="./resources/printJsonImages.js?v=1.0"></script>
+<script src="./resources/upload_board.js"></script>
 </body>
 </html>

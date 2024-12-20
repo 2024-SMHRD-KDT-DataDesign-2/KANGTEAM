@@ -1,5 +1,4 @@
-// 화면 시연을 위한 더미 데이터 랜덤으로 넣기 
-// 클래스 80개
+ 
 const data_list = [];
 const data_index = [];
 

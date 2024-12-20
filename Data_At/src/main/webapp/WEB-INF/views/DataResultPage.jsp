@@ -76,11 +76,62 @@
 		    <div class="panel-container">
 		    	<div class="panel-content">
 		        	<p>Drag & drop files to upload</p>
-		        	<button class="upload-btn">Browse Files</button>
+		        	<button class="upload-btn" id="uploadcontentbtn">Upload Content</button>
 		      	</div>
 		      	
 		    </div>
 	    </div>
+	    
+	      <!-- 적용 -->
+	    <div class="new-dataset-panel hidden" id="newDatasetPanel2">
+			<!-- 데이터 업로드 작성 div -->
+			<div class="panel-header">
+		       	<h2>Upload Data</h2>
+				<span class="close-btn" id="remove-uploadpanel2">&times;</span>
+	    	</div>
+			<div class="upload-container " id="uploadBoardPanel">
+				<!-- Dataset Title -->
+				<div class="form-group">
+					<label for="dataset-title">DATASET TITLE</label> 
+					<input type="text"	id="dataset-title" placeholder="Enter dataset title">
+				</div>
+
+				<!-- 클래스 태그 입력하기 -->
+				<div class="tag-container">
+					<h3>태그</h3>
+					<div id="tags">
+						<!-- 동적으로 태그가 추가될 영역 -->
+					</div>
+					<input type="text" id="tag-input"	placeholder="태그를 입력하고 Enter를 누르세요.">
+				</div>
+
+				<!-- Dataset Content -->
+				<div class="form-group">
+					<label for="dataset-content">DATASET CONTENT</label>
+					<!-- <input type="text" id="dataset-content" placeholder="Enter dataset content"> -->
+					<textarea id="dataset-content"></textarea>
+				</div>
+
+				<!-- Uploaded Files -->
+				<div class="form-group">
+					<label>FILES</label>
+					<div class="file-list">
+						<div class="file-item">
+							<span>📄 Animals.zip (1.93 MB)</span> 
+							<!--  <span >&times;</span> -->
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Bottom Buttons -->
+				<div class="footer">
+					<button id="reset-btn01">Reset</button>
+					<button class="create-btn" disabled>Create</button>
+				</div>
+			</div>
+
+		</div>
 	    
 	    <!-- 데이터 결과 숫자, 필터 -->
 	    <div class="search-result">
@@ -114,7 +165,7 @@
 				            <p>uploaded in 24-12-16 by <span class="underline">Yoonho</span> </p>
 				        </div>
 					</div>
-					<div id="data-info">
+					<div class="data-info">
 						<span>apple</span> <span>banana</span> <span>melon</span> <span>pear</span> <span>dragonfruit</span> <span>grape</span> <span>orange</span> <span>peach</span>
 					</div>
 		    	</div>
@@ -134,7 +185,7 @@
 				            <p>uploaded in 24-12-15 by <span class="underline">Unkyung</span> </p>
 				        </div>
 					</div>
-					<div id="data-info">
+					<div class="data-info">
 						<span>red</span> <span>green</span>  <span>white</span> <span>pink</span>
 					</div>
 		    	</div>
@@ -154,7 +205,7 @@
 				            <p>uploaded in 24-12-13 by <span class="underline">Chickenlove</span> </p>
 				        </div>
 					</div>
-					<div id="data-info">
+					<div class="data-info">
 						<span>juice</span> <span>sauce</span>  <span>jam</span> <span>water</span> <span>drink</span>
 					</div>
 		    	</div>
@@ -174,7 +225,7 @@
 				            <p>uploaded in 24-12-12 by <span class="underline">Spacehallway</span> </p>
 				        </div>
 					</div>
-					<div id="data-info">
+					<div class="data-info">
 						<span>apple</span> <span>greenapple</span>  <span>whiteapple</span> <span>square</span> <span>circle</span>  <span>triangle</span>
 					</div>
 		    	</div>
@@ -194,7 +245,7 @@
 				            <p>uploaded in 24-12-11 by <span class="underline">InsideEvening</span> </p>
 				        </div>
 					</div>
-					<div id="data-info">
+					<div class="data-info">
 						<span>color</span> <span>size</span>  <span>mixed</span> <span>shape</span> 
 					</div>
 		    	</div>
@@ -211,6 +262,7 @@
 	   
 <script src="./resources/js_main.js"></script>
 <script src="./resources/pageLocation.js"></script>
+<script src="./resources/upload_board.js"></script>
 
 </body>
 </html>

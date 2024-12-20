@@ -27,12 +27,7 @@
 		    			<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
 		    		</div> 
 		    	
-		    		<div class="right-div">
-		    			<a href="" id="uploaded-btn"> Uploaded </a>
-		    		</div>
-		    		<div class="right-div">
-		    			<a href="" id="downloaded-btn"> Downloaded </a>
-		    		</div>
+		    		
 		    		<div class="right-div">
 		    			<a href="" id= "credits-btn"> Credit </a>
 		    		</div>
@@ -78,10 +73,61 @@
       <div class="panel-container">
       	<div class="panel-content">
         	<p>Drag & drop files to upload</p>
-        	<button class="upload-btn">Browse Files</button>
+        	<button class="upload-btn" id="uploadcontentbtn">Upload Content</button>
       	</div>
       </div>
     </div>
+     <!-- 적용 -->
+	    <div class="new-dataset-panel hidden" id="newDatasetPanel2">
+			<!-- 데이터 업로드 작성 div -->
+			<div class="panel-header">
+		       	<h2>Upload Data</h2>
+				<span class="close-btn" id="remove-uploadpanel2">&times;</span>
+	    	</div>
+			<div class="upload-container " id="uploadBoardPanel">
+				<!-- Dataset Title -->
+				<div class="form-group">
+					<label for="dataset-title">DATASET TITLE</label> 
+					<input type="text"	id="dataset-title" placeholder="Enter dataset title">
+				</div>
+
+				<!-- 클래스 태그 입력하기 -->
+				<div class="tag-container">
+					<h3>태그</h3>
+					<div id="tags">
+						<!-- 동적으로 태그가 추가될 영역 -->
+					</div>
+					<input type="text" id="tag-input"	placeholder="태그를 입력하고 Enter를 누르세요.">
+				</div>
+
+				<!-- Dataset Content -->
+				<div class="form-group">
+					<label for="dataset-content">DATASET CONTENT</label>
+					<!-- <input type="text" id="dataset-content" placeholder="Enter dataset content"> -->
+					<textarea id="dataset-content"></textarea>
+				</div>
+
+				<!-- Uploaded Files -->
+				<div class="form-group">
+					<label>FILES</label>
+					<div class="file-list">
+						<div class="file-item">
+							<span>📄 Animals.zip (1.93 MB)</span> 
+							<!--  <span >&times;</span> -->
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Bottom Buttons -->
+				<div class="footer">
+					<button id="reset-btn01">Reset</button>
+					<button class="create-btn" disabled>Create</button>
+				</div>
+			</div>
+
+		</div>
+    
 	
 	<!-- 개인정보 settings 페이지  -->
 	<div class="mypages-wrapper" id="settings-page" style="display: block;">
@@ -90,40 +136,63 @@
       <p>Control over your account and all communications</p>
     </header>
     <nav>
-      <ul class="tabs">
-        <li class="active">Account</li>
-        <li>Notifications</li>
+      <ul class="tabs2">
+        <li class="active2" id="account-btn">Account</li>
+        <li id="myupload-btn">MyUpload</li>
       </ul>
     </nav>
-    <main>
-    
-      <section class="settings-section">
-        <h2>Your email address</h2>
-        <p>miracleray1223@gmail.com</p>
-        <button class="btn">Change email</button>
-      </section>
-
-      <section class="settings-section">
-        <h2>Your Nickname</h2>
-        <p>testNick_haha</p>
-        <button class="btn">Change Nickname</button>
-      </section>
-      <section class="settings-section">
-        <h2>Credit history</h2>
-        <p>You can check your credit usage history</p>
-        <button class="btn">Check My Credits</button>
-      </section>
-      <section class="settings-section">
-        <h2>Credit Saved</h2>
-        <p>my credits : 20000</p>
-      </section>
-      <section class="settings-section">
-        <h2>Logout / Delete</h2>
-        <p>Logout or Delete</p>   
-        <button class="btn">Log out</button>
-        <button class="btn">Delete ID</button>
-      </section>
-    </main>
+     	<div id="account-page" style="display: block;>
+	      <section class="settings-section">
+	        <h2>Your email address</h2>
+	        <p>miracleray1223@gmail.com</p>
+	
+	        <h2>Your Nickname</h2>
+	        <input class="search-input" type="text" placeholder="change nicknames" style="display: none" id="input-nickname"> 
+	        <p id="change-nickname">MegaChic</p>
+	        <div>
+	        	<button class="btn" id="change-nickname-btn">Change Nickname</button>
+	      	</div>
+	        <h2>Credit Saved</h2>
+	        <p>my credits : 20000</p>
+	        <h2>Logout / Delete</h2>
+	        <p>Logout or Delete</p>   
+	        <button class="btn">Log out</button>
+	        <button class="btn" id="delete-id-btn">Delete ID</button>
+	      </section>
+       </div>
+     
+     	<div id="myupload-page" style="display: none;">
+     		<main>
+		     <section class="settings-section">
+		     
+		       <table>
+		       <tr>
+		           <th>Data Title</th>
+		           <th>Size</th>
+		           <th>Upload Date</th>
+		       </tr>
+		       <tr>
+		           <td>apple</td>
+		           <td>13.53MB</td>
+		           <td>2024-11-29</td>
+		       </tr>
+		       <tr>
+		           <td>apple juice</td>
+		           <td>212.45MB</td>
+		           <td>2024-11-30</td>
+		       </tr>
+		       <tr>
+		           <td>color of apple species</td>
+		           <td>143.67KB</td>
+		           <td>2024-01-02</td>
+		       </tr>
+		     </table>
+		
+		     </section>
+		    </main>
+     	</div>
+      
+      
   </div>
   
   <!-- credits 페이지  -->
@@ -218,243 +287,55 @@
                 </div>
             </div>
     </div>
-    </div>
+    
+</div>
     
     	
     
-    </div>
+  
    
  
   
-    <!-- 계정에서 업로드한 데이터 목록 페이지  -->
-    <div class="mypages-wrapper" id="uploaded-page" style="display: none;">
-    <header>
-      <h1>Uploaded data history</h1>
-      <p>search data uploaded</p>
-    </header>
-    
-    	<!--  검색바 -->
-    	<div class="center">
-		   	<div class="search-container">
-		    	<i class="fa fa-search search-icon"></i>
-		    	<input type="text" class="search-input" placeholder="Search datasets">
-			</div>
-		</div>
-       
-    <nav>
-      <ul class="tabs">
-        <li class="active">Datasets</li>
-        <li>Notes</li>
-      </ul>
-    </nav>
-    <main>
-  	 <div class="selection-container">
-  		<div>
-    		<input type="checkbox" id="select-all" />
-    		<label for="select-all">Select All</label>
-  		</div>
-  	<div>
-    <span id="selected-count">0 selected</span>
-  </div>
    
-      <section class="settings-section">
-       <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 1</label>
-  				</div>
-       		
-        </div>
-        	<div class="section2">
-        		<div class = "title">
-        			{Data title1}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{136}
-        			</span>
-        			MB
-        		</span>          		 
-       		</div>       		 
-         </div>
-          
-      </section>
-       </div>
-      <section class="settings-section">
-      <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 2</label>
-  				</div>
-        	</div>
-        
-        	<div class="section2">
-        	   <div class = "title">
-        			{Data title2}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{345}
-        			</span>
-        			MB
-        		</span> 
-        		 
-       		</div>
-         </div>
-      </section>
-      
-      <section class="settings-section">
-      <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 3</label>
-  				</div>        	
-        </div>
-        	<div class="section2">
-        	    <div class = "title">
-        			{Data title3}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{15}
-        			</span>
-        			MB
-        		</span>
-       		</div>
-         </div>
-      </section>      
-      
-   </main>
-  </div>  
   
   
-  <!-- 계정에서 다운로드한 데이터 목록 페이지  -->
-    <div class="mypages-wrapper" id="downloaded-page" style="display: none;">
-    <header>
-      <h1>Downloaded data history</h1>
-      <p>search data downloaded</p>
-    </header>
-  	   <!--  검색바 -->
-    	<div class="center">
-		   	<div class="search-container">
-		    	<i class="fa fa-search search-icon"></i>
-		    	<input type="text" class="search-input" placeholder="Search datasets">
-			</div>
-		</div>
-    <nav>
-      <ul class="tabs">
-        <li class="active">Datasets</li>
-        <li>Notes</li>
-      </ul>
-    </nav>
-    <main>
-  	 <div class="selection-container">
-  		<div>
-    		<input type="checkbox" id="select-all" />
-    		<label for="select-all">Select All</label>
-  		</div>
-  	<div>
-    <span id="selected-count">0 selected</span>
-  </div>
-   
-      <section class="settings-section">
-       <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 1</label>
-  				</div>
-       		
-        </div>
-        	<div class="section2">
-        		<div class = "title">
-        			{Data title1}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{136}
-        			</span>
-        			MB
-        		</span>          		 
-       		</div>       		 
-         </div>
-          
-      </section>
-       </div>
-      <section class="settings-section">
-      <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 2</label>
-  				</div>
-        	</div>
-        
-        	<div class="section2">
-        	   <div class = "title">
-        			{Data title2}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{345}
-        			</span>
-        			MB
-        		</span> 
-        		 
-       		</div>
-         </div>
-      </section>
-      
-      <section class="settings-section">
-      <div class="container-test">
-        <div class="section1">
-        	<div class="item">
-    			<input type="checkbox" class="item-checkbox" />
-    			<label>Item 3</label>
-  				</div>        	
-        </div>
-        	<div class="section2">
-        	    <div class = "title">
-        			{Data title3}	
-        		</div>
-        		<span class="details">
-        			{creator id} · Updated {3 days} ago
-        		</span>
-        		<span class="info">
-        			<span>
-        				{15}
-        			</span>
-        			MB
-        		</span>
-       		</div>
-         </div>
-      </section>      
-      
-   </main>
-  </div>          
-  </div>                    
+           
+                     
+  <script>
   
+//마이페이지 닉네임 변경 버튼 기능
+  	const nicknameInput = document.getElementById('input-nickname');
+	const nicknameDisplay = document.getElementById('change-nickname');
+	const nicknameButton = document.getElementById('change-nickname-btn');
+	
+	nicknameButton.addEventListener('click', () => {
+		console.log('nicknameButton clicked');
+	    if (nicknameButton.textContent === 'Change Nickname') {
+	        // Step 2: Show input, hide current nickname, change button text
+	        nicknameInput.style.display = 'block';
+	        nicknameDisplay.style.display = 'none';
+	        nicknameButton.textContent = 'Submit';
+	    } else if (nicknameButton.textContent === 'Submit') {
+	        // Step 5: Update nickname, hide input, show current nickname
+	        const newNickname = nicknameInput.value;
+	        if (newNickname.trim() !== '') {
+	            nicknameDisplay.textContent = newNickname;
+	        }
+	        nicknameInput.style.display = 'none';
+	        nicknameDisplay.style.display = 'block';
+	        nicknameButton.textContent = 'Change Nickname';
+	    }
+	});
+	
 
 
-	<script src="./resources/js_main.js"></script>
+
+ 
+  </script>
+
+
+	<script src="./resources/js_mypage.js"></script>
+	<script src="./resources/upload_board.js"></script>
 	<script src="./resources/payment_mypage.js"></script>
 	<script src="./resources/Payment.js"></script>
 </body>

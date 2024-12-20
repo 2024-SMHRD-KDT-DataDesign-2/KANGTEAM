@@ -1,32 +1,48 @@
 
-// Example interactivity for the "Search" button
 
-	// 메인페이지 전환하기 ㅇㅇ
-	// 모든 div 요소 가져오기
-		    const divs = document.querySelectorAll('.background-box > div');
-		    let currentIndex = 0; // 현재 보이는 div의 인덱스
+
+// 메인페이지 전환하기 ㅇㅇ
+// 모든 div 요소 가져오기
+	    const divs = document.querySelectorAll('.background-box > div');
+	    let currentIndex = 0; // 현재 보이는 div의 인덱스
+	
+	    // 5초마다 div를 번갈아 표시
+	    function cycleDivs() {
+	        // 모든 div를 숨김
+	        divs.forEach(div => div.style.display = 'none');
+	
+	        // 현재 인덱스에 해당하는 div만 표시
+	        divs[currentIndex].style.display = 'flex';
+	
+	        // 다음 인덱스 계산
+	        currentIndex = (currentIndex + 1) % divs.length;
+	    }
+	
+	    // 페이지 로드 시 첫 번째 div 표시 및 setInterval 시작
+	document.addEventListener("DOMContentLoaded", () => {
+		console.log("Settings Page Loaded");
+		console.log(document.getElementById('new-dataset-btn')); // 버튼이 정상적으로 선택되는지 확인
+		console.log(document.getElementById('newDatasetPanel')); // 패널이 정상적으로 선택되는지 확인
 		
-		    // 5초마다 div를 번갈아 표시
-		    function cycleDivs() {
-		        // 모든 div를 숨김
-		        divs.forEach(div => div.style.display = 'none');
+	    divs.forEach(div => div.style.display = 'none'); // 초기화: 모든 div 숨김
+	    divs[0].style.display = 'flex'; // 첫 번째 div 표시
+	    setInterval(cycleDivs, 5000); // 5초마다 실행
+	    
+	    
+	    
+	   
+	});
 		
-		        // 현재 인덱스에 해당하는 div만 표시
-		        divs[currentIndex].style.display = 'flex';
-		
-		        // 다음 인덱스 계산
-		        currentIndex = (currentIndex + 1) % divs.length;
-		    }
-		
-		    // 페이지 로드 시 첫 번째 div 표시 및 setInterval 시작
-		document.addEventListener("DOMContentLoaded", () => {
-			console.log(document.getElementById('new-dataset-btn')); // 버튼이 정상적으로 선택되는지 확인
-			console.log(document.getElementById('newDatasetPanel')); // 패널이 정상적으로 선택되는지 확인
-			
-		    divs.forEach(div => div.style.display = 'none'); // 초기화: 모든 div 숨김
-		    divs[0].style.display = 'flex'; // 첫 번째 div 표시
-		    setInterval(cycleDivs, 5000); // 5초마다 실행
+// 계정 삭제 기능    
+// 제발... 적용좀 되게 해주세요...
+	const deleteIdBtn = document.getElementById('delete-id-btn');
+
+	if(deleteIdBtn){   // if문 안걸어주면 오류나서 우측상단 목록아이콘 클릭이 안먹힙니다 ㅠㅠ.
+		deleteIdBtn.addEventListener('click', () => {
+			alert('Your Account is being Deleted');
 		});
+	}
+
 
 
 
@@ -64,158 +80,23 @@ newDatasetBtn.addEventListener('click', () => {
 
 
 // Close the panel when the "X" button is clicked
+// close 버튼 누르면 이전에 입력한 id='fileInfo' div의 내용도 사라져야한다.
+
+// zip 파일 업로드 관련 변수 설정
+// 다른 외부 script와 변수명이 같으면 js파일이 다 고장납니다 ^^  
+const fileInfoDiv2 = document.getElementById('fileInfo');  
 
 closePanelBtn.addEventListener('click', () => {
   newDatasetPanel.classList.remove('visible');
+  // id='fileinfo' div의 내용물 초기화
+  fileInfoDiv2.innerHTML = '';
 });
 
 
 
   
   
-  // 마이페이지 버튼 클릭할때마다 페이지 전환 
-  
-  document.addEventListener('DOMContentLoaded', () => {
-  
-  const settingsPage = document.getElementById('settings-page');
-  const creditsPage = document.getElementById('credits-page');
-  
-  const creditHistoryPage = document.getElementById('creditHistory-page');
-  const creditPurchasePage = document.getElementById('creditPurchase-page');
-  
-  const uploadedPage = document.getElementById('uploaded-page');  
-  const downloadedPage = document.getElementById('downloaded-page');
-  
-
-  
-  
-  const settingsBtn = document.getElementById('settings-btn');
-  const creditsBtn = document.getElementById('credits-btn');
-  
-  const creditHistoryBtn = document.getElementById('history-btn');
-  const purchaseBtn = document.getElementById('purchase-btn'); 
-  
-  const uploadedBtn = document.getElementById('uploaded-btn');
-  const downloadedBtn = document.getElementById('downloaded-btn');
-  
-
-  // 초기 설정: Settings 페이지만 보이도록 설정
-  settingsPage.style.display = 'block';
-  creditsPage.style.display = 'none';
-  uploadedPage.style.display = 'none';
-  downloadedPage.style.display = 'none';
-  creditPurchasePage.style.display = 'none';
-
-  const elements_tab_li = document.querySelectorAll(".tabs li");
-  
-  // Settings 버튼 클릭 이벤트
-  settingsBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    settingsPage.style.display = 'block';
-    creditsPage.style.display = 'none';
-    uploadedPage.style.display = 'none';
-    downloadedPage.style.display = 'none';
-  });
-
-  // Credits 버튼 클릭 이벤트
-  creditsBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    settingsPage.style.display = 'none';    
-    creditsPage.style.display = 'block';
-         
-    console.log(elements_tab_li[0].classList.contains("active"));
-    console.log(elements_tab_li[1].classList.contains("active"));
-      
-    // 얘가 문제인데...
-    if(document.getElementById("history-btn").classList.contains("active")){       
-    	creditHistoryPage.style.display = 'block';
-    	creditPurchasePage.style.display = 'none';
-    } else if(document.getElementById("purchase-btn").classList.contains("active")){
-    	creditHistoryPage.style.display = 'none';
-    	creditPurchasePage.style.display = 'block';
-    }
-        
-    uploadedPage.style.display = 'none';
-    downloadedPage.style.display = 'none';
-   
-  });
-  
-  // Uploaded 버튼 클릭 이벤트
-  uploadedBtn.addEventListener('click', (e) => {
-  	console.log("uploaded button clicked");
-    e.preventDefault();
-    settingsPage.style.display = 'none';
-    creditsPage.style.display = 'none';
-    uploadedPage.style.display = 'block';
-    downloadedPage.style.display = 'none';
-    creditPurchasePage.style.display = 'none';
-  });
-  
-  // Downloaded 버튼 클릭 이벤트
-  downloadedBtn.addEventListener('click', (e) => {
-  	console.log("downloaded button clicked");
-    e.preventDefault();
-    settingsPage.style.display = 'none';
-    creditsPage.style.display = 'none';
-    uploadedPage.style.display = 'none';
-    downloadedPage.style.display = 'block';
-    creditPurchasePage.style.display = 'none';
-  });
-  
-  // credit history 태그 클릭
-  creditHistoryBtn.addEventListener('click', (e) => {
-  	console.log("credit history버튼 clicked");
-    e.preventDefault();
-    settingsPage.style.display = 'none';
-    
-    creditsPage.style.display = 'block';
-    creditHistoryPage.style.display = 'block';
-    creditPurchasePage.style.display = 'none';
-    
-    uploadedPage.style.display = 'none';
-    downloadedPage.style.display = 'none';
-
-  });
-  
-  // credit purchase 태그 클릭
-  purchaseBtn.addEventListener('click', (e) => {
-  	console.log("credit purchase 버튼 clicked");
-    e.preventDefault();
-    settingsPage.style.display = 'none';
-    
-    creditsPage.style.display = 'block';
-    creditHistoryPage.style.display = 'none';
-    creditPurchasePage.style.display = 'block';
-    
-    uploadedPage.style.display = 'none';
-    downloadedPage.style.display = 'none';
-    
-    
-    
-  });
-  
-  
-});
-
-
-document.getElementById("history-btn").addEventListener("click", function () {
-    setActiveTab("history-btn");
-});
-
-document.getElementById("purchase-btn").addEventListener("click", function () {
-    setActiveTab("purchase-btn");
-});
-
-function setActiveTab(activeId) {
-    // 모든 탭의 active 클래스 제거
-    const tabs = document.querySelectorAll(".tabs li");
-    tabs.forEach(tab => tab.classList.remove("active"));
-
-    // 클릭된 탭에 active 클래스 추가
-    const activeTab = document.getElementById(activeId);
-    activeTab.classList.add("active");
-}
-
+ 
 
 	// mypage - uploaded 페이지 checkbox 기능
 	
@@ -321,42 +202,5 @@ backgroundCh = function() {
     var sel = document.getElementById('sel');
     sel.style.backgroundColor = sel.value;
 };
-
-// ------ 모달창 -------
-
-    var modalLayer = $("#modalLayer");
-    var modalLink = $(".modalLink");
-    var modalCont = $(".modalContent");
-    var marginLeft = modalCont.outerWidth()/2;
-    var marginTop = modalCont.outerHeight()/2; 
-    
-    // 클릭시 모달 표시
- 	modalLink.addEventListener('click', () => {
-  		modalLayer.style.display = 'block';
-	});
-         
-    // 모달창 열기
-    modalLink.click(function(){
-        console.log('modal clicked 스프링');
-      modalLayer.style.display='block';
-      modalLayer.fadeIn("slow");
-      modalCont.css({"margin-top" : -marginTop, "margin-left" : -marginLeft});
-      $(this).blur();
-      $(".modalContent > a").focus(); 
-      return false;
-    });
-  
-    // 모달창 닫기
-    $("#close-modal").click(function(){
-      console.log('modal창 닫기');
-      modalLayer.fadeOut("slow");
-      modalLink.focus();
-    });	
-    
-    		
-   document.querySelector('#test_mypagelogo').click(function(){
-   	console.log('clicked');
-   });
-   
 
 

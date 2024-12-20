@@ -442,6 +442,24 @@ header p {
 	font-weight: bold;
 }
 
+.tabs2 {
+	list-style: none;
+	padding: 0;
+	margin: 20px 0;
+	display: flex;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.tabs2 li {
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+.tabs2 .active2 {
+	border-bottom: 2px solid #007bff;
+	font-weight: bold;
+}
+
 .mypages-wrapper {
 	margin-bottom: 20px;
 	padding-bottom: 15px;
@@ -1315,7 +1333,7 @@ nav #logo {
 /*---- 문서작업 전용 ----- */
 
 .underline{
-	text-decoration-line: underline;
+	border-bottom: 1px solid black;
 }
 
 .thumbnail img{
@@ -1342,6 +1360,14 @@ nav #logo {
 }
 
 #data-info span{
+	background-color: skyblue;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	padding: 5px;
+	color: black;
+}
+
+.data-info span{
 	background-color: skyblue;
 	border: 1px solid transparent;
 	border-radius: 5px;
@@ -1578,9 +1604,26 @@ h3 {
     border-radius: 5px;
 }
 
+/*--- mypage -> account 페이지 디자인 수정 ---*/
 
+#account-page h2{
+	background-color: whitesmoke;
+	padding: 10px;
+	margin-bottom: 0px;
+	
+}
 
+#account-page p {
+	padding: 10px;
+}
 
+#account-page .btn{
+	margin-bottom: 10px;
+}
+
+.mypages-wrapper header p {
+	color: #919191;
+}
 
 
 

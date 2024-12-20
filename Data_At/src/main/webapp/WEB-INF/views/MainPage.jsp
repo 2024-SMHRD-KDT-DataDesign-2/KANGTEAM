@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -36,16 +36,7 @@
 					<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i>
 					</a>
 				</div>
-
-				<div class="right-div">
-					<a href="" id="uploaded-btn"> Uploaded </a>
-				</div>
-				<div class="right-div">
-					<a href="" id="downloaded-btn"> Downloaded </a>
-				</div>
-				<div class="right-div">
-					<a href="" id="credits-btn"> Credit </a>
-				</div>
+				
 				<div class="right-div">
 					<a href="MyPage" id="settings-btn"> Mypage </a>
 				</div>
@@ -133,7 +124,7 @@
 								alt="Responsive Icon" class="feature-icon">
 						</div>
 						<h3>자동 데이터 분류</h3>
-						<p>일일히 확인하기 힘든 많은 데이터들을 인공지능 모델을 이용하여 한번에 처리하세요.</p>
+						<p>일일이 확인하기 힘든 많은 데이터들을 인공지능 모델을 이용하여 한번에 처리하세요.</p>
 					</div>
 					<!-- Customizable -->
 					<div class="feature">
@@ -151,7 +142,7 @@
 								alt="Design Icon" class="feature-icon">
 						</div>
 						<h3>데이터 분석</h3>
-						<p>데이터나 업로드 해보세요. Data.At에서 분석 결과를 알려드립니다.</p>
+						<p>데이터를 업로드 해보세요. Data.At에서 분석 결과를 알려드립니다.</p>
 					</div>
 				</div>
 			</div>
@@ -326,8 +317,6 @@
 
 		</div>
 
-		
-
 
 	</div>
 	<!-- 좌측 토글 끝 -->
@@ -380,6 +369,9 @@
 				<form class="email-signup">
 					<div class="u-form-group">
 						<input type="email" placeholder="Email" />
+					</div>
+					<div class="u-form-group">
+						<input type="text" placeholder="Nick" />
 					</div>
 					<div class="u-form-group">
 						<input type="password" placeholder="Password" />

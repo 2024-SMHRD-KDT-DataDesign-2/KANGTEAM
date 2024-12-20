@@ -275,6 +275,36 @@
 .block-content {
             flex: 1;
         }
+        
+/*--- 튜토리얼 페이지 css ---*/
+
+.tutorial-header {
+	padding: 3.5rem 4rem;	
+	background-color: #d5f1ff;	
+}
+
+.tutorial-header h1 {
+	font-size: 3.5rem;
+	letter-spacing: -.03em;
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 130%
+}
+
+.tutorial-container {
+	padding: 0rem 4rem 4rem 4rem;
+}
+
+.tutorial-content h2 {
+	margin-top: 4rem;
+	margin-bottom: 1.5rem;	
+}
+
+
+
+
 
 
         

@@ -70,6 +70,8 @@ uploadbtn.addEventListener('click', () => {
   	newDatasetPanel.classList.remove('visible');
 	newDatasetPanel2.classList.add('visible');
   	newDatasetPanel2.classList.remove('hidden');
+  	
+  	// zip정보 두번재 패널에 출력
   	zipnameSpanTag.innerText = fName;
   	zipsizeSpanTag.innerText = fSize;
 
@@ -132,6 +134,14 @@ tagInput.addEventListener("keypress", (event) => {
 		console.log('removeUploadPanelbtn clicked');
 			newDatasetPanel2.classList.remove('visible');
 			newDatasetPanel.classList.remove('visible');
+			
+			// id='fileinfo' div의 내용물 초기화
+			fileInfoDiv.innerHTML = '';
+			
+			// 2번째 패널 나가면 zip 정보 초기화
+			fName = '';
+			fType = '';
+			fSize = '';
 
 	});
 
