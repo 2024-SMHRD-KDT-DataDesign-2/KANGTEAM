@@ -121,7 +121,6 @@
 				<div>				
 					<h2>Data show</h2>
 				</div>
-				<div id="drop-zone">Drag and drop a JSON file here</div>
 				
 				<div class="flex-box">				
 					<!-- 페이지에 이미지 출력하기 from json -->						 					
@@ -129,7 +128,7 @@
 	 					
 	 				</div>	
 	 				<!-- 우측에 파일 목록 띄우기 -->
-					<div id="file-list" class="scrollbar style-8">
+					<div id="file-list" class="scrollbar style-8" style="display: none;">
 							 						     			       				    
 		    		</div>					
 		    	</div>
