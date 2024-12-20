@@ -14,5 +14,5 @@ public interface creditMapper {
 	int insertCredit(credit credit);
 	
 	@Select("SELECT * FROM tb_user WHERE user_id = #{user_id}")
-    User findUserByUserId(@Param("user_id") String userId);
+    public User findUserByUserId(@Param("user_id") String userId);
 }

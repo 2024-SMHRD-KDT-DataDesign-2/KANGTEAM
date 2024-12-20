@@ -9,20 +9,20 @@
 		console.log('pay010 clicked');
 		localStorage.setItem("payment", "10");		
 		console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
-		window.location.href = "http://localhost:8085/data_at/PaymentPage";
+		window.location.href = "http://192.168.219.176:8081/data_at/PaymentPage";
   	 });
   	 
   	 pay025.addEventListener("click",()=>{
 		console.log('pay025 clicked');
 		localStorage.setItem("payment", "25");		
 		console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
-		window.location.href = "http://localhost:8085/data_at/PaymentPage";
+		window.location.href = "http://192.168.219.176:8081/data_at/PaymentPage";
   	 });
   	 
   	 pay050.addEventListener("click",()=>{
 		console.log('pay050 clicked');
 		localStorage.setItem("payment", "50");		
 		console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
-		window.location.href = "http://localhost:8085/data_at/PaymentPage";
+		window.location.href = "http://192.168.219.176:8081/data_at/PaymentPage";
   	 });
   	 

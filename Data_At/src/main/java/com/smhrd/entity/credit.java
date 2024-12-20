@@ -12,5 +12,6 @@ public class credit {
 	private String credit_reason;
 	private int credit_cnt;
 	private String user_id;
+	private String created_at ;
 	private int user_credit;
 }

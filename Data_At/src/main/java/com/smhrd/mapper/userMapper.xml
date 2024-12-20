@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.smhrd.mapper.userMapper">
-	<insert id="join" parameterType="com.smhrd.entity.User">
-		insert into
-		tb_user(user_id,user_pw,user_nick,user_credit)
+	<insert id="join"
+		parameterType="com.smhrd.entity.User">
+		insert into tb_user(user_id,user_pw,user_nick,user_credit)
 		values(#{user_id},#{user_pw},#{user_nick},200)
 	</insert>
-
-	<select id="login" parameterType="com.smhrd.entity.User"
-		resultType="com.smhrd.entity.User">
+	
+	<select id="login"
+		parameterType="com.smhrd.entity.User" resultType="com.smhrd.entity.User">
 		select * from tb_user where user_id = #{user_id} and
 		user_pw = #{user_pw}
 	</select>
-
+	
 	<update id="updateUserCredit">
 		UPDATE tb_user
 		SET user_credit = #{user_credit}
 		WHERE
 		user_id = #{user_id}
 	</update>
-
 </mapper>

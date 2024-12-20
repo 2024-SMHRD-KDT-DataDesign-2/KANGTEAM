@@ -18,13 +18,13 @@
         <div class="section02">
             <div class="wrap">
                 <div class="search">
-                   <input type="text" class="searchTerm">
+                   <input type="text" class="searchTerm" id="searchTerm">
                    
                 </div>
              </div>       
         </div>     
         <div class="section03">            
-            <i class="fa-solid fa-magnifying-glass" onclick="location.href='DataResultPage'"></i>            
+            <i class="fa-solid fa-magnifying-glass" onclick="searchData()"></i>            
         </div>
         <div class="section03">            
             <i class="fa-solid fa-xmark" onclick="location.href='MainPage'"></i>
@@ -146,5 +146,18 @@
    </main>
     </div>
     <script src="./resources/js_main.js"></script>
+    <script>
+    function searchData() {
+        // 검색어 값을 가져오기
+        const searchTerm = document.getElementById("searchTerm").value;
+
+        // URL에 검색어 추가하여 이동
+        if (searchTerm) {
+            location.href = '/data_at/dataSearch?search=' + encodeURIComponent(searchTerm);
+        } else {
+            alert("검색어를 입력해주세요."); // 검색어가 없을 때의 처리
+        }
+    }
+</script>
 </body>
 </html>

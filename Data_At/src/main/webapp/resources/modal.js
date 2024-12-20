@@ -36,8 +36,3 @@
         signupLink.classList.remove('active');
         loginLink.classList.add('active');
     });
-    
-    
-    
-
-    

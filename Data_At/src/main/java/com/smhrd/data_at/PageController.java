@@ -19,7 +19,7 @@ public class PageController {
 		return "MyPage";
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	public String go() {
 		return "home" ;
 	}
@@ -44,4 +44,18 @@ public class PageController {
 		return "filedownload" ;
 	}
 	
+	@RequestMapping("/SearchPage")
+	public String goSearchPage() {
+		return "SearchPage" ;
+	}
+	
+	@RequestMapping("/DataResultPage")
+	public String goDataResultPage() {
+		return "DataResultPage" ;
+	}
+	
+	@RequestMapping("/PaymentPage")
+	public String goPaymentPage() {
+		return "PaymentPage" ;
+	}
 }

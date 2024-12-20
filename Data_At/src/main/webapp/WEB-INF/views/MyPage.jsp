@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="./resources/css_main.css" />
 <link rel="stylesheet" href="./resources/Main_test.css" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <title>Data.At MyPage</title>
 </head>
 <body>
@@ -92,37 +94,33 @@
     <nav>
       <ul class="tabs">
         <li class="active">Account</li>
-        <li>Notifications</li>
       </ul>
     </nav>
     <main>
     
       <section class="settings-section">
-        <h2>Your email address</h2>
-        <p>miracleray1223@gmail.com</p>
-        <button class="btn">Change email</button>
-      </section>
+					<h2>Your email address</h2>
+					<p>${info.user_id}</p>
+				</section>
 
-      <section class="settings-section">
-        <h2>Your Nickname</h2>
-        <p>testNick_haha</p>
-        <button class="btn">Change Nickname</button>
-      </section>
-      <section class="settings-section">
-        <h2>Credit history</h2>
-        <p>You can check your credit usage history</p>
-        <button class="btn">Check My Credits</button>
-      </section>
-      <section class="settings-section">
-        <h2>Credit Saved</h2>
-        <p>my credits : 20000</p>
-      </section>
-      <section class="settings-section">
-        <h2>Logout / Delete</h2>
-        <p>Logout or Delete</p>   
-        <button class="btn">Log out</button>
-        <button class="btn">Delete ID</button>
-      </section>
+				<section class="settings-section">
+					<h2>Your Nickname</h2>
+					<p>${info.user_nick}</p>
+					<button class="btn">Change Nickname</button>
+				</section>
+				<section class="settings-section">
+					<h2>Credit Saved</h2>
+					<p>${info.user_credit}</p>
+				</section>
+				<section class="settings-section">
+					<h2>Logout / Delete</h2>
+					<p>Logout or Delete</p>
+					<button class="btn"
+						onclick="window.location.href='/data_at/logout';">Log out</button>
+					<button class="btn"
+						onclick="window.location.href='/data_at/userDelete';">Delete
+						ID</button>
+				</section>
     </main>
   </div>
   
@@ -143,32 +141,8 @@
     <div id="creditHistory-page" style="display: none;">
     <main>
       <section class="settings-section">
-      
-        <table>
-        <tr>
-            <th>카테고리</th>
-            <th>내역</th>
-            <th>수량</th>
-            <th>날짜</th>
-        </tr>
-        <tr>
-            <td>이벤트</td>
-            <td>출석이벤트참여</td>
-            <td>+5</td>
-            <td>2024-11-29</td>
-        </tr>
-        <tr>
-            <td>결제</td>
-            <td>크레딧 구매</td>
-            <td>+200</td>
-            <td>2024-11-30</td>
-        </tr>
-        <tr>
-            <td>크레딧 사용</td>
-            <td>데이터 다운로드</td>
-            <td>-20</td>
-            <td>2024-01-02</td>
-        </tr>
+        <table id="credit-table">
+        
       </table>
 
       </section>
@@ -205,7 +179,7 @@
                     <button id="pay-15" class="button">Purchase</button>
                 </div>                
                
-                <div class="mission-card" >
+                <div class="mission-card">
                     <h3>200 Points</h3>
                     <p>Get for $10</p>
                     <button id="pay-10" class="button">Purchase</button>

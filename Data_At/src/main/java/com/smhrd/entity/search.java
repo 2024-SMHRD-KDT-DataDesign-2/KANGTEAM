@@ -1,22 +1,18 @@
 package com.smhrd.entity;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class myBoard {
-	private String user_id ;
+public class search {
 	private String user_nick ;
-	private String img_title ;
+	private String img_title ;	
+	private List<String> data_class ;
 	private String created_at ;
-	private String img_class ;
-	private String img_size ;
 	private String img_url ;
-	private String img_id ;
-	
 }

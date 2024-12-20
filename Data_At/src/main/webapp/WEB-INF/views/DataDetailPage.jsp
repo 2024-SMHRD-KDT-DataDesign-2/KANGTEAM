@@ -101,19 +101,13 @@
 				<div style="white-space: pre-line;" >				
 					<div id="data-info">                
                    		<li>
-                   			<ul>Name : Fruit Datasets</ul>
+                   			<ul>Name : ${data.img_title} Datasets</ul>
                    			<ul>Contains :  <span>apple</span> <span>banana</span> <span>melon</span> <span>pear</span> <span>dragonfruit</span> <span>grape</span> <span>orange</span> <span>peach</span></ul>
-                   			<ul>Uploader : Yoonho</ul>
-                   			<ul>Uploaded Date : 2024-12-16</ul>                   			
+                   			<ul>Uploader : ${data.user_nick}</ul>
+                   			<ul>Uploaded Date : ${data.created.at}</ul>                   			
                    		</li>
                    		<p>
-                   		우리 서비스는 CLIP과 DINO AI 모델을 활용해 이미지를 분석하고, 단일 이미지 세트를 apple, melon, banana, pear, dragonfruit, grape, orange, peach의 8개 클래스로 정확히 분류하는 데 성공했습니다.
-
-CLIP은 이미지와 텍스트 간의 연관성을 학습하여 각 이미지의 본질적인 특징을 파악하고, DINO는 이미지 내 객체를 세밀하게 식별하는 데 탁월한 성능을 발휘합니다. 
-
-이를 통해 복잡한 이미지 데이터에서도 높은 정확도로 분류가 가능하며, 수작업의 필요성을 줄이고 데이터 처리 효율을 극대화합니다.
-
-이번 분류 결과는 AI 기반 이미지 분류 기술의 정교함과 신뢰성을 입증하며, 다양한 데이터 관리와 분석에 강력한 도구로 활용될 수 있음을 보여줍니다.
+                   			${data.img_content}
                    		</p>
                    		
                    		

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
     <link rel="stylesheet" href="./resources/payment.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -34,7 +36,7 @@
             </div>
         </div>
         <div class="right-section">
-            <form class="payment-form">
+            <form action = "processPayment" method="post" class="payment-form">
                 <button class="gpay-button">D Pay</button>
                 <div class="divider0">또는 카드 결제</div>
                 <input type="email" placeholder="이메일" required>
@@ -42,6 +44,7 @@
                 <input type="text" placeholder="MM/YY" required>
                 <input type="text" placeholder="보안 코드(CVC)" required>
                 <input type="text" placeholder="카드 소유자 이름" required>
+                <input type="hidden" name="amount" id="amount">
                 <select required>
                     <option value="KR">대한민국</option>
                 </select>

@@ -12,3 +12,5 @@ document.getElementById('pay-01').innerText = price;
 document.getElementById('pay-02').innerText = points;
 document.getElementById('pay-03').innerText = price;
 document.getElementById('pay-04').innerText = price;
+
+$("#amount").val(points) ;

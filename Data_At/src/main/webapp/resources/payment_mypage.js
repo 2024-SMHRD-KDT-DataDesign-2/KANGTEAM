@@ -10,7 +10,7 @@
 
 	       function goDataDetail(event) {
 	           console.log("goDataDetail 함수 실행됨");
-	           window.location.href = "http://localhost:8085/data_at/DataDetailPage";  // 성공!!
+	           window.location.href = "http://192.168.219.176:8081/data_at/DataDetailPage";  // 성공!!
 	       }
 	   });
   
@@ -27,28 +27,28 @@
 		localStorage.setItem("payment", "50");
 		
 		console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
-		window.location.href = "http://localhost:8085/data_at/PaymentPage";
+		window.location.href = "http://192.168.219.176:8081/data_at/PaymentPage";
   	 });
   	 
   	 pay25btn.addEventListener("click",()=>{
 		console.log('pay25btn clicked');
 		localStorage.setItem("payment", "25");
 		console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
-		window.location.href = "http://localhost:8085/data_at/PaymentPage";
+		window.location.href = "http://192.168.219.176:8081/data_at/PaymentPage";
   	 });
   	 
   	 pay15btn.addEventListener("click",()=>{
 		console.log('pay20btn clicked');
 		localStorage.setItem("payment", "15");
 		console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
-		window.location.href = "http://localhost:8085/data_at/PaymentPage";
+		window.location.href = "http://192.168.219.176:8081/data_at/PaymentPage";
   	 });
   	 
   	 pay10btn.addEventListener("click",()=>{
 		console.log('pay10btn clicked');
 		localStorage.setItem("payment", "10");
 		console.log("Value saved in localStorage:", localStorage.getItem("payment")); // 확인용 로그
-		window.location.href = "http://localhost:8085/data_at/PaymentPage";
+		window.location.href = "http://192.168.219.176:8081/data_at/PaymentPage";
   	 });
   	 
   	 
