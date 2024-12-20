@@ -101,13 +101,13 @@
 				<div style="white-space: pre-line;" >				
 					<div id="data-info">                
                    		<li>
-                   			<ul>Name : ${data.img_title} Datasets</ul>
-                   			<ul>Contains :  <span>apple</span> <span>banana</span> <span>melon</span> <span>pear</span> <span>dragonfruit</span> <span>grape</span> <span>orange</span> <span>peach</span></ul>
-                   			<ul>Uploader : ${data.user_nick}</ul>
-                   			<ul>Uploaded Date : ${data.created.at}</ul>                   			
+                   			<ul>Name : ${detail.img_title} Datasets</ul>
+                   			<ul>Contains :  <c:forEach items="${classes}" var="c"> <span>${c}</span> </c:forEach></ul>
+                   			<ul>Uploader : ${detail.user_nick}</ul>
+                   			<ul>Uploaded Date : ${detail.created_at}</ul>         			
                    		</li>
                    		<p>
-                   			${data.img_content}
+                   			${detail.img_content}
                    		</p>
                    		
                    		
@@ -158,5 +158,8 @@
 <script src="./resources/js_main.js?v=1.0"></script>
 <script src="./resources/chart.js?v=1.0"></script>
 <script src="./resources/printJsonImages.js?v=1.0"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 	<select id="searchList" parameterType="String"
 		resultType="com.smhrd.entity.search">
 		SELECT
+			tb_data_img.img_idx,
 			tb_data_img.img_title,
 			tb_user.user_nick,
 			tb_object_img.created_at,

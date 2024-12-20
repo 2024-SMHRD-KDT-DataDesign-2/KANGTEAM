@@ -17,4 +17,5 @@ public class search {
    private String img_url ;
    private String img_id ;
    private int img_idx ;
+   private String img_content ;
 }

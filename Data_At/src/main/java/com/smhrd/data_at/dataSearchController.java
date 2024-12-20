@@ -22,9 +22,10 @@ public class dataSearchController {
 
 	@RequestMapping(value = "/dataSearch", method = RequestMethod.GET)
 	public String dataSearchList(Model model, @RequestParam("search") String search) {
+		System.out.println("dataSearch 들어옴");
 		List<search> searchList = datamapper.searchList(search);
 
-		System.out.println(searchList.toString());
+		System.out.println(searchList.get(0).getImg_idx());
 
 		model.addAttribute("searchList", searchList);
 
