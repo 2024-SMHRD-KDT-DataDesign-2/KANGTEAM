@@ -375,7 +375,7 @@
 
 					</div>
 
-				</div>
+				
 
 				<form action="userlogin" method="post" class="email-login">
 					<div class="u-form-group">
