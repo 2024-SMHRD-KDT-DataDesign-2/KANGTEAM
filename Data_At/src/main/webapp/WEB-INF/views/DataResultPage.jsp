@@ -112,7 +112,7 @@
 							</div>
 							<div class="block-content right">
 								<div>
-									<a class="title">${data.img_title}</a>
+									<a class="title" href="detailPage?img_idx=${data.img_idx}'">${data.img_title}</a>
 								</div>
 								<div>
 									<p>
