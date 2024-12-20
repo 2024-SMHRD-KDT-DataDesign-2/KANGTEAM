@@ -1,7 +1,11 @@
 package com.smhrd.data_at;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +26,32 @@ public class dataSearchController {
 
 	@RequestMapping(value = "/dataSearch", method = RequestMethod.GET)
 	public String dataSearchList(Model model, @RequestParam("search") String search) {
-		System.out.println("dataSearch 들어옴");
 		List<search> searchList = datamapper.searchList(search);
 
-		System.out.println(searchList.get(0).getImg_idx());
+		// Flask 서버의 URL 생성
+		String flaskBaseUrl = "http://112.217.124.195:30010/download/";
+		Map<String, Set<String>> srcToDataClassesMap = new HashMap<>();
 
-		model.addAttribute("searchList", searchList);
+		// 중복 제거 및 URL 설정
+		for (search result : searchList) {
+			String imgUrl = flaskBaseUrl + result.getImg_id();
 
+			// URL별로 data_class를 그룹화
+			srcToDataClassesMap.computeIfAbsent(imgUrl, k -> new HashSet<>()).add(result.getData_class());
+			result.setImg_url(imgUrl);
+		}
+
+		// 중복 제거된 결과로 새로운 리스트 생성
+		List<search> filteredSearchList = new ArrayList<>();
+		for (search result : searchList) {
+			String imgUrl = result.getImg_url();
+			if (!filteredSearchList.stream().anyMatch(r -> r.getImg_url().equals(imgUrl))) {
+				result.setData_class(String.join(", ", srcToDataClassesMap.get(imgUrl))); // data_class를 합침
+				filteredSearchList.add(result);
+			}
+		}
+
+		model.addAttribute("searchList", filteredSearchList);
 		return "DataResultPage";
 	}
 

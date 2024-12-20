@@ -38,7 +38,8 @@
 			) AS first_img
 		ON tb_data_img.img_id = first_img.img_id
 		WHERE
-			tb_data_img.img_class = #{search};
+			tb_data_img.img_class = #{search}
+		order by tb_object_img.created_at desc
 
 	</select>
 	
