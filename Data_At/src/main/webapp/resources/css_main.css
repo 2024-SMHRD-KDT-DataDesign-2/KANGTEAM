@@ -424,15 +424,7 @@ header p {
 	color: #d3d3d3;
 }
 
-.tabs {
-	list-style: none;
-	padding: 0;
-	margin: 20px 0;
-	display: flex;
-	border-bottom: 2px solid #dee2e6;
-}
-
-.tabs2 {
+.tabs. tabs2 {
 	list-style: none;
 	padding: 0;
 	margin: 20px 0;
@@ -441,12 +433,14 @@ header p {
 }
 
 
-.tabs li {
+
+
+.tabs li, tabs2 li {
 	padding: 10px 15px;
 	cursor: pointer;
 }
 
-.tabs .active {
+.tabs .active, tabs2 .active {
 	border-bottom: 2px solid #007bff;
 	font-weight: bold;
 }
@@ -1505,7 +1499,7 @@ input[type="text"], select {
 /* Footer Buttons */
 .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 20px;
 }
 

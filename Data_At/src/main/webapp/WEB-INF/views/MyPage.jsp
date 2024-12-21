@@ -53,14 +53,10 @@
       	 		<button class="new-dataset-btn" id="new-dataset-btn">+ New Dataset</button>
       		</div>
      	 <ul>
-     	   <li><a href="MainPage">Home</a></li>
-     	   <li><a href="#">Competitions</a></li>
-     	   <li><a href="#">Datasets</a></li>
-     	   <li><a href="#">Models</a></li>
-     	   <li><a href="#">Code</a></li>
-    	   <li><a href="#">Discussions</a></li>
-     	   <li><a href="#">Learn</a></li>
-   	    	<li><a href="#">More</a></li>
+     	    <li><a href="./MainPage">Home</a></li>
+			<li><a href="./TutorialPage">How to Use</a></li>
+			<li><a href="#">Search</a></li>
+			<li><a href="#">More</a></li>
    	  	 </ul>
   	  </aside>  
 

@@ -30,21 +30,18 @@
 		    			<a href="SearchPage"> <i class="fa-solid fa-magnifying-glass"></i> </a>
 		    		</div> 
 		    	
-		    		<div class="right-div">
-		    			<a href="" id="uploaded-btn"> Uploaded </a>
-		    		</div>
-		    		<div class="right-div">
-		    			<a href="" id="downloaded-btn"> Downloaded </a>
-		    		</div>
-		    		<div class="right-div">
-		    			<a href="" id= "credits-btn"> Credit </a>
-		    		</div>
-		    		<div class="right-div">
-		    			<a href="MyPage" id="settings-btn"> Mypage </a>
-		    		</div>
-		    		<div class="right-div">
-		    			<a href="#" id="openModalBtn"> Account </a>
-		    		</div>
+		    		<c:if test="${!empty info}">
+						<div class="right-div">
+							<a href="MyPage" id="settings-btn"> Mypage </a>
+						</div>
+					</c:if>
+	
+					<c:if test="${empty info}">
+						<div class="right-div">
+							<a href="#" id="openModalBtn"> Account </a>
+						</div>
+					</c:if>
+		    	
 		    				    		
 			  	  	<!-- 좌측 토글 버튼 -->
 			  	  	<div id = "list-btn" style="background-color: white;">
@@ -64,12 +61,9 @@
       	</div>
       <ul>
         <li><a href="./MainPage">Home</a></li>
-        <li><a href="#">How to Use</a></li>
-        <li><a href="#">Search</a></li>
-        <li><a href="#">Datasets</a></li>
-        <li><a href="#">QnA</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">More</a></li>
+		<li><a href="./TutorialPage">How to Use</a></li>
+		<li><a href="#">Search</a></li>
+		<li><a href="#">More</a></li>
       </ul>
     </aside>  
 </div>
