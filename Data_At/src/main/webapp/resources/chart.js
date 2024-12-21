@@ -1,47 +1,32 @@
-// 화면 시연을 위한 더미 데이터 랜덤으로 넣기 
-// 클래스 80개
-const data_list = [];
-const data_index = [];
+const dataClasses = []; // data_class 값을 저장할 리스트
+const imgCounts = [];   // img_cnt 값을 저장할 리스트
 
-// 데이터 생성
-for (let index = 0; index < 80; index++) {
-    data_list.push(Math.floor(Math.random() * 80) + 1);
-}
+  $(document).ready(function () {
+	const img_id = $("#img_id").val() ;
 
-for (let i = 0; i < 80; i++) {
-    data_index.push(i + 1);
-}
+	$.ajax({
+		url : "chartJson",
+		type : "POST",
+		data : {"img_id" : img_id},
+		success : function(response){
+			console.log("chart : ", response)
+			let data = response;
+			
+			// for 반복문 사용
+			for (let i = 0; i < data.length; i++) {
+			    dataClasses.push(data[i].data_class);
+			    imgCounts.push(data[i].img_cnt);
+			}
+			
+		},
+		error : function() {
+			alert("chart 불러오기 실패") ;
+		}
+	}) ;
+})    
+console.log("dataClasses : " + dataClasses); // ["laptop", "dog", "cat"]
+console.log("imgCounts : " + imgCounts);   // [65, 9, 3]
 
-console.log(data_list);
-console.log(data_index);
-
-// Chart.js 차트 생성
-let myCt3 = document.getElementById('myChart3').getContext('2d');
-
-let myChart3 = new Chart(myCt3, {
-    type: 'bar',
-    data: {
-        labels: data_index,
-        datasets: [
-            {
-                label: 'Dataset',
-                data: data_list,
-                backgroundColor: 'rgba(54, 162, 235, 0.8)', // 막대 색상
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }
-        ]
-    },
-    options: {
-    	indexAxis: 'y',
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-      
   
   
   let myCt1 = document.getElementById('myChart1');
@@ -53,10 +38,10 @@ let myChart3 = new Chart(myCt3, {
 	    {
 	        type: 'bar',
 	        label: 'Bar Dataset',
-	        data: [20, 40, 10, 30, 80, 70, 30, 90]
+	        data: imgCounts
 	    } 
 	    ],
-	    labels:  ['apple', 'melon', 'banana', 'pear','dragonfruit','grape','orange','peach']
+	    labels:  dataClasses
 		},
 		options:{
 			scales: {
@@ -86,14 +71,11 @@ let myChart3 = new Chart(myCt3, {
         datasets: [
             {
                 label: 'Doughnut Dataset',
-                data: [20, 40, 10, 30, 80, 70, 30, 90],
-                backgroundColor: [
-                    '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', 
-                    '#9966FF', '#FF9F40', '#E7E9ED', '#71B37C'
-                ]
+                data: imgCounts
+                
             }
         ],
-        labels: ['apple', 'melon', 'banana', 'pear','dragonfruit','grape','orange','peach']
+        labels: dataClasses
     },
     options: {
         responsive: false, // Set to false if you want a fixed size
@@ -140,18 +122,3 @@ let myChart3 = new Chart(myCt3, {
     ]
 });
 
-$(document).ready(function () {
-	const img_id = $("#img_id").val() ;
-
-	$.ajax({
-		url : "chartJson",
-		type : "POST",
-		data : {"img_id" : img_id},
-		success : function(response){
-			console.log("chart : ", response)
-		},
-		error : function() {
-			alert("chart 불러오기 실패") ;
-		}
-	}) ;
-})

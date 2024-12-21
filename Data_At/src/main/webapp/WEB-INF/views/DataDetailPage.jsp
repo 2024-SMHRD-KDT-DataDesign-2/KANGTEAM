@@ -146,7 +146,6 @@
 				        <canvas id="myChart2"></canvas>
 				    </div>
 					
-					<canvas id="myChart3"></canvas>
 				</div>
 			</div>
 			
