@@ -94,6 +94,7 @@ public class ImageController {
 		try {
             json = objectMapper.writeValueAsString(chartJson);
             System.out.println("JSON: " + json);
+            System.out.println("chartJson: " + chartJson);
         } catch (Exception e) {
             e.printStackTrace();
         }
