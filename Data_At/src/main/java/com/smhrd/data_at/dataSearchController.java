@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +28,7 @@ public class dataSearchController {
 
 	@RequestMapping(value = "/dataSearch", method = RequestMethod.GET)
 	public String dataSearchList(Model model, @RequestParam("search") String search) {
+		List<String> classList = new ArrayList() ;
 		List<search> searchList = datamapper.searchList(search);
 
 		// Flask 서버의 URL 생성
@@ -47,11 +50,15 @@ public class dataSearchController {
 			String imgUrl = result.getImg_url();
 			if (!filteredSearchList.stream().anyMatch(r -> r.getImg_url().equals(imgUrl))) {
 				result.setData_class(String.join(", ", srcToDataClassesMap.get(imgUrl))); // data_class를 합침
+				classList.add(result.getData_class()) ;
 				filteredSearchList.add(result);
 			}
 		}
-
+		
+		System.out.println(classList.toString());
+		
 		model.addAttribute("searchList", filteredSearchList);
+		
 		return "DataResultPage";
 	}
 

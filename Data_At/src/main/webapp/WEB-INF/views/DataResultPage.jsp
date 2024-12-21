@@ -122,10 +122,11 @@
 									<p>
 										uploaded in ${data.created_at} by <span class="underline">${data.user_nick}</span>
 									</p>
-									<p>Data classes: ${data.data_class}</p>
 								</div>
 							</div>
-							<div id="data-info"></div>
+							<div id="data-info">
+								<span>${data.data_class}</span>
+							</div>
 						</div>
 					</div>
 				</c:forEach>
@@ -143,17 +144,6 @@
 
 	<script src="./resources/js_main.js"></script>
 	<script src="./resources/pageLocation.js"></script>
-
-	<script type="text/javascript">
-		const se = '${searchList}.data_class' ;
-		
-		for(String cla = se) {
-			let string ;
-			if(!(string.includes(cla)))
-				document.getElementById("data-info").innerHTML += "<span>" + cla + "</span>";
-				strin += cla ;
-		}
-	</script>
 
 </body>
 </html>
