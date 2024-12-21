@@ -16,139 +16,156 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.smhrd.entity.User;
+import com.smhrd.mapper.creditMapper;
+import com.smhrd.mapper.userMapper;
+
 @Controller
 public class classifyController {
-	@Autowired
-	private apiController apiCon;
+   @Autowired
+   private apiController apiCon;
 
-	@Autowired
-	private JsonUpload jsonUpload;
+   @Autowired
+   private userMapper usermapper;
+   
+   @Autowired
+   private creditMapper creditmapper;
 
-	@RequestMapping(value = "/classify", method = RequestMethod.POST)
-	public ResponseEntity<Map<String, Object>> classify(HttpSession session,
-			@RequestBody Map<String, String> requestBody) {
-		String classes = requestBody.get("classes");
-		String imgUrlsString = requestBody.get("img_url");
+   @Autowired
+   private JsonUpload jsonUpload;
 
-		if (classes == null || imgUrlsString == null) {
-			Map<String, Object> errorMap = new HashMap<>();
-			errorMap.put("error", "Missing required parameters: 'classes' or 'img_url'");
+   @RequestMapping(value = "/classify", method = RequestMethod.POST)
+   public ResponseEntity<Map<String, Object>> classify(HttpSession session,
+         @RequestBody Map<String, String> requestBody) {
+      String classes = requestBody.get("classes");
+      String imgUrlsString = requestBody.get("img_url");
 
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMap);
+      if (classes == null || imgUrlsString == null) {
+         Map<String, Object> errorMap = new HashMap<>();
+         errorMap.put("error", "Missing required parameters: 'classes' or 'img_url'");
 
-		}
+         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMap);
 
-		// 이미지 URL 처리
-		String[] imgUrls = imgUrlsString.split(",");
-		StringBuilder base64ImageBuilder = new StringBuilder();
+      }
 
-		for (String url : imgUrls) {
-			try {
-				String base64Image = ImageToBase64Converter.ImageToBase64(url.trim());
-				if (base64Image != null && !base64Image.isEmpty()) {
-					if (base64ImageBuilder.length() > 0) {
-						base64ImageBuilder.append(",");
-					}
-					base64ImageBuilder.append(base64Image);
-				}
-			} catch (Exception e) {
-				System.err.println("Failed to convert image URL to Base64: " + url);
-				e.printStackTrace();
-			}
-		}
+      // 이미지 URL 처리
+      String[] imgUrls = imgUrlsString.split(",");
+      StringBuilder base64ImageBuilder = new StringBuilder();
 
-		if (base64ImageBuilder.length() == 0) {
-			Map<String, Object> errorMap = new HashMap<>();
-			errorMap.put("error", "Failed to convert any image to Base64");
+      for (String url : imgUrls) {
+         try {
+            String base64Image = ImageToBase64Converter.ImageToBase64(url.trim());
+            if (base64Image != null && !base64Image.isEmpty()) {
+               if (base64ImageBuilder.length() > 0) {
+                  base64ImageBuilder.append(",");
+               }
+               base64ImageBuilder.append(base64Image);
+            }
+         } catch (Exception e) {
+            System.err.println("Failed to convert image URL to Base64: " + url);
+            e.printStackTrace();
+         }
+      }
 
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMap);
-		}
+      if (base64ImageBuilder.length() == 0) {
+         Map<String, Object> errorMap = new HashMap<>();
+         errorMap.put("error", "Failed to convert any image to Base64");
 
-		// Classify API 호출
-		String apiURL = "http://112.217.124.195:30020/classify";
-		String resultJson = apiCon.classifypost(apiURL, base64ImageBuilder.toString(), classes);
+         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMap);
+      }
 
-		if (resultJson != null) {
-			// img_id를 imgUrls 배열의 첫 번째 값으로 고정
-//			String img_id = imgUrls[0];
+      // Classify API 호출
+      String apiURL = "http://112.217.124.195:30020/classify";
+      String resultJson = apiCon.classifypost(apiURL, base64ImageBuilder.toString(), classes);
 
-			String[] list = imgUrls[0].split("/");
-			String img_id = list[list.length - 1];
+      if (resultJson != null) {
+         // img_id를 imgUrls 배열의 첫 번째 값으로 고정
+//         String img_id = imgUrls[0];
 
-			// 세션에 저장
-			session.setAttribute("img_id", img_id);
-			session.setAttribute("img_url", imgUrlsString);
-			session.setAttribute("classes", classes);
-			System.out.println(
-					"Session Data Saved - img_id: " + img_id + ", img_url: " + imgUrlsString + ", classes: " + classes);
+         String[] list = imgUrls[0].split("/");
+         String img_id = list[list.length - 1];
 
-			// JSON 결과를 DB에 저장하기 위해 JsonUpload 호출
-			Map<String, Object> jsonRequest = new HashMap<>();
-			jsonRequest.put("img_url", imgUrlsString);
-			
-			Map<String, Object> jsonMap = new HashMap<>();
-			Map<String, Object> succes = new HashMap<>();
-			
-			jsonMap.put("result", resultJson);
-			jsonMap.put("uuid", img_id);
+         // 세션에 저장
+         session.setAttribute("img_id", img_id);
+         session.setAttribute("img_url", imgUrlsString);
+         session.setAttribute("classes", classes);
+         System.out.println(
+               "Session Data Saved - img_id: " + img_id + ", img_url: " + imgUrlsString + ", classes: " + classes);
 
-			jsonRequest.put("json", jsonMap);
+         // JSON 결과를 DB에 저장하기 위해 JsonUpload 호출
+         Map<String, Object> jsonRequest = new HashMap<>();
+         jsonRequest.put("img_url", imgUrlsString);
 
-			jsonUpload.clipUpload(jsonRequest, session);
-			
-			 // classify 완료 후 detect 호출
-	        System.out.println("Calling detect after classify...");
-	        detect(session); // detect 메서드 호출
-	        System.out.println("Detect process completed and saved to DB.");
-	        
-	        succes.put("result", resultJson);
+         Map<String, Object> jsonMap = new HashMap<>();
+         Map<String, Object> succes = new HashMap<>();
 
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(succes);
-		} else {
-			Map<String, Object> errorMap = new HashMap<>();
-			errorMap.put("error", "Missing required parameters: 'classes' or 'img_url'");
+         jsonMap.put("result", resultJson);
+         jsonMap.put("uuid", img_id);
 
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMap);
-		}
-	}
+         jsonRequest.put("json", jsonMap);
 
-	@RequestMapping(value = "/detect", method = RequestMethod.POST)
-	public String detect(HttpSession session) {
-	    String apiURL = "http://112.217.124.195:30020/detect";
+         jsonUpload.clipUpload(jsonRequest, session);
 
-	    // 세션에서 데이터 불러오기
-	    String img_id = (String) session.getAttribute("img_id");
-	    String img_url = (String) session.getAttribute("img_url"); // ,로 구분된 전체 이미지 URL
-	    String classes = (String) session.getAttribute("classes");
+         // classify 완료 후 detect 호출
+         System.out.println("Calling detect after classify...");
+         detect(session); // detect 메서드 호출
+         System.out.println("Detect process completed and saved to DB.");
 
-	    System.out.println("Session Data Retrieved - img_id: " + img_id + ", img_url: " + img_url + ", classes: " + classes);
+         succes.put("result", resultJson);
 
-	    // img_url을 개별적으로 처리
-	    String[] img_url_list = img_url.split(",");
-	    for (String singleImgUrl : img_url_list) {
-	        System.out.println("Processing detect for URL: " + singleImgUrl);
+         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(succes);
+      } else {
+         Map<String, Object> errorMap = new HashMap<>();
+         errorMap.put("error", "Missing required parameters: 'classes' or 'img_url'");
 
-	        try {
-	            // Base64로 이미지 변환
-	            String base64Image = ImageToBase64Converter.ImageToBase64(singleImgUrl.trim());
+         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMap);
+      }
+   }
 
-	            // 비동기 실행 (개별 URL)
-	            CompletableFuture.runAsync(() -> {
-	                try {
-	                    apiCon.detectpost(apiURL, base64Image, classes, img_id, singleImgUrl);
-	                    System.out.println("Detect completed for URL: " + singleImgUrl);
-	                } catch (Exception e) {
-	                    System.err.println("Error during detectpost execution for URL: " + singleImgUrl);
-	                    e.printStackTrace();
-	                }
-	            });
+   @RequestMapping(value = "/detect", method = RequestMethod.POST)
+   public String detect(HttpSession session) {
+      String apiURL = "http://112.217.124.195:30020/detect";
 
-	        } catch (Exception e) {
-	            System.err.println("Failed to convert image URL to Base64: " + singleImgUrl);
-	            e.printStackTrace();
-	        }
-	    }
+      // 세션에서 데이터 불러오기
+      String img_id = (String) session.getAttribute("img_id");
+      String img_url = (String) session.getAttribute("img_url"); // ,로 구분된 전체 이미지 URL
+      String classes = (String) session.getAttribute("classes");
 
-	    return "redirect:/";
-	}
+      System.out.println(
+            "Session Data Retrieved - img_id: " + img_id + ", img_url: " + img_url + ", classes: " + classes);
+
+      // img_url을 개별적으로 처리
+      String[] img_url_list = img_url.split(",");
+      for (String singleImgUrl : img_url_list) {
+         System.out.println("Processing detect for URL: " + singleImgUrl);
+
+         try {
+            // Base64로 이미지 변환
+            String base64Image = ImageToBase64Converter.ImageToBase64(singleImgUrl.trim());
+
+            // 비동기 실행 (개별 URL)
+            CompletableFuture.runAsync(() -> {
+               try {
+                  apiCon.detectpost(apiURL, base64Image, classes, img_id, singleImgUrl);
+                  System.out.println("Detect completed for URL: " + singleImgUrl);
+               } catch (Exception e) {
+                  System.err.println("Error during detectpost execution for URL: " + singleImgUrl);
+                  e.printStackTrace();
+               }
+            });
+
+         } catch (Exception e) {
+            System.err.println("Failed to convert image URL to Base64: " + singleImgUrl);
+            e.printStackTrace();
+         }
+      }
+
+      User user = (User) session.getAttribute("info");
+      int credit = user.getUser_credit() - 50;
+
+      usermapper.usecredit(user.getUser_id(), credit);
+      creditmapper.inserusercredit(user.getUser_id());
+
+      return "redirect:/";
+   }
 }

@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     listHtml += "<tr>";
                     listHtml += "<td>" + c.credit_type + "</td>";
                     listHtml += "<td>" + c.credit_reason + "</td>";
-                    if (c.credit_cnt != "지불") listHtml += "<td>+" + c.credit_cnt + "</td>";
+                    if (c.credit_reason != "지불") listHtml += "<td>+" + c.credit_cnt + "</td>";
                     else listHtml += "<td>-" + c.credit_cnt + "</td>";
                     listHtml += "<td>" + c.created_at + "</td>";
                     listHtml += "</tr>";
