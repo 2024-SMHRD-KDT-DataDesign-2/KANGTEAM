@@ -110,7 +110,7 @@
 				<ul>
 					<li><a href="./MainPage">Home</a></li>
 					<li><a href="./TutorialPage">How to Use</a></li>
-					<li><a href="#">Search</a></li>
+					<li><a href="./SearchPage">Search</a></li>
 					<li><a href="#">More</a></li>
 				</ul>
 			</aside>

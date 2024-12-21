@@ -424,7 +424,7 @@ header p {
 	color: #d3d3d3;
 }
 
-.tabs. tabs2 {
+.tabs, .tabs2 {
 	list-style: none;
 	padding: 0;
 	margin: 20px 0;
@@ -435,12 +435,12 @@ header p {
 
 
 
-.tabs li, tabs2 li {
+.tabs li, .tabs2 li {
 	padding: 10px 15px;
 	cursor: pointer;
 }
 
-.tabs .active, tabs2 .active {
+.tabs .active, .tabs2 .active2 {
 	border-bottom: 2px solid #007bff;
 	font-weight: bold;
 }

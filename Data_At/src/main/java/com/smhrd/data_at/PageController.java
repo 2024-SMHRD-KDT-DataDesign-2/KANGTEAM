@@ -58,4 +58,9 @@ public class PageController {
 	public String goPaymentPage() {
 		return "PaymentPage" ;
 	}
+	
+	@RequestMapping("/TutorialPage")
+	public String goTutorialPage() {
+		return "TutorialPage" ;
+	}
 }
