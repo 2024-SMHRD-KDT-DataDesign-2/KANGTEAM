@@ -10,6 +10,7 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="./resources/css_main.css" />
 <link rel="stylesheet" href="./resources/Main_test.css" />
+<link rel="stylesheet" href="./resources/tutorial.css" />
 <title>Welcome to Data.At !!!</title>
 <!-- Font Awesome CSS -->
 <link
