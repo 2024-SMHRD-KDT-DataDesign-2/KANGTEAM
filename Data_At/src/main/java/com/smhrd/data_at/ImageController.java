@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.smhrd.entity.credit;
+import com.smhrd.entity.chart;
 import com.smhrd.entity.search;
 import com.smhrd.mapper.ImageDetail;
 
@@ -77,6 +76,23 @@ public class ImageController {
 		
 		try {
             json = objectMapper.writeValueAsString(imgUrl);
+            System.out.println("JSON: " + json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		
+		return ResponseEntity.ok(json);
+	}
+	
+	@RequestMapping(value = "/chartJson", method = RequestMethod.POST)
+	public ResponseEntity<String> chartJson(@RequestParam("img_id") String img_id) {
+		List<chart> chartJson = imagedetail.getChart(img_id) ;
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+		String json = "" ;
+		
+		try {
+            json = objectMapper.writeValueAsString(chartJson);
             System.out.println("JSON: " + json);
         } catch (Exception e) {
             e.printStackTrace();

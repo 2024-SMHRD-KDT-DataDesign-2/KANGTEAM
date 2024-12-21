@@ -139,3 +139,19 @@ let myChart3 = new Chart(myCt3, {
         }
     ]
 });
+
+$(document).ready(function () {
+	const img_id = $("#img_id").val() ;
+
+	$.ajax({
+		url : "chartJson",
+		type : "POST",
+		data : {"img_id" : img_id},
+		success : function(response){
+			console.log("chart : ", response)
+		},
+		error : function() {
+			alert("chart 불러오기 실패") ;
+		}
+	}) ;
+})

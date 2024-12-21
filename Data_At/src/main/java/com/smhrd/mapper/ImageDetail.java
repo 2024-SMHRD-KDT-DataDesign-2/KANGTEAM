@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import com.smhrd.entity.chart;
 import com.smhrd.entity.search;
 
 @Mapper
@@ -17,4 +18,7 @@ public interface ImageDetail {
 	
 	@Select("SELECT img_url from tb_object_img where img_id = #{img_id}")
 	public List<String> getImageJson(String img_id);
+
+	@Select("select data_class, count(data_class) as img_cnt from tb_object_img where img_id = #{img_id} group by data_class")
+	public List<chart> getChart(String img_id) ;
 }
