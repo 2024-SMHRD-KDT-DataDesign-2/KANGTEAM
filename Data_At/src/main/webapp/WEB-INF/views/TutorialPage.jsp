@@ -36,21 +36,6 @@
 					</a>
 				</div>
 
-				<div class="right-div">
-					<a href="" id="uploaded-btn"> Uploaded </a>
-				</div>
-				<div class="right-div">
-					<a href="" id="downloaded-btn"> Downloaded </a>
-				</div>
-				<div class="right-div">
-					<a href="" id="credits-btn"> Credit </a>
-				</div>
-				<div class="right-div">
-					<a href="MyPage" id="settings-btn"> Mypage </a>
-				</div>
-				<div class="right-div">
-					<a href="#" id="openModalBtn"> Account </a>
-				</div>
 
 				<!-- 좌측 토글 버튼 -->
 				<div id="list-btn" style="background-color: white;">
