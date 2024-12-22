@@ -209,12 +209,43 @@ myuploadPage.style.display = 'none';
 // myupload 태그 클릭
 myuploadBtn.addEventListener('click', (e) => {
   console.log("myupload 버튼 clicked");
-e.preventDefault();
-settingsPage.style.display = 'block';    
-creditsPage.style.display = 'none';
+  e.preventDefault();
+  
+  $.ajax({
+  	url : "userUploadList",
+  	type : "POST",
+  	success: function(list) {
+  		console.log("uploadlist : ", list) ;
+  	
+  		settingsPage.style.display = 'block';    
+		creditsPage.style.display = 'none';
+		
+		accountPage.style.display = 'none';
+		myuploadPage.style.display = 'block';
+		  let listHtml = "";
 
-accountPage.style.display = 'none';
-myuploadPage.style.display = 'block';  
+          listHtml += "<tr>";
+          listHtml += "<th>Data Title</th>";
+          listHtml += "<th>Size</th>";
+          listHtml += "<th>Upload Date</th>";
+          listHtml += "</tr>";
+
+          $.each(list, function(index, c) {
+              listHtml += "<tr>";
+              listHtml += "<td>" + c.img_title + "</td>";
+              listHtml += "<td>" + c.img_size + "</td>";
+              listHtml += "<td>" + c.created_at + "</td>";
+              listHtml += "</tr>";
+          });
+
+          $("#myupload-table").html(listHtml);
+        },
+        error: function() {
+          console.error("업로드 데이터 불러오기 실패");
+        }
+
+  }) ;
+
 
 
 });

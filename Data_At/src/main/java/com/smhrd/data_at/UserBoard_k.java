@@ -53,21 +53,13 @@ public class UserBoard_k {
 
 		User info = (User) session.getAttribute("info");
 		List<myBoard> list = boardMapper.myboardList(info.getUser_id());
-		List<myBoard> uploadList = new ArrayList<>() ;
-		
-		for(myBoard l : list) {
-			String str = "" ;
-			if(!(l.getImg_id().contains(str))) {
-				uploadList.add(l) ;
-				str += (l.getImg_id() + " ") ;
-			}
-		}	
 
 		if (list != null) {
-			return ResponseEntity.ok(uploadList);
+			System.out.println(list);
+			return ResponseEntity.ok(list);
 		}
 		else {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(uploadList);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(list);
 		}
 
 	}

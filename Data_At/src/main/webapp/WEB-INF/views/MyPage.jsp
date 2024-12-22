@@ -124,27 +124,9 @@
 				<main>
 					<section class="settings-section">
 
-						<table>
-							<tr>
-								<th>Data Title</th>
-								<th>Size</th>
-								<th>Upload Date</th>
-							</tr>
-							<tr>
-								<td>apple</td>
-								<td>13.53MB</td>
-								<td>2024-11-29</td>
-							</tr>
-							<tr>
-								<td>apple juice</td>
-								<td>212.45MB</td>
-								<td>2024-11-30</td>
-							</tr>
-							<tr>
-								<td>color of apple species</td>
-								<td>143.67KB</td>
-								<td>2024-01-02</td>
-							</tr>
+						<table id="myupload-table">
+
+
 						</table>
 
 					</section>
