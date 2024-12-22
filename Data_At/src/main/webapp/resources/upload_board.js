@@ -1,62 +1,41 @@
-// Drag and Drop 기능 구현
+// 업로드기능 12.22
 
-const panelContent = document.querySelector('.panel-content');
+// 파일 정보를 저장할 변수
+let uploadedFile = null;
 
-// panelContent 유무 확인
-if (!panelContent) {
-    console.error("Error222: .panel-content element not found.");
-} else {
-    console.log("Drag and drop element found:", panelContent);
-}
+// 버튼과 파일 입력 요소
+const uploadButton = document.getElementById('uploadButton');
+const fileInput = document.getElementById('fileInput');
+const fileInfo = document.getElementById('fileInfo');
 
-// zip 파일 업로드 관련 변수 설정 
-const fileInfoDiv = document.getElementById('fileInfo');
-
-let fName = '';
-let fType = '';
-let fSize = '';
-
- // Drag events
-panelContent.addEventListener('dragover', (event) => {
-    event.preventDefault();
-	console.log('drag event done');
-    panelContent.classList.add('drag-over');
+// 버튼 클릭 시 파일 탐색기 열기
+uploadButton.addEventListener('click', () => {
+    fileInput.click(); // 숨겨진 input을 클릭
 });
 
-panelContent.addEventListener('dragleave', () => {
-	console.log('dragleave event done');
-    event.preventDefault();
-    panelContent.classList.remove('drag-over');
-});
-
-panelContent.addEventListener('drop', (event) => {
-	console.log('drop event done');
-    event.preventDefault();
-    panelContent.classList.remove('drag-over');
-
-    const file = event.dataTransfer.files[0];
+// 파일 선택 후 이벤트
+fileInput.addEventListener('change', (event) => {
+    const file = event.target.files[0]; // 선택한 파일 가져오기
     if (file) {
+        uploadedFile = file; // 파일 정보를 변수에 저장
         const fileName = file.name;
-        const fileType = file.type || 'Unknown type';
         const fileSize = (file.size / 1024).toFixed(2) + ' KB';
-        
-        uploadfile = file ;
-        
-        fName= fileName;
-        console.log(fName);
-        fType= fileType;
-        fSize= fileSize;
+        const fileType = file.type || 'Unknown';
 
-        fileInfoDiv.innerHTML = `
+        // 파일 정보 표시
+        fileInfo.innerHTML = `
             <p><strong>File Name:</strong> ${fileName}</p>
-            <p><strong>File Type:</strong> ${fileType}</p>
             <p><strong>File Size:</strong> ${fileSize}</p>
+            <p><strong>File Type:</strong> ${fileType}</p>
         `;
+
+        console.log('Uploaded File:', uploadedFile);
     } else {
-      fileInfoDiv.innerHTML = `<p style="color:red;">Please drop a valid ZIP file.</p>`;
+        fileInfo.innerHTML = `<p style="color: red;">No file selected.</p>`;
     }
 });
 
+// --------------------
 
 // 우측 두번째 패널 열기
 const uploadbtn = document.getElementById('uploadcontentbtn');

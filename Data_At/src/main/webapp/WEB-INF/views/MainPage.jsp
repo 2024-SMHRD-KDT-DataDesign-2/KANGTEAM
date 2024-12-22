@@ -279,8 +279,15 @@
 				</div>
 				<div class="panel-container">
 					<div class="panel-content">
-						<p>Drag & drop files to upload</p>
-						<div id="fileInfo"></div>
+					 <!-- 버튼 -->
+					    <button id="uploadButton">Upload File</button>
+					
+					    <!-- 숨겨진 파일 입력 -->
+					    <input type="file" id="fileInput" style="display: none;" />
+					
+					    <!-- 파일 정보 표시 -->
+					    <div id="fileInfo"></div>
+					    
 						<button class="upload-btn" id="uploadcontentbtn">Upload
 							Content</button>
 					</div>

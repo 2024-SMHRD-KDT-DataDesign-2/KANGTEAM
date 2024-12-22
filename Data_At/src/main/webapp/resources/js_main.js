@@ -52,8 +52,11 @@ newDatasetBtn.addEventListener('click', () => {
 });
 
 // Close the panel when the "X" button is clicked
+fileinfo01 = document.getElementById('fileInfo');
+
 closePanelBtn.addEventListener('click', () => {
     newDatasetPanel.classList.remove('visible');
+    fileinfo01.innerHTML = '';
 });
 
 // 마이페이지 버튼 클릭할때마다 페이지 전환
