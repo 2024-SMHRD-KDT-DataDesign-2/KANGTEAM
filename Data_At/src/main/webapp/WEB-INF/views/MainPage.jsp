@@ -274,7 +274,7 @@
 
 			<!-- 적용 -->
 			<div class="new-dataset-panel hidden" id="newDatasetPanel2">
-				<form action="upload" method="post">
+				<form action="upload" method="post" enctype="multipart/form-data">
 					<!-- 데이터 업로드 작성 div -->
 					<div class="panel-header">
 						<h2>Upload Data</h2>
@@ -294,7 +294,7 @@
 							<div id="tags">
 								<!-- 동적으로 태그가 추가될 영역 -->
 							</div>
-							<input type="hidden" name="class"> <input type="text"
+							<input type="hidden" name="class" id="hiddenclass"> <input type="text"
 								id="tag-input" placeholder="태그를 입력하고 Enter를 누르세요.">
 						</div>
 

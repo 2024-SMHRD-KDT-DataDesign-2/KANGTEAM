@@ -14,6 +14,12 @@ public class PageController {
 		return "MainPage";
 	}
 	
+	@RequestMapping("/")
+	public String goMainPage_go() {
+		
+		return "MainPage";
+	}
+	
 	@RequestMapping("/MyPage")
 	public String goMyPage() {
 		return "MyPage";

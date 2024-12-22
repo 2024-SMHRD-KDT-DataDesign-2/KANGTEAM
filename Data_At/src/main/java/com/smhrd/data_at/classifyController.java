@@ -77,6 +77,7 @@ public class classifyController {
       // Classify API 호출
       String apiURL = "http://112.217.124.195:30020/classify";
       String resultJson = apiCon.classifypost(apiURL, base64ImageBuilder.toString(), classes);
+      System.out.println("resultJson"+resultJson);
 
       if (resultJson != null) {
          // img_id를 imgUrls 배열의 첫 번째 값으로 고정
@@ -89,8 +90,7 @@ public class classifyController {
          session.setAttribute("img_id", img_id);
          session.setAttribute("img_url", imgUrlsString);
          session.setAttribute("classes", classes);
-         System.out.println(
-               "Session Data Saved - img_id: " + img_id + ", img_url: " + imgUrlsString + ", classes: " + classes);
+         System.out.println("Session Data Saved - img_id: " + img_id + ", img_url: " + imgUrlsString + ", classes: " + classes);
 
          // JSON 결과를 DB에 저장하기 위해 JsonUpload 호출
          Map<String, Object> jsonRequest = new HashMap<>();
@@ -113,7 +113,7 @@ public class classifyController {
 
          succes.put("result", resultJson);
 
-         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(succes);
+         return ResponseEntity.status(HttpStatus.OK).body(succes);
       } else {
          Map<String, Object> errorMap = new HashMap<>();
          errorMap.put("error", "Missing required parameters: 'classes' or 'img_url'");
@@ -161,9 +161,11 @@ public class classifyController {
       }
 
       User user = (User) session.getAttribute("info");
-      int credit = user.getUser_credit() - 50;
-
-      usermapper.usecredit(user.getUser_id(), credit);
+      System.out.println(user.getUser_credit());
+      int user_credit = (user.getUser_credit() - 50);
+      System.out.println(user_credit);
+      System.out.println(user.getUser_id());
+      usermapper.usecredit(user.getUser_id(), user_credit);
       creditmapper.inserusercredit(user.getUser_id());
 
       return "redirect:/";

@@ -27,6 +27,10 @@ public class JsonUpload {
 	@RequestMapping(value = "/clipUpload", method = RequestMethod.POST)
 	public String clipUpload(@RequestBody Map<String, Object> userAddress, HttpSession session) {
 		System.out.println("userAddress: " + userAddress);
+		User user = (User)session.getAttribute("info");
+		System.out.println(user.toString());
+		load data = (load) session.getAttribute("req");
+		System.out.println(data.toString());
 
 		clipJson clip = new clipJson();
 
@@ -73,13 +77,14 @@ public class JsonUpload {
 			maxValues[i] = maxValue;
 		}
 
-		User user = (User) session.getAttribute("info");
-		load data = (load) session.getAttribute("req");
+//		User user = (User) session.getAttribute("info");
+//		load data = (load) session.getAttribute("req");
 
 		// img_url이 여러 개일 경우 분리
 		String[] imgUrlList = img_url.split(",");
 
 		for (int j = 0; j < maxKeys.length; j++) {
+			System.out.println("ㅇㅅㅇ");
 			clip.setImg_class(maxKeys[j]);
 			clip.setUser_id(user.getUser_id()); // 예제 데이터, 실제 사용자 정보를 사용하려면 주석 해제
 			clip.setImg_url(imgUrlList[j].trim()); // URL 순차적으로 사용

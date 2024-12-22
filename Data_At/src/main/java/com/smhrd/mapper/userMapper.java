@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -41,6 +42,6 @@ public interface userMapper {
    @Delete("DELETE FROM tb_user WHERE user_id = #{user_id}")
    void deleteUser(String user_id);
 
-   @Update("update tb_user set user_credit = #{credit} where user_id = #{user_id} ")
-   public int  usecredit(String user_id, int credit);
+   @Update("update tb_user set user_credit = #{user_credit} where user_id = #{user_id} ")
+   public int usecredit(@Param("user_id")String user_id,@Param("user_credit") int user_credit);
 }

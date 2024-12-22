@@ -47,8 +47,10 @@ public class loadController {
 			@RequestParam("img_title") String img_title, HttpSession session) {
 		ArrayList<String> imgUrls = new ArrayList<>();
 		ArrayList<String> uuids = new ArrayList<>();
-		ArrayList<Long> size = new ArrayList<>() ;
+		ArrayList<Long> size = new ArrayList<>();
 		String uploadPath = System.getProperty("user.home") + "/Documents/";
+		
+		System.out.println("img_title"+img_title);
 
 		for (MultipartFile file : files) {
 			try {
@@ -62,7 +64,7 @@ public class loadController {
 							uuids.add(uuid);
 							File tempFile = new File(uploadPath + uuid);
 							Files.copy(extractedFile.toPath(), tempFile.toPath()); // 복사 후 업로드
-							size.add(file.getSize()) ;
+							size.add(file.getSize());
 							uploadImageFile(tempFile, imgUrls, uuid);
 							tempFile.delete(); // 임시 파일 삭제
 						}
@@ -72,7 +74,7 @@ public class loadController {
 						uuids.add(uuid);
 						File tempFile = new File(uploadPath + uuid);
 						file.transferTo(tempFile);
-						size.add(file.getSize()) ;
+						size.add(file.getSize());
 						uploadImageFile(tempFile, imgUrls, uuid);
 						tempFile.delete(); // 임시 파일 삭제
 					}
@@ -81,18 +83,20 @@ public class loadController {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("size"+size);
 
 		// classify 호출 및 detect 처리
 		String uuidsParam = String.join(",", uuids);
 		String imgUrlsParam = String.join(",", imgUrls);
-		
+
 		String str = classes.replaceAll(",$", "");
 
 		Map<String, String> requestBody = new HashMap<>();
 		requestBody.put("classes", str);
 		requestBody.put("img_url", imgUrlsParam);
+		
+		System.out.println(size+imgUrlsParam+uuidsParam+str+img_title+img_content);
 
-		ResponseEntity<Map<String, Object>> classifyResponse = classifyController.classify(session, requestBody);
 
 		if (session.getAttribute("req") != null) {
 			session.removeAttribute("req");
@@ -100,18 +104,29 @@ public class loadController {
 
 		// classify 결과를 세션에 저장
 		load req = new load();
+		System.out.println("여기오긴해?");
 		
-		req.setImg_size(size) ;
+		req.setImg_size(size);
 		req.setImg_url(imgUrlsParam);
 		req.setImg_idx(uuidsParam);
 		req.setClasses(classes);
-		req.setImg_title(img_title) ;
-		req.setImg_content(img_content) ;
-		
+		req.setImg_title(img_title);
+		req.setImg_content(img_content);
+
 		session.setAttribute("req", req);
+		ResponseEntity<Map<String, Object>> classifyResponse = classifyController.classify(session, requestBody);
 		session.setAttribute("classifyResult", classifyResponse.getBody());
 
-		return "redirect:/home";
+		System.out.println("req object: " + req);
+		System.out.println("req object details:");
+		System.out.println("- Img_size: " + req.getImg_size());
+		System.out.println("- Img_url: " + req.getImg_url());
+		System.out.println("- Img_idx: " + req.getImg_idx());
+		System.out.println("- Classes: " + req.getClasses());
+		System.out.println("- Img_title: " + req.getImg_title());
+		System.out.println("- Img_content: " + req.getImg_content());
+
+		return "redirect:/MainPage";
 	}
 
 	private void uploadImageFile(File file, ArrayList<String> imgUrls, String uuid) {
@@ -188,43 +203,6 @@ public class loadController {
 		return "";
 	}
 
-	@RequestMapping(value = "/zipdownload", method = RequestMethod.POST)
-	public void downloadImages(HttpServletResponse response, @RequestParam("img_id") String img_id) throws IOException {
-		List<String> imageUrls = new ArrayList<>();
-
-		List<String> list = loadmapper.urlSelect(img_id);
-		
-		System.out.println(list.toString());
-		
-		imageUrls.addAll(list);
-
-		// ZIP 파일 설정
-		response.setContentType("application/zip");
-		response.setHeader("Content-Disposition", "attachment; filename=\"images.zip\"");
-
-		try (ZipArchiveOutputStream zos = new ZipArchiveOutputStream(response.getOutputStream())) {
-			for (String imageUrl : imageUrls) {
-				downloadAndZipImage(imageUrl, zos);
-			}
-		}
-	}
-
-	private void downloadAndZipImage(String imageUrl, ZipArchiveOutputStream zos) throws IOException {
-		URL url = new URL(imageUrl);
-		try (InputStream in = url.openStream()) {
-			String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
-			ZipArchiveEntry zipEntry = new ZipArchiveEntry(fileName);
-			zos.putArchiveEntry(zipEntry);
-
-			byte[] buffer = new byte[1024];
-			int length;
-			while ((length = in.read(buffer)) >= 0) {
-				zos.write(buffer, 0, length);
-			}
-			zos.closeArchiveEntry();
-		}
-	}
-
 	private List<File> unzipFile(MultipartFile zipFile, String destinationFolder) throws IOException {
 		List<File> extractedFiles = new ArrayList<>();
 		File destDir = new File(destinationFolder);
@@ -292,6 +270,58 @@ public class loadController {
 			return true;
 		} catch (IOException e) {
 			throw new IOException("Error while extracting ZIP file with encoding " + encoding, e);
+		}
+	}
+
+	// 다운로드 - 클래스별 폴더로 저장
+	@RequestMapping(value = "/zipdownload", method = RequestMethod.POST)
+	public void downloadImages(HttpServletResponse response, @RequestParam("img_id") String img_id) throws IOException {
+
+		// 이미지 URL과 클래스 정보를 담을 리스트
+		List<Map<String, String>> imageInfoList = loadmapper.urlSelect(img_id);
+
+		System.out.println("zipdownload : " + imageInfoList.toString());
+
+		// ZIP 파일 설정
+		response.setContentType("application/zip");
+		response.setHeader("Content-Disposition", "attachment; filename=\"images_by_class.zip\"");
+
+		try (ZipArchiveOutputStream zos = new ZipArchiveOutputStream(response.getOutputStream())) {
+			// 클래스별 폴더 생성 및 이미지 추가
+			for (Map<String, String> imageInfo : imageInfoList) {
+				String imageUrl = imageInfo.get("img_url");
+				String imageClass = imageInfo.get("data_class"); // 클래스 이름
+
+				// 클래스 폴더 이름 설정
+				String folderName = (imageClass != null ? imageClass : "unknown") + "/";
+
+				// 이미지 파일을 클래스 폴더에 추가
+				addImageToZip(imageUrl, folderName, zos);
+			}
+		}
+	}
+
+	private void addImageToZip(String imageUrl, String folderName, ZipArchiveOutputStream zos) throws IOException {
+		if (imageUrl == null || imageUrl.trim().isEmpty()) {
+			System.err.println("Invalid image URL: " + imageUrl);
+			return; // Null 또는 빈 URL은 무시
+		}
+
+		URL url = new URL(imageUrl);
+		try (InputStream in = url.openStream()) {
+			String originalFileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+			String zipEntryPath = folderName + originalFileName;
+
+			ZipArchiveEntry zipEntry = new ZipArchiveEntry(zipEntryPath);
+			zos.putArchiveEntry(zipEntry);
+
+			byte[] buffer = new byte[1024];
+			int length;
+			while ((length = in.read(buffer)) >= 0) {
+				zos.write(buffer, 0, length);
+			}
+
+			zos.closeArchiveEntry();
 		}
 	}
 

@@ -35,6 +35,7 @@ public class apiController {
 			Map<String, String> jsonMap = new HashMap<>();
 			jsonMap.put("image", base64Image);
 			jsonMap.put("classes", classes);
+			System.out.println(classes);
 			String jsonBody = objectMapper.writeValueAsString(jsonMap);
 
 			postRequest.setEntity(new StringEntity(jsonBody));
