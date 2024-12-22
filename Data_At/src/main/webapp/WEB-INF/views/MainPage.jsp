@@ -339,8 +339,8 @@
 
 						<!-- Bottom Buttons -->
 						<div class="footer">
-							<button id="reset-btn01">Reset</button>
-							<button class="create-btn" disabled>Create</button>
+							<button id="reset-btn01" type="button">Reset</button>
+							<button class="create-btn">Create</button>
 						</div>
 					</div>
 				</form>
