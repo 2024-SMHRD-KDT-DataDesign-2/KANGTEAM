@@ -271,28 +271,6 @@
 				<p>&copy; 2024 DataPlatform. All rights reserved.</p>
 			</footer>
 
-			<!-- 데이터업로드페이지  -->
-			<div class="new-dataset-panel hidden" id="newDatasetPanel">
-				<div class="panel-header">
-					<h2>Upload Data</h2>
-					<button class="close-panel" id="closePanelBtn">X</button>
-				</div>
-				<div class="panel-container">
-					<div class="panel-content">
-					 <!-- 버튼 -->
-					    <button id="uploadButton">Upload File</button>
-					
-					    <!-- 숨겨진 파일 입력 -->
-					    <input type="file" id="fileInput" style="display: none;" />
-					
-					    <!-- 파일 정보 표시 -->
-					    <div id="fileInfo"></div>
-					    
-						<button class="upload-btn" id="uploadcontentbtn">Upload
-							Content</button>
-					</div>
-				</div>
-			</div>
 
 			<!-- 적용 -->
 			<div class="new-dataset-panel hidden" id="newDatasetPanel2">
@@ -330,13 +308,20 @@
 						<!-- Uploaded Files -->
 						<div class="form-group">
 							<label>FILES</label>
+							<!-- 버튼 -->
+						    <button id="uploadButton" style="display: none;">Upload File</button>
+						
+						    <!-- 숨겨진 파일 입력 -->
+						    <input type="file" id="fileInput" style="display: none;" />
+						
+						    <!-- 파일 정보 표시 -->
+						    <div id="fileInfo"></div>
 							<div class="file-list">
 								<div class="file-item">
 									<p>
 										<span id="zip-name"> </span> <span id="zip-size"> </span>
 									</p>
-									<input type="file" name="imgfile" id="hiddenFile"
-										style="visibility: hidden;">
+									<input type="file" name="imgfile" id="hiddenFile">
 									<!--  <span >&times;</span> -->
 								</div>
 							</div>

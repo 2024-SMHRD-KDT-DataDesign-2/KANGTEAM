@@ -1,4 +1,4 @@
-// 업로드기능 12.22 dtd
+// 업로드기능 12.22
 
 // 파일 정보를 저장할 변수
 let uploadedFile = null;
@@ -38,6 +38,7 @@ fileInput.addEventListener('change', (event) => {
 // --------------------
 
 // 우측 두번째 패널 열기
+const newDatasetBtn2 = document.getElementById('new-dataset-btn');
 const uploadbtn = document.getElementById('uploadcontentbtn');
 const newDatasetPanel2 = document.getElementById('newDatasetPanel2');
 
@@ -45,10 +46,9 @@ const newDatasetPanel2 = document.getElementById('newDatasetPanel2');
 zipnameSpanTag = document.getElementById('zip-name'); 
 zipsizeSpanTag = document.getElementById('zip-size'); 
 
-uploadbtn.addEventListener('click', () => {
-	console.log('uploadcontentbtn clicked');
-	newDatasetPanel.classList.add('hidden');
-  	newDatasetPanel.classList.remove('visible');
+// 왼쪽 버튼 누르면 오른쪽 2번패널 바로 등장
+newDatasetBtn2.addEventListener('click', () => {
+	console.log('newDatasetBtn2 clicked');
 	newDatasetPanel2.classList.add('visible');
   	newDatasetPanel2.classList.remove('hidden');
   	zipnameSpanTag.innerText = fName;

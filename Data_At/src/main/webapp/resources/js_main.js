@@ -40,24 +40,13 @@ if (menuToggleBtn) {
 }
 
 // ***우측 데이터 업로드 페이지 구현***
-const newDatasetBtn = document.getElementById('new-dataset-btn');
-const newDatasetPanel = document.getElementById('newDatasetPanel');
-const closePanelBtn = document.getElementById('closePanelBtn');
-
-// Open the panel when the "+ New Dataset" button is clicked
-newDatasetBtn.addEventListener('click', () => {
-    console.log("new Dataset 버튼 작동");
-    newDatasetPanel.classList.add('visible');
-    newDatasetPanel.classList.remove('hidden');
-});
-
-// Close the panel when the "X" button is clicked
-fileinfo01 = document.getElementById('fileInfo');
-
-closePanelBtn.addEventListener('click', () => {
-    newDatasetPanel.classList.remove('visible');
-    fileinfo01.innerHTML = '';
-});
+	const newDatasetBtn = document.getElementById('new-dataset-btn');
+	
+	// Open the panel when the "+ New Dataset" button is clicked
+	newDatasetBtn.addEventListener('click', () => {
+	});
+	
+	
 
 // 마이페이지 버튼 클릭할때마다 페이지 전환
 document.addEventListener('DOMContentLoaded', () => {

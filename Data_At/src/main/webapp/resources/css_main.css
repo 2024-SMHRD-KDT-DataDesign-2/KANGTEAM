@@ -1518,7 +1518,6 @@ input[type="text"], select {
 .create-btn {
     background-color: #bbb;
     color: white;
-    cursor: not-allowed;
 }
 
 .create-btn.active {
