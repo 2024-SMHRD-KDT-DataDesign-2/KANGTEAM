@@ -1,7 +1,9 @@
 package com.smhrd.data_at;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -48,20 +50,29 @@ public class UserBoard_k {
 	}
 
 	@RequestMapping(value = "/userUploadList", method = RequestMethod.POST)
-	public ResponseEntity<List<myBoard>> uploadList(HttpSession session) {
-		System.out.println("보드리스트들어옴");
+	   public ResponseEntity<List<myBoard>> uploadList(HttpSession session) {
+	      System.out.println("보드리스트들어옴");
 
-		User info = (User) session.getAttribute("info");
-		List<myBoard> list = boardMapper.myboardList(info.getUser_id());
+	      User info = (User) session.getAttribute("info");
+	      List<myBoard> list = boardMapper.myboardList(info.getUser_id());
 
-		if (list != null) {
-			System.out.println(list);
-			return ResponseEntity.ok(list);
-		}
-		else {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(list);
-		}
+	      // 중복 제거를 위한 Set
+	      Set<String> uniqueImgIds = new HashSet<>();
+	      List<myBoard> filteredList = new ArrayList<>();
 
-	}
+	      // 중복 제거 로직
+	      for (myBoard board : list) {
+	         if (uniqueImgIds.add(board.getImg_id())) { // Set에 추가 성공하면 중복이 아님
+	            filteredList.add(board);
+	         }
+	      }
+
+	      if (!filteredList.isEmpty()) {
+	         System.out.println(filteredList);
+	         return ResponseEntity.ok(filteredList);
+	      } else {
+	         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(filteredList);
+	      }
+	   }
 
 }
