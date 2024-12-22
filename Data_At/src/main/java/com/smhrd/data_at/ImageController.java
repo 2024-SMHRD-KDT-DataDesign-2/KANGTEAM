@@ -33,9 +33,11 @@ public class ImageController {
 		// img_idx를 이용해 데이터베이스에서 상세 정보 가져오기
 
 		search detail = imagedetail.getImageDetailById(Integer.parseInt(imgIdx));
-
+		List<String> classes = imagedetail.getClasses(detail.getImg_id()) ;
+		
 		// 데이터 모델에 추가
 		model.addAttribute("detail", detail);
+		model.addAttribute("classes", classes);
 
 		// 상세 페이지로 이동
 		return "DataDetailPage";

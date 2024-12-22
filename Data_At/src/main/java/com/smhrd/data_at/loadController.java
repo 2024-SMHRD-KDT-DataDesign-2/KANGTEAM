@@ -192,10 +192,7 @@ public class loadController {
 	public void downloadImages(HttpServletResponse response, @RequestParam("img_id") String img_id) throws IOException {
 		List<String> imageUrls = new ArrayList<>();
 
-		data d = new data();
-		d.setImg_id(img_id) ;
-
-		List<String> list = loadmapper.urlSelect(d);
+		List<String> list = loadmapper.urlSelect(img_id);
 		
 		System.out.println(list.toString());
 		

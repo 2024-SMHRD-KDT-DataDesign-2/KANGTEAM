@@ -108,10 +108,7 @@
 							<ul>Name : ${detail.img_title} Datasets
 							</ul>
 							<ul>
-								Contains :
-								<c:forEach items="${classes}" var="c">
-									<span>${c}</span>
-								</c:forEach>
+								Contains : <c:forEach items="${classes}" var="c"><span>${c}</span></c:forEach>
 							</ul>
 							<ul>Uploader : ${detail.user_nick}
 							</ul>
