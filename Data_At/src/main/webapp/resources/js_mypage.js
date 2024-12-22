@@ -1,4 +1,31 @@
+// 닉네임 변경 기능 추가 12.22
+  // 요소 가져오기
+        const changeNicknameBtn = document.getElementById('change-nickname-btn');
+        const inputNickname = document.getElementById('input-nickname');
+        const nicknameDisplay = document.getElementById('change-nickname');
 
+        // 버튼 클릭 이벤트: 입력창 표시, 닉네임 숨기기
+        changeNicknameBtn.addEventListener('click', () => {
+            inputNickname.style.display = 'block'; // 입력창 보이기
+            nicknameDisplay.style.display = 'none'; // 현재 닉네임 숨기기
+        });
+
+        // 입력창에서 Enter 키 입력 시: 닉네임 업데이트 및 표시
+        inputNickname.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') { // Enter 키 확인
+                const newNickname = inputNickname.value.trim(); // 입력값 가져오기
+
+                if (newNickname) {
+                    nicknameDisplay.textContent = newNickname; // 닉네임 업데이트
+                }
+
+                inputNickname.style.display = 'none'; // 입력창 숨기기
+                nicknameDisplay.style.display = 'block'; // 닉네임 표시
+                inputNickname.value = ''; // 입력창 초기화
+            }
+        });
+        
+// ------
 
 // 계정 삭제 기능    
 // 제발... 적용좀 되게 해주세요...

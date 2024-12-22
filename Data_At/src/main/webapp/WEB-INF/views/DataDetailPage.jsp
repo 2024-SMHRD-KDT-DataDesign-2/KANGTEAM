@@ -143,7 +143,6 @@
                   <h2>Data visualization</h2>
                </div>
                <div class="content-center">
-                  <canvas id="myChart1"></canvas>
 
                   <div class="chart-container">
                      <canvas id="myChart2"></canvas>

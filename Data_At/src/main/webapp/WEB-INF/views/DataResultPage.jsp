@@ -87,14 +87,8 @@
 		<!-- 데이터 결과 숫자, 필터 -->
 		<div class="search-result">
 			<div class="container-spacebetween">
-				<p>21 results</p>
 				<div class="right-group">
 					<div class="custom-select">
-						<select>
-							<option value="relevance">Relevance</option>
-							<option value="date">Date</option>
-							<option value="popularity">Popularity</option>
-						</select>
 					</div>
 				</div>
 			</div>

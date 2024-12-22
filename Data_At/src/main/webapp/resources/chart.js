@@ -28,41 +28,9 @@ $(document).ready(function () {
 });
 
 function createCharts(dataClasses, imgCounts) {
-    let myCt1 = document.getElementById('myChart1');
     let myCt2 = document.getElementById('myChart2');
 
-    let myChart1 = new Chart(myCt1, {
-        data: {
-            datasets: [
-                {
-                    type: 'bar',
-                    label: 'Bar Dataset',
-                    data: imgCounts
-                }
-            ],
-            labels: dataClasses
-        },
-        options: {
-            scales: {
-                x: {
-                    ticks: {
-                        font: {
-                            size: 20,
-                            family: "'Montserrat', Arial, sans-serif"
-                        }
-                    }
-                },
-                y: {
-                    ticks: {
-                        font: {
-                            size: 20,
-                            family: "'Montserrat', Arial, sans-serif"
-                        }
-                    }
-                }
-            }
-        }
-    });
+    
 
     let myChart2 = new Chart(myCt2, {
 	    type: 'doughnut',
