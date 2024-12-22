@@ -115,9 +115,7 @@
 							<ul>Uploaded Date : ${detail.created_at}
 							</ul>
 						</li>
-						<!-- <input type="hidden" id="img_id" value="${detail.img_id}"> -->
-						<input type="hidden" id="img_id"
-							value="24d9c0bb-c151-4f3c-8d85-1025faf3f9ae.png">
+						<input type="hidden" id="img_id" value="${detail.img_id}">
 						<p>${detail.img_content}</p>
 
 
