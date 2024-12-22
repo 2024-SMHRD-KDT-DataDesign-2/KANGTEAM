@@ -85,9 +85,11 @@ public class loadController {
 		// classify 호출 및 detect 처리
 		String uuidsParam = String.join(",", uuids);
 		String imgUrlsParam = String.join(",", imgUrls);
+		
+		String str = classes.replaceAll(",$", "");
 
 		Map<String, String> requestBody = new HashMap<>();
-		requestBody.put("classes", classes);
+		requestBody.put("classes", str);
 		requestBody.put("img_url", imgUrlsParam);
 
 		ResponseEntity<Map<String, Object>> classifyResponse = classifyController.classify(session, requestBody);
