@@ -309,7 +309,7 @@
 							<div id="tags">
 								<!-- 동적으로 태그가 추가될 영역 -->
 							</div>
-							<input type="hidden" name="class" id="hiddenclass"> <input type="text"
+							<input type="hidden" name="class"> <input type="text"
 								id="tag-input" placeholder="태그를 입력하고 Enter를 누르세요.">
 						</div>
 
@@ -328,6 +328,8 @@
 									<p>
 										<span id="zip-name"> </span> <span id="zip-size"> </span>
 									</p>
+									<input type="file" name="imgfile" id="hiddenFile"
+										style="visibility: hidden;">
 									<!--  <span >&times;</span> -->
 								</div>
 							</div>
@@ -337,8 +339,8 @@
 
 						<!-- Bottom Buttons -->
 						<div class="footer">
-							<button type="button" id="reset-btn01">Reset</button>
-							<button class="create-btn" type="submit">Create</button>
+							<button id="reset-btn01" type="button">Reset</button>
+							<button class="create-btn">Create</button>
 						</div>
 					</div>
 				</form>
