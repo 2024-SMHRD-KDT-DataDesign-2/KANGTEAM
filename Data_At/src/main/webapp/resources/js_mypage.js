@@ -16,7 +16,20 @@
                 const newNickname = inputNickname.value.trim(); // 입력값 가져오기
 
                 if (newNickname) {
-                    nicknameDisplay.textContent = newNickname; // 닉네임 업데이트
+                	$.ajax({
+                		url : "updateNick",
+                		type : "POST",
+                		data : {
+                			"user_nick" : newNickname
+                		},
+                		success : function() {
+                			nicknameDisplay.textContent = newNickname; // 닉네임 업데이트
+                		},
+                		error : function() {
+                			alert("닉네임 변경 실패") ;
+                		}
+                	}) ;
+                	
                 }
 
                 inputNickname.style.display = 'none'; // 입력창 숨기기

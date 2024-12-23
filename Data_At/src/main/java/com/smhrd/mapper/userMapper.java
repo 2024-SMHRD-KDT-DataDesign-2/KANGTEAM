@@ -23,7 +23,7 @@ public interface userMapper {
    public User login(User user);
 
    @Select("select * from tb_user where user_id = #{user_id}")
-   public List<User> userInfo(String user_id);
+   public User userInfo(String user_id);
 
    public int updateUserCredit(User user);
 

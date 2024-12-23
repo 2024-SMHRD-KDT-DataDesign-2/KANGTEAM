@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.smhrd.entity.User;
 import com.smhrd.entity.myBoard;
@@ -24,25 +25,23 @@ public class userBoard {
 	private userMapper userMapper ;
 	
 	@RequestMapping(value = "/updateNick", method = RequestMethod.POST)
-	public ResponseEntity<String> infoUpdate(HttpSession session, String user_nick) {
+	public ResponseEntity<String> infoUpdate(HttpSession session, @RequestParam("user_nick") String user_nick) {
 		System.out.println("updateNick");
 		
 		myBoard my_info = new myBoard() ;
 		
-		//User id = (User) session.getAttribute("info") ;	
-		String id = "test" ;
+		User id = (User) session.getAttribute("info") ;	
 		
-		//my_info.setUser_id(id.getUser_id()) ;
-		my_info.setUser_id(id) ;
+		my_info.setUser_id(id.getUser_id()) ;
 		my_info.setUser_nick(user_nick) ;
 		
 		int res = boardMapper.updateNick(my_info) ;
 		
 		if(res > 0) {
-			List<User> info = userMapper.userInfo(id) ;
+			User info = userMapper.userInfo(id.getUser_id()) ;
 			
 			if(info != null) {
-				//session.removeAttribute("info") ;
+				session.removeAttribute("info") ;
 				session.setAttribute("info", info) ;
 				System.out.println("session 들어감");
 
