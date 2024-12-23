@@ -144,39 +144,68 @@ const elements_tab_li = document.querySelectorAll(".tabs li");
 
 // Mypage 버튼 클릭 
 settingsBtn.addEventListener('click', (e) => {
-e.preventDefault();
-settingsPage.style.display = 'block';
-creditsPage.style.display = 'none';
+	e.preventDefault();
+	settingsPage.style.display = 'block';
+	creditsPage.style.display = 'none';
 
-if(accountBtn.classList.contains('active2')){
-    accountPage.style.display = 'block';
-    myuploadPage.style.display = 'none';  
-}else{
-     accountPage.style.display = 'none';
-     myuploadPage.style.display = 'block';
-}    
+	if(accountBtn.classList.contains('active2')){
+	    accountPage.style.display = 'block';
+	    myuploadPage.style.display = 'none';  
+	}else{
+	     accountPage.style.display = 'none';
+	     myuploadPage.style.display = 'block';
+	}    
 
 });
 
 // Credits 버튼 클릭 
 if (creditsBtn && creditsPage && creditHistoryBtn && creditHistoryPage) {
-creditsBtn.addEventListener('click', (e) => {
-e.preventDefault();
-settingsPage.style.display = 'none';    
-creditsPage.style.display = 'block';    
+	creditsBtn.addEventListener('click', (e) => {
+	e.preventDefault();
+	
+	settingsPage.style.display = 'none';    
+	creditsPage.style.display = 'block';
 
-if(creditHistoryBtn.classList.contains('active')){
-    creditHistoryPage.style.display = 'block';
-    creditPurchasePage.style.display = 'none';
-}else{
-    creditHistoryPage.style.display = 'none';
-    creditPurchasePage.style.display = 'block';
-}
-  
-});
+	$.ajax({
+            url: "creditList",
+            type: "POST",
+            success: function(list) {
+                if(creditHistoryBtn.classList.contains('active')){
+    				creditHistoryPage.style.display = 'block';
+    				creditPurchasePage.style.display = 'none';
+				}else{
+    				creditHistoryPage.style.display = 'none';
+    				creditPurchasePage.style.display = 'block';
+				}
 
+                let listHtml = "";
+
+                listHtml += "<tr>";
+                listHtml += "<td>카테고리</td>";
+                listHtml += "<td>내역</td>";
+                listHtml += "<td>수량</td>";
+                listHtml += "<td>날짜</td>";
+                listHtml += "</tr>";
+
+                $.each(list, function(index, c) {
+                    listHtml += "<tr>";
+                    listHtml += "<td>" + c.credit_type + "</td>";
+                    listHtml += "<td>" + c.credit_reason + "</td>";
+                    if (c.credit_reason != "지불") listHtml += "<td>+" + c.credit_cnt + "</td>";
+                    else listHtml += "<td>-" + c.credit_cnt + "</td>";
+                    listHtml += "<td>" + c.created_at + "</td>";
+                    listHtml += "</tr>";
+                });
+
+                $("#credit-table").html(listHtml);
+            },
+            error: function() {
+                alert("크레딧 내역 불러오기 실패");
+            }
+        });
+	}) ;
 } else {
-console.error("Element with ID 'credits-btn' not found.");
+console.error("Element with ID 'credits-btn' not found."); 
 }
 
 
@@ -184,15 +213,45 @@ console.error("Element with ID 'credits-btn' not found.");
 // credit history 태그 클릭
 creditHistoryBtn.addEventListener('click', (e) => {
   console.log("credit history버튼 clicked");
-e.preventDefault();
-settingsPage.style.display = 'none';    
-creditsPage.style.display = 'block';
+  e.preventDefault();
+  
+  $.ajax({
+            url: "creditList",
+            type: "POST",
+            success: function(list) {
+                settingsPage.style.display = 'none';    
+				creditsPage.style.display = 'block';
 
-creditHistoryPage.style.display = 'block';
-creditPurchasePage.style.display = 'none';
+				creditHistoryPage.style.display = 'block';
+				creditPurchasePage.style.display = 'none';
 
+                let listHtml = "";
 
-});
+                listHtml += "<tr>";
+                listHtml += "<td>카테고리</td>";
+                listHtml += "<td>내역</td>";
+                listHtml += "<td>수량</td>";
+                listHtml += "<td>날짜</td>";
+                listHtml += "</tr>";
+
+                $.each(list, function(index, c) {
+                    listHtml += "<tr>";
+                    listHtml += "<td>" + c.credit_type + "</td>";
+                    listHtml += "<td>" + c.credit_reason + "</td>";
+                    if (c.credit_reason != "지불") listHtml += "<td>+" + c.credit_cnt + "</td>";
+                    else listHtml += "<td>-" + c.credit_cnt + "</td>";
+                    listHtml += "<td>" + c.created_at + "</td>";
+                    listHtml += "</tr>";
+                });
+
+                $("#credit-table").html(listHtml);
+            },
+            error: function() {
+                alert("크레딧 내역 불러오기 실패");
+            }
+        });
+    });
+
 
 // credit purchase 태그 클릭
 purchaseBtn.addEventListener('click', (e) => {
