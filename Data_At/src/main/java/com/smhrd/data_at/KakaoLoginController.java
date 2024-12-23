@@ -53,6 +53,7 @@ public class KakaoLoginController {
 				User newUser = new User();
 				newUser.setUser_id(userId);
 				newUser.setUser_nick(userNick);
+				newUser.setUser_credit(200) ;
 
 				userMapper.saveUser(newUser); // DB에 저장
 				existingUser = newUser;
