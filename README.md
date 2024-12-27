@@ -78,7 +78,7 @@ https://www.notion.so/146f9b2424818029b8c6e3639b957fa2
 |  이름  |  강윤호  |  고운경  |  이기훈  |  조이삭  |  정원종  |  김태윤  |
 |--------|----------|----------|----------|----------|----------|----------|
 | 역할 | Back-end <br> AI 모델링 | Back-end <br> AI 모델링 | Front-end <br> 발표 | Front-end <br> DB 구축  | Front-end <br> 데이터 수집 | Front-end <br> 데이터 수집 |
-| 세부내용 |**AI 모델링** <br> DINO request, response <br><br> **Back-end** <br> 크레딧 관련 <br> 데이터 업로드<br>소셜 로그인<br>회원가입 | **AI 모델링**<br> CLIP request, response <br><br> **Back-end**<br> 데이터 검색<br> 회원 정보 수정<br> 크레딧 구매<br> 데이터 상세 페이지 | **Front-end**<br>웹 프론트엔드 설계<br>프로젝트 전체 페이지 디자인 구현<br><br>**PPT 발표**<br><br><br><br> |  
+| 세부내용 |**AI 모델링** <br> DINO request, response <br><br> **Back-end** <br> 크레딧 관련 <br> 데이터 업로드<br>소셜 로그인<br>회원가입 |**AI 모델링**<br> CLIP request, response <br><br> **Back-end**<br> 데이터 검색<br> 회원 정보 수정<br> 크레딧 구매<br> 데이터 상세 페이지 | **Front-end**<br>웹 프론트엔드 설계<br>프로젝트 전체 페이지 디자인 구현<br><br>**PPT 발표**<br><br><br><br> |  
 
 <br>
 
